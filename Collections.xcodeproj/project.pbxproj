@@ -118,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				F1944A7422DA939300C54C03 /* Collections.entitlements */,
-				F14F4D4022D7B4B100F83D60 /* Info.plist */,
 				F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */,
+				F14F4D4022D7B4B100F83D60 /* Info.plist */,
 				F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */,
 				F14F4D4622D7C06400F83D60 /* Logger.swift */,
 				F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */,
