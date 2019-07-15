@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol AuthPresentable {}
+protocol AuthPresentable {
+    func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+}
 
 final class AuthPresenter {
     fileprivate weak var moduleDelegate: AuthModuleDelegate?
@@ -20,4 +22,9 @@ final class AuthPresenter {
     }
 }
 
-extension AuthPresenter: AuthPresentable {}
+extension AuthPresenter: AuthPresentable {
+    func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void)) {
+        interactor.signIn(withEmail: email, completion: completion)
+    }
+}
+

@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol AuthInteractable {}
+protocol AuthInteractable {
+    func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+}
 
 final class AuthInteractor {
     fileprivate let networkAccess: AuthAccessing
@@ -18,4 +20,8 @@ final class AuthInteractor {
     }
 }
 
-extension AuthInteractor: AuthInteractable {}
+extension AuthInteractor: AuthInteractable {
+    func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void)) {
+        networkAccess.signIn(withEmail: email, completion: completion)
+    }
+}

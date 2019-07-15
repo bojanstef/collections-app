@@ -23,35 +23,36 @@ final class Logger {
     }
 
     /// Use this level to capture information about things that might result in a failure.
-    func `default`(_ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    func `default`(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .default, file: file, function: function, line: line)
     }
 
     /// Use this level to capture information that may be helpful, but isn’t essential, for troubleshooting errors.
-    func info(_ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    func info(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .info, file: file, function: function, line: line)
     }
 
     // swiftlint:disable:next line_length
     /// Use this level to capture information that may be useful during development or while troubleshooting a specific problem.
-    func debug(_ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    func debug(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .debug, file: file, function: function, line: line)
     }
 
     /// Use this log level to capture process-level information to report errors in the process.
-    func error(_ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    func error(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .error, file: file, function: function, line: line)
     }
 
     /// Use this level to capture system-level or multi-process information to report system errors.
-    func fault(_ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    func fault(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .fault, file: file, function: function, line: line)
     }
 }
 
 fileprivate extension Logger {
-    func log(_ message: String, type: OSLogType, file: String, function: String, line: Int) {
-        os_log(Constants.logFormat, log: log, type: type, className(from: file), function, line, message)
+    func log(_ message: Any?, type: OSLogType, file: String, function: String, line: Int) {
+        let logMessage = "\(message ?? "nil")"
+        os_log(Constants.logFormat, log: log, type: type, className(from: file), function, line, logMessage)
     }
 
     func className(from file: String) -> String {

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lHg-vJ-4kU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lHg-vJ-4kU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +12,44 @@
         <!--Auth View Controller-->
         <scene sceneID="pCW-5F-CpR">
             <objects>
-                <viewController id="lHg-vJ-4kU" customClass="AuthViewController" customModule="Localeyes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lHg-vJ-4kU" customClass="AuthViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="92j-qF-yQj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR1-lU-ZxS">
+                                <rect key="frame" x="32" y="321.5" width="311" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="StT-Wj-Ve8"/>
+                                </constraints>
+                                <state key="normal" title="Continue with Email"/>
+                                <connections>
+                                    <action selector="continueWithEmailButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="ZW1-vr-bZt"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alU-A4-pn1">
+                                <rect key="frame" x="64" y="275.5" width="247" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" textContentType="email"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="2LX-kx-PkB"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="alU-A4-pn1" secondAttribute="trailing" constant="64" id="5Cj-zf-yrz"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="JR1-lU-ZxS" secondAttribute="trailing" constant="32" id="HY2-Ec-GVo"/>
+                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="top" secondItem="alU-A4-pn1" secondAttribute="bottom" constant="16" id="Krb-qp-CPT"/>
+                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="SrJ-A9-S6Z"/>
+                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="centerY" secondItem="T7B-1V-KKQ" secondAttribute="centerY" id="aXH-Av-lbp"/>
+                            <constraint firstItem="alU-A4-pn1" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="64" id="oFc-1l-3Ho"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T7B-1V-KKQ"/>
                     </view>
+                    <connections>
+                        <outlet property="continueWithEmailButton" destination="JR1-lU-ZxS" id="1xG-hh-a5q"/>
+                        <outlet property="emailTextField" destination="alU-A4-pn1" id="KBq-k6-fos"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecw-7j-5Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

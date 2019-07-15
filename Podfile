@@ -5,6 +5,9 @@ target 'Collections' do
 
   # Pods for Collections
   pod 'SwiftLint'
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/DynamicLinks'
 
 end

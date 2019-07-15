@@ -27,13 +27,9 @@ extension AppCoordinator: Coordinating {
 
 extension AppCoordinator: AuthCoordinatorDelegate {
     func didAuthenticate() {
-//        activeCoordinator = MainCoordinator(navigationController: navigationController, delegate: self)
-//        activeCoordinator?.start()
+        activeCoordinator = HomeCoordinator(navigationController: navigationController, delegate: self)
+        activeCoordinator?.start()
     }
 }
 
-//extension AppCoordinator: MainCoordinatorDelegate {
-//    func didLogout() {
-//        start()
-//    }
-//}
+extension AppCoordinator: HomeCoordinatorDelegate {}

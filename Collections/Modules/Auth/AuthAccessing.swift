@@ -1,5 +1,5 @@
 //
-//  AuthAccessible.swift
+//  AuthAccessing.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-07-11.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol AuthAccessing {}
+protocol AuthAccessing {
+    func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+}
