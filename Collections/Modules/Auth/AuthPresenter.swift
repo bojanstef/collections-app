@@ -27,4 +27,3 @@ extension AuthPresenter: AuthPresentable {
         interactor.signIn(withEmail: email, completion: completion)
     }
 }
-

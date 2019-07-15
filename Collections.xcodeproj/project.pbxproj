@@ -211,6 +211,7 @@
 				F14F4D2E22D7B4AF00F83D60 /* Frameworks */,
 				F14F4D2F22D7B4AF00F83D60 /* Resources */,
 				73CCB56F374474480FFC2F97 /* [CP] Embed Pods Frameworks */,
+				F19581FB22DC4DED005C0DD1 /* SwiftLint Run Script */,
 			);
 			buildRules = (
 			);
@@ -312,6 +313,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collections/Pods-Collections-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F19581FB22DC4DED005C0DD1 /* SwiftLint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

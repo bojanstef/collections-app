@@ -20,7 +20,7 @@ extension NetworkGateway: AppDelegateAccessing {
             return
         }
 
-        Auth.auth().signIn(withEmail: accountEmail, link: link) { result, error in
+        Auth.auth().signIn(withEmail: accountEmail, link: link) { _, error in
             guard error == nil else { completion(.failure(error!)); return }
             completion(.success(true))
         }
