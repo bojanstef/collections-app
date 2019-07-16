@@ -22,10 +22,9 @@ final class HomeCoordinator {
 
 extension HomeCoordinator: Coordinating {
     func start() {
-        // TODO: - Change to the tab bar controller
-        let viewController = AuthWireframe(moduleDelegate: self).viewController
+        let viewController = SearchWireframe(moduleDelegate: self).viewController
         navigationController.setViewControllers([viewController], animated: true)
     }
 }
 
-extension HomeCoordinator: AuthModuleDelegate {}
+extension HomeCoordinator: SearchModuleDelegate {}

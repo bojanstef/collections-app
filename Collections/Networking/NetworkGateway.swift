@@ -54,19 +54,4 @@ extension NetworkGateway: AuthAccessing {
     }
 }
 
-//extension NetworkGateway: SignupServiceable {
-//    func checkIsUserLoggedIn(completion: @escaping ((Bool) -> Void)) {
-//        completion(Auth.auth().currentUser != nil)
-//    }
-//}
-
-//extension NetworkGateway: EmailAuthServiceable {}
-//extension NetworkGateway: MyProfileServiceable {
-//    func logout() {
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print()
-//        }
-//    }
-//}
+extension NetworkGateway: SearchAccessing {}

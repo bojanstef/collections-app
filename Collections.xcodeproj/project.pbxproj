@@ -20,6 +20,12 @@
 		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
+		F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */; };
+		F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
+		F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */; };
+		F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8522DD65EE004B76F4 /* SearchViewController.swift */; };
+		F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8622DD65EE004B76F4 /* SearchInteractor.swift */; };
+		F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8722DD65EE004B76F4 /* SearchWireframe.swift */; };
 		F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A322D7C576005198B8 /* AuthPresenter.swift */; };
 		F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A422D7C576005198B8 /* AuthAccessing.swift */; };
 		F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C352A522D7C576005198B8 /* AuthViewController.storyboard */; };
@@ -49,6 +55,12 @@
 		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
 		F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccessing.swift; sourceTree = "<group>"; };
+		F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		F1BF8D8522DD65EE004B76F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F1BF8D8622DD65EE004B76F4 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		F1BF8D8722DD65EE004B76F4 /* SearchWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWireframe.swift; sourceTree = "<group>"; };
 		F1C352A322D7C576005198B8 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		F1C352A422D7C576005198B8 /* AuthAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAccessing.swift; sourceTree = "<group>"; };
 		F1C352A522D7C576005198B8 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 		F14F4D5422D7C48500F83D60 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F1BF8D8122DD65DE004B76F4 /* Search */,
 				F14F4D5522D7C49A00F83D60 /* Auth */,
 			);
 			path = Modules;
@@ -179,6 +192,19 @@
 				F1C352A822D7C576005198B8 /* AuthWireframe.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F1BF8D8122DD65DE004B76F4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */,
+				F1BF8D8622DD65EE004B76F4 /* SearchInteractor.swift */,
+				F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */,
+				F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */,
+				F1BF8D8522DD65EE004B76F4 /* SearchViewController.swift */,
+				F1BF8D8722DD65EE004B76F4 /* SearchWireframe.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		F1C352AF22D7C594005198B8 /* Extensions */ = {
@@ -268,6 +294,7 @@
 				F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */,
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
+				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,16 +370,21 @@
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
+				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
+				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
+				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
+				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
+				F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
 				F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */,
 			);

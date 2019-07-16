@@ -12,9 +12,9 @@ final class AppCoordinator {
     fileprivate let navigationController = UINavigationController()
     fileprivate var activeCoordinator: Coordinating?
 
-    init(window: UIWindow?) {
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+    init(window: UIWindow) {
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }
 

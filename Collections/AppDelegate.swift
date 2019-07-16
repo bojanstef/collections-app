@@ -13,17 +13,24 @@ let log = Logger()
 
 @UIApplicationMain
 final class AppDelegate: UIResponder {
-    fileprivate lazy var appCoordinator = AppCoordinator(window: window)
+    fileprivate lazy var appCoordinator = AppCoordinator(window: window!)
     fileprivate lazy var deepLinkHandler = DeepLinkHandler()
     fileprivate lazy var networkGateway: AppDelegateAccessing = NetworkGateway()
+    fileprivate var authStateChangeHandler: AuthStateDidChangeListenerHandle?
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+
+    deinit {
+        authStateChangeHandler.flatMap(Auth.auth().removeStateDidChangeListener)
+    }
 }
 
 extension AppDelegate: UIApplicationDelegate {
     // swiftlint:disable:next line_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        appCoordinator.start()
+        authStateChangeHandler = Auth.auth().addStateDidChangeListener { auth, user in
+            self.handleAuthStateChange(auth: auth, user: user)
+        }
         return true
     }
 
@@ -32,12 +39,7 @@ extension AppDelegate: UIApplicationDelegate {
         log.debug("I have received a URL through a custom scheme \(url.absoluteString)")
 
         if deepLinkHandler.isFirebaseDynamicLink(fromCustomSchemeURL: url) {
-            if deepLinkHandler.isFirebaseSignInLink(url.absoluteString) {
-                handleSignInDeepLink(url)
-            } else {
-                log.debug("Not a sign in deep link")
-            }
-
+            handleDeepLink(url)
             return true
         } else {
             // Maybe handle Google or Facebook sign-in here
@@ -56,11 +58,7 @@ extension AppDelegate: UIApplicationDelegate {
         let isFirebaseLinkHandled = networkGateway.handleFirebaseUniversalLink(incomingURL) { result in
             switch result {
             case .success(let url):
-                if self.deepLinkHandler.isFirebaseSignInLink(url.absoluteString) {
-                    self.handleSignInDeepLink(url)
-                } else {
-                    log.debug("Not a sign in deep link")
-                }
+                self.handleDeepLink(url)
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
@@ -76,14 +74,26 @@ extension AppDelegate: UIApplicationDelegate {
 }
 
 fileprivate extension AppDelegate {
-    func handleSignInDeepLink(_ url: URL) {
-        networkGateway.signIn(withEmailSignupLink: url.absoluteString) { result in
-            switch result {
-            case .success:
-                self.appCoordinator.didAuthenticate()
-            case .failure(let error):
-                log.error(error.localizedDescription)
+    func handleDeepLink(_ url: URL) {
+        if deepLinkHandler.isFirebaseSignInLink(url.absoluteString) {
+            networkGateway.signIn(withEmailSignupLink: url.absoluteString) { result in
+                switch result {
+                case .success:
+                    log.info("User logged in, navigating to home.")
+                case .failure(let error):
+                    log.error(error.localizedDescription)
+                }
             }
+        } else {
+            log.debug("Not a sign-in deep link: \(url)")
+        }
+    }
+
+    func handleAuthStateChange(auth: Auth, user: User?) {
+        if let currentUser = auth.currentUser, let user = user, currentUser.uid == user.uid {
+            appCoordinator.didAuthenticate()
+        } else {
+            appCoordinator.start()
         }
     }
 }
