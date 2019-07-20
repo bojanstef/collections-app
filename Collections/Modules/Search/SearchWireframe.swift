@@ -8,7 +8,10 @@
 
 import UIKit
 
-protocol SearchModuleDelegate: AnyObject {}
+protocol SearchModuleDelegate: AnyObject {
+    func searchAfterDate(_ searchedDate: Date)
+    func navigateToAccounts()
+}
 
 final class SearchWireframe {
     fileprivate weak var moduleDelegate: SearchModuleDelegate?

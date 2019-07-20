@@ -17,26 +17,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All posts scraped after this date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vi-Ww-Mvg">
+                                <rect key="frame" x="66" y="52" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TPv-mV-EUG">
+                                <rect key="frame" x="0.0" y="89" width="375" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="EZm-c7-mLi"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="584948216.22330296">
+                                    <!--2019-07-16 05:36:56 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZb-vt-0fH">
+                                <rect key="frame" x="32" y="421" width="311" height="44"/>
+                                <color key="backgroundColor" red="0.7803921568627451" green="0.84705882352941175" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WJJ-Pz-49Q"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="KSv-VX-eGT"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utb-ze-i8f">
-                                <rect key="frame" x="32" y="321.5" width="311" height="44"/>
+                                <rect key="frame" x="32" y="361" width="311" height="44"/>
+                                <color key="backgroundColor" red="0.7803921568627451" green="0.84705882352941175" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cpW-Cl-ql5"/>
                                 </constraints>
-                                <state key="normal" title="Log out"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="logoutButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="IHN-Je-G91"/>
+                                    <action selector="searchButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="xfc-v3-dEz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7Z-rN-KVh">
+                                <rect key="frame" x="32" y="531" width="311" height="44"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.84705882349999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="77i-N3-mm2"/>
+                                </constraints>
+                                <state key="normal" title="Accounts to Scrape">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="accountsToScrapeButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="JRA-iy-BMB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qT-oa-Prd">
+                                <rect key="frame" x="32" y="591" width="311" height="44"/>
+                                <color key="backgroundColor" red="0.94935252568493156" green="0.84705882349999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="K0v-7U-HOe"/>
+                                </constraints>
+                                <state key="normal" title="Scrape Accounts">
+                                    <color key="titleColor" red="1" green="0.006887418284299951" blue="0.45633651591224988" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="scrapeAccountsButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="b0V-wX-AbJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="bottom" secondItem="3qT-oa-Prd" secondAttribute="bottom" constant="32" id="0S4-qO-yNc"/>
+                            <constraint firstItem="TPv-mV-EUG" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" id="5LV-IS-RZY"/>
+                            <constraint firstItem="TPv-mV-EUG" firstAttribute="trailing" secondItem="T7B-1V-KKQ" secondAttribute="trailing" id="9zk-Dr-qU0"/>
                             <constraint firstItem="Utb-ze-i8f" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="Bzp-6M-6gf"/>
+                            <constraint firstItem="zZb-vt-0fH" firstAttribute="top" secondItem="Utb-ze-i8f" secondAttribute="bottom" constant="16" id="HDj-CQ-qVQ"/>
+                            <constraint firstItem="Utb-ze-i8f" firstAttribute="top" secondItem="TPv-mV-EUG" secondAttribute="bottom" constant="16" id="LAp-TJ-4lK"/>
+                            <constraint firstItem="3qT-oa-Prd" firstAttribute="top" secondItem="a7Z-rN-KVh" secondAttribute="bottom" constant="16" id="QqD-1r-Gfy"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="a7Z-rN-KVh" secondAttribute="trailing" constant="32" id="RbB-2a-9fl"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="3qT-oa-Prd" secondAttribute="trailing" constant="32" id="SRu-p1-Ci9"/>
+                            <constraint firstItem="TPv-mV-EUG" firstAttribute="top" secondItem="7vi-Ww-Mvg" secondAttribute="bottom" constant="16" id="Tnv-Kf-dk4"/>
+                            <constraint firstItem="a7Z-rN-KVh" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="Y4m-PK-u8T"/>
+                            <constraint firstItem="zZb-vt-0fH" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="dVh-I1-9jJ"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="Utb-ze-i8f" secondAttribute="trailing" constant="32" id="f0q-QA-ZT1"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="zZb-vt-0fH" secondAttribute="trailing" constant="32" id="iK4-0E-j7Q"/>
                             <constraint firstItem="Utb-ze-i8f" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="la7-zc-Fdo"/>
-                            <constraint firstItem="Utb-ze-i8f" firstAttribute="centerY" secondItem="T7B-1V-KKQ" secondAttribute="centerY" id="rqL-tj-DBK"/>
+                            <constraint firstItem="7vi-Ww-Mvg" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="pnb-yC-LsG"/>
+                            <constraint firstItem="3qT-oa-Prd" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="sws-L2-whw"/>
+                            <constraint firstItem="7vi-Ww-Mvg" firstAttribute="top" secondItem="T7B-1V-KKQ" secondAttribute="top" constant="32" id="zzo-HM-f7B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7B-1V-KKQ"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="TPv-mV-EUG" id="FCf-gs-JBn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecw-7j-5Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

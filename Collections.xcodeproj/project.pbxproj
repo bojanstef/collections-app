@@ -10,6 +10,13 @@
 		DE688439E3CDD5DFE6C51CC3 /* Pods_Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6032BDCED43256D9E61ADDA4 /* Pods_Collections.framework */; };
 		F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369F8922D815E6000EB574 /* HomeCoordinator.swift */; };
 		F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */; };
+		F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF422DDA2C200EBD322 /* GridLayout.swift */; };
+		F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF622DDA31800EBD322 /* PostsCell.swift */; };
+		F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1457EF722DDA31800EBD322 /* PostsCell.xib */; };
+		F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFA22DDA34500EBD322 /* Reusable.swift */; };
+		F1457EFE22DDA36100EBD322 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFD22DDA36100EBD322 /* Post.swift */; };
+		F1457F0022DDA39300EBD322 /* Modellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFF22DDA39300EBD322 /* Modellable.swift */; };
+		F1457F0222DDA3CA00EBD322 /* Colletion+Modellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457F0122DDA3CA00EBD322 /* Colletion+Modellable.swift */; };
 		F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */; };
 		F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */; };
 		F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4622D7C06400F83D60 /* Logger.swift */; };
@@ -26,6 +33,12 @@
 		F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8522DD65EE004B76F4 /* SearchViewController.swift */; };
 		F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8622DD65EE004B76F4 /* SearchInteractor.swift */; };
 		F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8722DD65EE004B76F4 /* SearchWireframe.swift */; };
+		F1BF8D9522DD9BC4004B76F4 /* PostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8F22DD9BC4004B76F4 /* PostsPresenter.swift */; };
+		F1BF8D9622DD9BC4004B76F4 /* PostsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9022DD9BC4004B76F4 /* PostsAccessing.swift */; };
+		F1BF8D9722DD9BC4004B76F4 /* PostsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D9122DD9BC4004B76F4 /* PostsViewController.storyboard */; };
+		F1BF8D9822DD9BC4004B76F4 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9222DD9BC4004B76F4 /* PostsViewController.swift */; };
+		F1BF8D9922DD9BC4004B76F4 /* PostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9322DD9BC4004B76F4 /* PostsInteractor.swift */; };
+		F1BF8D9A22DD9BC4004B76F4 /* PostsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */; };
 		F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A322D7C576005198B8 /* AuthPresenter.swift */; };
 		F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A422D7C576005198B8 /* AuthAccessing.swift */; };
 		F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C352A522D7C576005198B8 /* AuthViewController.storyboard */; };
@@ -34,6 +47,12 @@
 		F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A822D7C576005198B8 /* AuthWireframe.swift */; };
 		F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */; };
 		F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
+		F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */; };
+		F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */; };
+		F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CC22E03664000A699C /* AccountsViewController.swift */; };
+		F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CD22E03664000A699C /* AccountsInteractor.swift */; };
+		F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CE22E03664000A699C /* AccountsAccessing.swift */; };
+		F1FAD9D522E03664000A699C /* AccountsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CF22E03664000A699C /* AccountsWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +61,13 @@
 		A2332E7C8BD873927E4C525E /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
 		F1369F8922D815E6000EB574 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F1457EF422DDA2C200EBD322 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		F1457EF622DDA31800EBD322 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
+		F1457EF722DDA31800EBD322 /* PostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsCell.xib; sourceTree = "<group>"; };
+		F1457EFA22DDA34500EBD322 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		F1457EFD22DDA36100EBD322 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F1457EFF22DDA39300EBD322 /* Modellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modellable.swift; sourceTree = "<group>"; };
+		F1457F0122DDA3CA00EBD322 /* Colletion+Modellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colletion+Modellable.swift"; sourceTree = "<group>"; };
 		F14F4D3122D7B4AF00F83D60 /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +87,12 @@
 		F1BF8D8522DD65EE004B76F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F1BF8D8622DD65EE004B76F4 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		F1BF8D8722DD65EE004B76F4 /* SearchWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWireframe.swift; sourceTree = "<group>"; };
+		F1BF8D8F22DD9BC4004B76F4 /* PostsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsPresenter.swift; sourceTree = "<group>"; };
+		F1BF8D9022DD9BC4004B76F4 /* PostsAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAccessing.swift; sourceTree = "<group>"; };
+		F1BF8D9122DD9BC4004B76F4 /* PostsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostsViewController.storyboard; sourceTree = "<group>"; };
+		F1BF8D9222DD9BC4004B76F4 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		F1BF8D9322DD9BC4004B76F4 /* PostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsInteractor.swift; sourceTree = "<group>"; };
+		F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWireframe.swift; sourceTree = "<group>"; };
 		F1C352A322D7C576005198B8 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		F1C352A422D7C576005198B8 /* AuthAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAccessing.swift; sourceTree = "<group>"; };
 		F1C352A522D7C576005198B8 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
@@ -69,6 +101,12 @@
 		F1C352A822D7C576005198B8 /* AuthWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWireframe.swift; sourceTree = "<group>"; };
 		F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+DependencyInjection.swift"; sourceTree = "<group>"; };
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
+		F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPresenter.swift; sourceTree = "<group>"; };
+		F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountsViewController.storyboard; sourceTree = "<group>"; };
+		F1FAD9CC22E03664000A699C /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		F1FAD9CD22E03664000A699C /* AccountsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInteractor.swift; sourceTree = "<group>"; };
+		F1FAD9CE22E03664000A699C /* AccountsAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAccessing.swift; sourceTree = "<group>"; };
+		F1FAD9CF22E03664000A699C /* AccountsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +146,24 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		F1457EF322DDA2A000EBD322 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
+				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
+				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		F1457EFC22DDA35500EBD322 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1457EFD22DDA36100EBD322 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F14F4D2822D7B4AE00F83D60 = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +195,11 @@
 				F14F4D4822D7C12C00F83D60 /* Coordinators */,
 				F12A0AB422DC30D100CC9031 /* Enums */,
 				F1C352AF22D7C594005198B8 /* Extensions */,
+				F1457EFC22DDA35500EBD322 /* Models */,
 				F14F4D5422D7C48500F83D60 /* Modules */,
 				F1C352B222D7C615005198B8 /* Networking */,
 				F14F4D4B22D7C20400F83D60 /* Protocols */,
+				F1457EF322DDA2A000EBD322 /* UIElements */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -160,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				F14F4D4C22D7C21700F83D60 /* Coordinating.swift */,
+				F1457EFF22DDA39300EBD322 /* Modellable.swift */,
+				F1457EFA22DDA34500EBD322 /* Reusable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -175,8 +235,10 @@
 		F14F4D5422D7C48500F83D60 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F1BF8D8122DD65DE004B76F4 /* Search */,
+				F1FAD9C922E03656000A699C /* Accounts */,
 				F14F4D5522D7C49A00F83D60 /* Auth */,
+				F1BF8D8E22DD9BB3004B76F4 /* Posts */,
+				F1BF8D8122DD65DE004B76F4 /* Search */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -207,9 +269,23 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		F1BF8D8E22DD9BB3004B76F4 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF8D9022DD9BC4004B76F4 /* PostsAccessing.swift */,
+				F1BF8D9322DD9BC4004B76F4 /* PostsInteractor.swift */,
+				F1BF8D8F22DD9BC4004B76F4 /* PostsPresenter.swift */,
+				F1BF8D9122DD9BC4004B76F4 /* PostsViewController.storyboard */,
+				F1BF8D9222DD9BC4004B76F4 /* PostsViewController.swift */,
+				F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
 		F1C352AF22D7C594005198B8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F1457F0122DDA3CA00EBD322 /* Colletion+Modellable.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 			);
 			path = Extensions;
@@ -223,6 +299,19 @@
 				F1C352B322D7C627005198B8 /* NetworkGateway.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F1FAD9C922E03656000A699C /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				F1FAD9CE22E03664000A699C /* AccountsAccessing.swift */,
+				F1FAD9CD22E03664000A699C /* AccountsInteractor.swift */,
+				F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */,
+				F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */,
+				F1FAD9CC22E03664000A699C /* AccountsViewController.swift */,
+				F1FAD9CF22E03664000A699C /* AccountsWireframe.swift */,
+			);
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +385,9 @@
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
+				F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */,
+				F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */,
+				F1BF8D9722DD9BC4004B76F4 /* PostsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,18 +467,34 @@
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
+				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
+				F1BF8D9622DD9BC4004B76F4 /* PostsAccessing.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
+				F1BF8D9822DD9BC4004B76F4 /* PostsViewController.swift in Sources */,
+				F1BF8D9922DD9BC4004B76F4 /* PostsInteractor.swift in Sources */,
+				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
+				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
+				F1BF8D9522DD9BC4004B76F4 /* PostsPresenter.swift in Sources */,
+				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
+				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
+				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
+				F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */,
+				F1BF8D9A22DD9BC4004B76F4 /* PostsWireframe.swift in Sources */,
+				F1457F0222DDA3CA00EBD322 /* Colletion+Modellable.swift in Sources */,
+				F1FAD9D522E03664000A699C /* AccountsWireframe.swift in Sources */,
 				F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */,
+				F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
 				F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */,
+				F1457F0022DDA39300EBD322 /* Modellable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

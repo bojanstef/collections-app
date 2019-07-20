@@ -8,7 +8,10 @@
 
 import Foundation
 
-protocol SearchPresentable {}
+protocol SearchPresentable {
+    func searchAfterDate(_ searchedDate: Date)
+    func navigateToAccounts()
+}
 
 final class SearchPresenter {
     fileprivate weak var moduleDelegate: SearchModuleDelegate?
@@ -20,4 +23,12 @@ final class SearchPresenter {
     }
 }
 
-extension SearchPresenter: SearchPresentable {}
+extension SearchPresenter: SearchPresentable {
+    func searchAfterDate(_ searchedDate: Date) {
+        moduleDelegate?.searchAfterDate(searchedDate)
+    }
+
+    func navigateToAccounts() {
+        moduleDelegate?.navigateToAccounts()
+    }
+}

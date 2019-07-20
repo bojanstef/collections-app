@@ -54,4 +54,35 @@ extension NetworkGateway: AuthAccessing {
     }
 }
 
+extension NetworkGateway: PostsAccessing {
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            // TODO: - Add custom error.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+        let unixTimestamp = date.timeIntervalSince1970
+
+        Firestore.firestore()
+            .collection("users")
+            .document(userID)
+            .collection("posts")
+            .whereField("timestamp", isGreaterThan: unixTimestamp)
+            .getDocuments { snapshots, error in
+                guard error == nil else { result(.failure(error!)); return }
+                do {
+                    let posts: [Post] = try snapshots!.documents.compactMap { snapshot -> Post in
+                        let json = snapshot.data()
+                        return try Post(json: json)
+                    }
+                    result(.success(posts))
+                } catch {
+                    result(.failure(error))
+                }
+            }
+    }
+}
+
 extension NetworkGateway: SearchAccessing {}
+extension NetworkGateway: AccountsAccessing {}

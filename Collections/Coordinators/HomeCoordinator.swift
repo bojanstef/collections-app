@@ -27,4 +27,17 @@ extension HomeCoordinator: Coordinating {
     }
 }
 
-extension HomeCoordinator: SearchModuleDelegate {}
+extension HomeCoordinator: SearchModuleDelegate {
+    func searchAfterDate(_ searchedDate: Date) {
+        let viewController = PostsWireframe(moduleDelegate: self, searchedDate: searchedDate).viewController
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func navigateToAccounts() {
+        let viewController = AccountsWireframe(moduleDelegate: self).viewController
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension HomeCoordinator: PostsModuleDelegate {}
+extension HomeCoordinator: AccountsModuleDelegate {}
