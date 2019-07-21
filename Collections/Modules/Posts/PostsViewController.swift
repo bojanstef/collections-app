@@ -10,24 +10,24 @@ import UIKit
 
 final class PostsViewController: UIViewController {
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    fileprivate var posts = [Post]()
     var presenter: PostsPresentable!
-    private var posts = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = presenter.getTitleFromSearchedDate()
-        setupCollectionView()
-        loadPosts()
+        setupCollectionView(then: loadPosts)
     }
 }
 
 fileprivate extension PostsViewController {
-    func setupCollectionView() {
+    func setupCollectionView(then loadData: (() -> Void)) {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = GridLayout()
         collectionView.alwaysBounceVertical = true
         collectionView.register(PostsCell.nib, forCellWithReuseIdentifier: PostsCell.reuseId)
+        loadData()
     }
 
     func loadPosts() {
@@ -48,9 +48,7 @@ fileprivate extension PostsViewController {
 extension PostsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-//        dataManager.postSelected = posts[indexPath.row]
-//        let postDetailVC = UIStoryboard.instantiateInitialViewController(PostDetailViewController.self)
-//        navigationController?.pushViewController(postDetailVC, animated: true)
+        //presenter.navigateToPostDetail(post)
     }
 }
 
@@ -63,10 +61,8 @@ extension PostsViewController: UICollectionViewDataSource {
         return posts.count
     }
 
-    // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // swiftlint:disable:next force_cast line_length
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostsCell.reuseId, for: indexPath) as! PostsCell
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: PostsCell.reuseId, for: indexPath) as? PostsCell)!
         cell.setup(with: posts[indexPath.row])
         return cell
     }

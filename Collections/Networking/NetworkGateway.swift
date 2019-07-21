@@ -10,7 +10,11 @@ import Foundation
 import Firebase
 import FirebaseDynamicLinks
 
-final class NetworkGateway {}
+final class NetworkGateway {
+    private var userID: String? {
+        return Auth.auth().currentUser?.uid
+    }
+}
 
 extension NetworkGateway: AppDelegateAccessing {
     func signIn(withEmailSignupLink link: String, completion: @escaping ((Result<Bool, Error>) -> Void)) {
@@ -56,7 +60,7 @@ extension NetworkGateway: AuthAccessing {
 
 extension NetworkGateway: PostsAccessing {
     func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
-        guard let userID = Auth.auth().currentUser?.uid else {
+        guard let userID = userID else {
             // TODO: - Add custom error.
             result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
             return
@@ -64,6 +68,7 @@ extension NetworkGateway: PostsAccessing {
 
         let unixTimestamp = date.timeIntervalSince1970
 
+        // TODO: - Add enum for Collection string values
         Firestore.firestore()
             .collection("users")
             .document(userID)
@@ -84,5 +89,80 @@ extension NetworkGateway: PostsAccessing {
     }
 }
 
+extension NetworkGateway: AccountsAccessing {
+    func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
+        guard let userID = userID else {
+            // TODO: - Add custom error.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+        Firestore.firestore()
+            .collection("users")
+            .document(userID)
+            .collection("accounts")
+            .getDocuments { snapshot, error in
+                guard error == nil else { result(.failure(error!)); return }
+                do {
+                    let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
+                        let json = snapshot.data()
+                        return try Account(json: json)
+                    }
+                    result(.success(accounts))
+                } catch {
+                    result(.failure(error))
+                }
+            }
+    }
+
+    func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
+        guard let userID = userID else {
+            // TODO: - Add custom error OR create a better user management system.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+        Firestore.firestore()
+            .collection("users")
+            .document(userID)
+            .collection("accounts")
+            .addDocument(data: (account.json as? [String: Any])!) { error in
+                guard let error = error else {
+                    result(.success(account))
+                    return
+                }
+
+                result(.failure(error))
+            }
+    }
+
+    func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
+        guard let userID = userID else {
+            // TODO: - Add custom error OR create a better user management system.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+        Firestore.firestore()
+            .collection("users")
+            .document(userID)
+            .collection("accounts")
+            .whereField("username", isEqualTo: account.username)
+            .getDocuments { snapshot, error in
+                guard error == nil else { result(.failure(error!)); return }
+                guard let doc = snapshot?.documents.first else {
+                    // TODO: - Add custom error OR create a better user management system.
+                    let error = NSError(domain: "No document with username \(account.username)", code: 0, userInfo: nil)
+                    result(.failure(error))
+                    return
+                }
+
+                doc.reference.delete { error in
+                    guard error == nil else { result(.failure(error!)); return }
+                    result(.success(()))
+                }
+            }
+    }
+}
+
 extension NetworkGateway: SearchAccessing {}
-extension NetworkGateway: AccountsAccessing {}

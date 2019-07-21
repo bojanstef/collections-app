@@ -8,7 +8,11 @@
 
 import Foundation
 
-protocol AccountsPresentable {}
+protocol AccountsPresentable {
+    func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
+    func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
+    func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
+}
 
 final class AccountsPresenter {
     fileprivate weak var moduleDelegate: AccountsModuleDelegate?
@@ -20,4 +24,16 @@ final class AccountsPresenter {
     }
 }
 
-extension AccountsPresenter: AccountsPresentable {}
+extension AccountsPresenter: AccountsPresentable {
+    func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
+        interactor.loadAccounts(result: result)
+    }
+
+    func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
+        interactor.addAccount(account, result: result)
+    }
+
+    func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
+        interactor.deleteAccount(account, result: result)
+    }
+}

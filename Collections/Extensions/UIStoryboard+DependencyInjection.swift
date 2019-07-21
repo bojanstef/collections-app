@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIStoryboard {
-    // swiftlint:disable:next line_length
     static func instantiateInitialViewController<T: UIViewController>(_ viewControllerType: T.Type, completion: ((T) -> Void)) -> T {
         let storyboardName = String(describing: viewControllerType)
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)

@@ -18,11 +18,23 @@ extension Reusable where Self: UICollectionViewCell {
     }
 }
 
+extension Reusable where Self: UITableViewCell {
+    static var reuseId: String {
+        return .init(describing: Self.self)
+    }
+}
+
 protocol NibReusable: Reusable {
     static var nib: UINib { get }
 }
 
 extension NibReusable where Self: UICollectionViewCell {
+    static var nib: UINib {
+        return .init(nibName: Self.reuseId, bundle: nil)
+    }
+}
+
+extension NibReusable where Self: UITableViewCell {
     static var nib: UINib {
         return .init(nibName: Self.reuseId, bundle: nil)
     }

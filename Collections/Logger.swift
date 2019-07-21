@@ -32,7 +32,6 @@ final class Logger {
         log(message, type: .info, file: file, function: function, line: line)
     }
 
-    // swiftlint:disable:next line_length
     /// Use this level to capture information that may be useful during development or while troubleshooting a specific problem.
     func debug(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .debug, file: file, function: function, line: line)

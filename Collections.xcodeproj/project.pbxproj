@@ -24,6 +24,9 @@
 		F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4C22D7C21700F83D60 /* Coordinating.swift */; };
 		F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */; };
 		F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D5122D7C39D00F83D60 /* LaunchScreen.storyboard */; };
+		F1578E7022E2EF9E0023C704 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E6F22E2EF9E0023C704 /* Account.swift */; };
+		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
+		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
 		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
@@ -77,6 +80,9 @@
 		F14F4D4C22D7C21700F83D60 /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		F14F4D5222D7C39D00F83D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F1578E6F22E2EF9E0023C704 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
+		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
 		F1944A7422DA939300C54C03 /* Collections.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collections.entitlements; sourceTree = "<group>"; };
 		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 		F1457EF322DDA2A000EBD322 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				F1578E7122E2EFFC0023C704 /* AccountsCell.swift */,
+				F1578E7222E2EFFC0023C704 /* AccountsCell.xib */,
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
@@ -159,6 +167,7 @@
 		F1457EFC22DDA35500EBD322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1578E6F22E2EF9E0023C704 /* Account.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
 			path = Models;
@@ -381,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */,
+				F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */,
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -475,6 +485,7 @@
 				F1BF8D9922DD9BC4004B76F4 /* PostsInteractor.swift in Sources */,
 				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
+				F1578E7022E2EF9E0023C704 /* Account.swift in Sources */,
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
@@ -485,6 +496,7 @@
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
+				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
 				F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */,
 				F1BF8D9A22DD9BC4004B76F4 /* PostsWireframe.swift in Sources */,
