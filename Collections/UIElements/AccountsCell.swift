@@ -9,7 +9,7 @@
 import UIKit
 
 private enum Constants {
-    static let cellHeight: CGFloat = 64
+    static let cellHeight: CGFloat = 32
 }
 
 final class AccountsCell: UITableViewCell, NibReusable {

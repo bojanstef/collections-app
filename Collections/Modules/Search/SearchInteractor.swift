@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol SearchInteractable {}
+protocol SearchInteractable {
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+}
 
 final class SearchInteractor {
     fileprivate let networkAccess: SearchAccessing
@@ -18,4 +20,8 @@ final class SearchInteractor {
     }
 }
 
-extension SearchInteractor: SearchInteractable {}
+extension SearchInteractor: SearchInteractable {
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        networkAccess.scrapeAccounts(result: result)
+    }
+}

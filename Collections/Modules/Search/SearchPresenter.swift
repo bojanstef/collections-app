@@ -11,6 +11,7 @@ import Foundation
 protocol SearchPresentable {
     func searchAfterDate(_ searchedDate: Date)
     func navigateToAccounts()
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class SearchPresenter {
@@ -30,5 +31,9 @@ extension SearchPresenter: SearchPresentable {
 
     func navigateToAccounts() {
         moduleDelegate?.navigateToAccounts()
+    }
+
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        interactor.scrapeAccounts(result: result)
     }
 }

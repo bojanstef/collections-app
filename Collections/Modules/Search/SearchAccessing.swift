@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol SearchAccessing {}
+protocol SearchAccessing {
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+}

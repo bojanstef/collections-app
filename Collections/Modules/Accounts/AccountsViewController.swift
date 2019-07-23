@@ -10,7 +10,13 @@ import UIKit
 
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
-    fileprivate var accounts = [Account]()
+    fileprivate var accountsSet = Set<Account>()
+    fileprivate var accounts = [Account]() {
+        didSet {
+            accountsSet = Set(accountsSet)
+        }
+    }
+
     var presenter: AccountsPresentable!
 
     override func viewDidLoad() {
@@ -64,6 +70,11 @@ fileprivate extension AccountsViewController {
         }
 
         let account = Account(username: username)
+        guard !accountsSet.contains(account) else {
+            log.error("This username already exists") // TODO: - Show info here (UX).
+            return
+        }
+
         presenter.addAccount(account) { [weak self] result in
             switch result {
             case .success(let account):
@@ -81,6 +92,20 @@ fileprivate extension AccountsViewController {
 extension AccountsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let username = accounts[indexPath.row].username
+
+        // TODO: - Clean this shit up.
+        let instagramAppDeepLink = "instagram://user?username=\(username)"
+        let instagramAppURL = URL(string: instagramAppDeepLink)!
+
+        if UIApplication.shared.canOpenURL(instagramAppURL) {
+            UIApplication.shared.open(instagramAppURL, options: [:])
+        } else {
+            let instagramWebLink = "https://instagr.am/\(username)"
+            let instagramWebURL = URL(string: instagramWebLink)!
+            UIApplication.shared.open(instagramWebURL, options: [:])
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

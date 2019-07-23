@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol PostsModuleDelegate: AnyObject {}
+protocol PostsModuleDelegate: AnyObject {
+    func navigateToPostDetail(_ selectedPost: Post)
+}
 
 final class PostsWireframe {
     fileprivate weak var moduleDelegate: PostsModuleDelegate?

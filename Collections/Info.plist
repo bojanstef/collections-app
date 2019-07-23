@@ -31,10 +31,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FirebaseDynamicLinksCustomDomains</key>
-	<array>
-		<string>heypassport.com/deeplink</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -47,6 +43,8 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need this to save photos</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

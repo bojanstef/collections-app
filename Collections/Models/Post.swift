@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class Post: Modellable { // Use class for pass-by-reference semantics to save `imageData`.
     let instagramId: String
@@ -17,13 +18,26 @@ final class Post: Modellable { // Use class for pass-by-reference semantics to s
     let taggedLocation: String?
     let taggedUsernames: [String]
     let followerCount: Int?
-    private var imageData: Data?
+    private var image: UIImage?
 
-    func saveImageData(_ data: Data) {
-        imageData = data
+    enum CodingKeys: String, CodingKey {
+        case instagramId
+        case ownerUsername
+        case displayUrl
+        case description
+        case timestamp
+        case taggedLocation
+        case taggedUsernames
+        case followerCount
+    }
+}
+
+extension Post {
+    func saveImage(_ image: UIImage) {
+        self.image = image
     }
 
-    func getImageData() -> Data? {
-        return imageData
+    func getImage() -> UIImage? {
+        return image
     }
 }

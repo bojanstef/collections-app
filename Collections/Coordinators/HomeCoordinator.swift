@@ -39,5 +39,12 @@ extension HomeCoordinator: SearchModuleDelegate {
     }
 }
 
-extension HomeCoordinator: PostsModuleDelegate {}
+extension HomeCoordinator: PostsModuleDelegate {
+    func navigateToPostDetail(_ selectedPost: Post) {
+        let viewController = PostDetailWireframe(moduleDelegate: self, selectedPost: selectedPost).viewController
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
 extension HomeCoordinator: AccountsModuleDelegate {}
+extension HomeCoordinator: PostDetailModuleDelegate {}

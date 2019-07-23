@@ -48,7 +48,7 @@ fileprivate extension PostsViewController {
 extension PostsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        //presenter.navigateToPostDetail(post)
+        presenter.navigateToPostDetail(posts[indexPath.row])
     }
 }
 

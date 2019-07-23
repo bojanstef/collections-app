@@ -8,6 +8,14 @@
 
 import Foundation
 
-struct Account: Modellable {
+struct Account: Modellable, Hashable {
     let username: String
+
+    static func == (lhs: Account, rhs: Account) -> Bool {
+        return lhs.username == rhs.username
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(username)
+    }
 }

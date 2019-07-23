@@ -11,6 +11,7 @@ import Foundation
 protocol PostsPresentable {
     func getTitleFromSearchedDate() -> String
     func loadPosts(result: @escaping ((Result<[Post], Error>) -> Void))
+    func navigateToPostDetail(_ selectedPost: Post)
 }
 
 final class PostsPresenter {
@@ -30,5 +31,9 @@ extension PostsPresenter: PostsPresentable {
 
     func loadPosts(result: @escaping ((Result<[Post], Error>) -> Void)) {
         interactor.loadPosts(result: result)
+    }
+
+    func navigateToPostDetail(_ selectedPost: Post) {
+        moduleDelegate?.navigateToPostDetail(selectedPost)
     }
 }

@@ -42,6 +42,12 @@
 		F1BF8D9822DD9BC4004B76F4 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9222DD9BC4004B76F4 /* PostsViewController.swift */; };
 		F1BF8D9922DD9BC4004B76F4 /* PostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9322DD9BC4004B76F4 /* PostsInteractor.swift */; };
 		F1BF8D9A22DD9BC4004B76F4 /* PostsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */; };
+		F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0822E6BE47002A717A /* PostDetailPresenter.swift */; };
+		F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C1EB0922E6BE47002A717A /* PostDetailViewController.storyboard */; };
+		F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0A22E6BE47002A717A /* PostDetailViewController.swift */; };
+		F1C1EB1122E6BE48002A717A /* PostDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0B22E6BE47002A717A /* PostDetailInteractor.swift */; };
+		F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0C22E6BE48002A717A /* PostDetailAccessing.swift */; };
+		F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0D22E6BE48002A717A /* PostDetailWireframe.swift */; };
 		F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A322D7C576005198B8 /* AuthPresenter.swift */; };
 		F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A422D7C576005198B8 /* AuthAccessing.swift */; };
 		F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C352A522D7C576005198B8 /* AuthViewController.storyboard */; };
@@ -99,6 +105,12 @@
 		F1BF8D9222DD9BC4004B76F4 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		F1BF8D9322DD9BC4004B76F4 /* PostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsInteractor.swift; sourceTree = "<group>"; };
 		F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWireframe.swift; sourceTree = "<group>"; };
+		F1C1EB0822E6BE47002A717A /* PostDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailPresenter.swift; sourceTree = "<group>"; };
+		F1C1EB0922E6BE47002A717A /* PostDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetailViewController.storyboard; sourceTree = "<group>"; };
+		F1C1EB0A22E6BE47002A717A /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		F1C1EB0B22E6BE47002A717A /* PostDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailInteractor.swift; sourceTree = "<group>"; };
+		F1C1EB0C22E6BE48002A717A /* PostDetailAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailAccessing.swift; sourceTree = "<group>"; };
+		F1C1EB0D22E6BE48002A717A /* PostDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailWireframe.swift; sourceTree = "<group>"; };
 		F1C352A322D7C576005198B8 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		F1C352A422D7C576005198B8 /* AuthAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAccessing.swift; sourceTree = "<group>"; };
 		F1C352A522D7C576005198B8 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
@@ -246,6 +258,7 @@
 			children = (
 				F1FAD9C922E03656000A699C /* Accounts */,
 				F14F4D5522D7C49A00F83D60 /* Auth */,
+				F1C1EB0722E6BE33002A717A /* PostDetail */,
 				F1BF8D8E22DD9BB3004B76F4 /* Posts */,
 				F1BF8D8122DD65DE004B76F4 /* Search */,
 			);
@@ -289,6 +302,19 @@
 				F1BF8D9422DD9BC4004B76F4 /* PostsWireframe.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		F1C1EB0722E6BE33002A717A /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F1C1EB0C22E6BE48002A717A /* PostDetailAccessing.swift */,
+				F1C1EB0B22E6BE47002A717A /* PostDetailInteractor.swift */,
+				F1C1EB0822E6BE47002A717A /* PostDetailPresenter.swift */,
+				F1C1EB0922E6BE47002A717A /* PostDetailViewController.storyboard */,
+				F1C1EB0A22E6BE47002A717A /* PostDetailViewController.swift */,
+				F1C1EB0D22E6BE48002A717A /* PostDetailWireframe.swift */,
+			);
+			path = PostDetail;
 			sourceTree = "<group>";
 		};
 		F1C352AF22D7C594005198B8 /* Extensions */ = {
@@ -393,6 +419,7 @@
 				F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */,
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
+				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
 				F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */,
@@ -474,6 +501,7 @@
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
+				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
@@ -485,6 +513,7 @@
 				F1BF8D9922DD9BC4004B76F4 /* PostsInteractor.swift in Sources */,
 				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
+				F1C1EB1122E6BE48002A717A /* PostDetailInteractor.swift in Sources */,
 				F1578E7022E2EF9E0023C704 /* Account.swift in Sources */,
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
@@ -492,6 +521,7 @@
 				F1BF8D9522DD9BC4004B76F4 /* PostsPresenter.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
 				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
+				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
@@ -505,8 +535,10 @@
 				F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */,
 				F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
+				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
 				F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */,
 				F1457F0022DDA39300EBD322 /* Modellable.swift in Sources */,
+				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

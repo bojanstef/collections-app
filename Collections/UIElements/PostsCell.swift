@@ -57,8 +57,10 @@ fileprivate extension PostsCell {
             log.debug(response.debugDescription)
 
             DispatchQueue.main.async {
-                post.saveImageData(data)
+                guard let image = UIImage(data: data) else { return }
+                post.saveImage(image)
                 self?.imageView.image = UIImage(data: data)
+
             }
         }
 

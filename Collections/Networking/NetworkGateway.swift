@@ -165,4 +165,73 @@ extension NetworkGateway: AccountsAccessing {
     }
 }
 
-extension NetworkGateway: SearchAccessing {}
+extension NetworkGateway: SearchAccessing {
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        guard let userID = userID else {
+            // TODO: - Add custom error OR create a better user management system.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+        // TODO: - Refactor this so that the server gets the users list
+        Firestore.firestore()
+            .collection("users")
+            .document(userID)
+            .collection("accounts")
+            .getDocuments { snapshot, error in
+                guard error == nil else { result(.failure(error!)); return }
+                do {
+                    let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
+                        let json = snapshot.data()
+                        return try Account(json: json)
+                    }
+
+                    // TODO: - START_CLEANUP {
+                    let urlString = "https://tiptoe-grids.firebaseapp.com/crawl"
+                    //let urlString = "http://0.0.0.0:8080/crawl"
+                    guard let url = URL(string: urlString) else {
+                        // TODO: - Add custom error.
+                        result(.failure(NSError(domain: "URL could be initialized", code: 0, userInfo: nil)))
+                        return
+                    }
+
+                    let accountUsernames = accounts.map { $0.username }
+                    let parameterDictionary: [String: Any] = [
+                        "accounts": accountUsernames,
+                        "user_id": userID
+                    ]
+
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "POST"
+                    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameterDictionary)
+
+                    let task = URLSession.shared.dataTask(with: request) { _, response, error in
+                        guard error == nil else { result(.failure(error!)); return }
+                        guard let httpResponse = response as? HTTPURLResponse else {
+                            // TODO: - Add custom error.
+                            result(.failure(NSError(domain: "Response is not a HTTPURLResponse", code: 0, userInfo: nil)))
+                            return
+                        }
+
+                        guard 200...299 ~= httpResponse.statusCode else {
+                            // TODO: - Add custom error.
+                            result(.failure(NSError(domain: "Error status code \(httpResponse.statusCode)", code: 0, userInfo: nil)))
+                            return
+                        }
+
+                        print(response.debugDescription)
+                        result(.success(()))
+                    }
+
+                    task.resume()
+                    // } - END_CLEANUP
+
+                } catch {
+                    result(.failure(error))
+                }
+            }
+    }
+}
+
+extension NetworkGateway: PostDetailAccessing {}
