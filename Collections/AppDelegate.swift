@@ -17,7 +17,7 @@ final class AppDelegate: UIResponder {
     fileprivate lazy var deepLinkHandler = DeepLinkHandler()
     fileprivate lazy var networkGateway: AppDelegateAccessing = NetworkGateway()
     fileprivate var authStateChangeHandler: AuthStateDidChangeListenerHandle?
-    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
     deinit {
         authStateChangeHandler.flatMap(Auth.auth().removeStateDidChangeListener)

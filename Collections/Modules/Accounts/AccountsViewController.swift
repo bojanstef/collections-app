@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
@@ -92,20 +93,10 @@ fileprivate extension AccountsViewController {
 extension AccountsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
         let username = accounts[indexPath.row].username
-
-        // TODO: - Clean this shit up.
-        let instagramAppDeepLink = "instagram://user?username=\(username)"
-        let instagramAppURL = URL(string: instagramAppDeepLink)!
-
-        if UIApplication.shared.canOpenURL(instagramAppURL) {
-            UIApplication.shared.open(instagramAppURL, options: [:])
-        } else {
-            let instagramWebLink = "https://instagr.am/\(username)"
-            let instagramWebURL = URL(string: instagramWebLink)!
-            UIApplication.shared.open(instagramWebURL, options: [:])
-        }
+        let instagramURL = URL(string: "https://instagr.am/\(username)")!
+        let safariViewController = SFSafariViewController(url: instagramURL)
+        present(safariViewController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
