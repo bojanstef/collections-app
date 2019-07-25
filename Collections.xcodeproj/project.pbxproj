@@ -27,6 +27,10 @@
 		F1578E7022E2EF9E0023C704 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E6F22E2EF9E0023C704 /* Account.swift */; };
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
+		F18FBA9322EA2D27001C0C42 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18FBA9222EA2D27001C0C42 /* Media.xcassets */; };
+		F18FBA9522EA2D27001C0C42 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18FBA9422EA2D27001C0C42 /* ActionViewController.swift */; };
+		F18FBA9822EA2D27001C0C42 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18FBA9622EA2D27001C0C42 /* MainInterface.storyboard */; };
+		F18FBA9C22EA2D27001C0C42 /* Save Account.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F18FBA9022EA2D27001C0C42 /* Save Account.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
@@ -64,6 +68,30 @@
 		F1FAD9D522E03664000A699C /* AccountsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CF22E03664000A699C /* AccountsWireframe.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F18FBA9A22EA2D27001C0C42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F14F4D2922D7B4AE00F83D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F18FBA8F22EA2D27001C0C42;
+			remoteInfo = "Save Account";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F18FBAA022EA2D27001C0C42 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F18FBA9C22EA2D27001C0C42 /* Save Account.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6032BDCED43256D9E61ADDA4 /* Pods_Collections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6BE6224DE0CEF56B83B357 /* Pods-Collections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.debug.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +117,12 @@
 		F1578E6F22E2EF9E0023C704 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
+		F18FBA9022EA2D27001C0C42 /* Save Account.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Save Account.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18FBA9222EA2D27001C0C42 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		F18FBA9422EA2D27001C0C42 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		F18FBA9722EA2D27001C0C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F18FBA9922EA2D27001C0C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F18FBAA122EA37CE001C0C42 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F1944A7422DA939300C54C03 /* Collections.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collections.entitlements; sourceTree = "<group>"; };
 		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
@@ -136,12 +170,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F18FBA8D22EA2D27001C0C42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		49744BA1A3892E7510876273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F18FBAA122EA37CE001C0C42 /* WebKit.framework */,
 				6032BDCED43256D9E61ADDA4 /* Pods_Collections.framework */,
 			);
 			name = Frameworks;
@@ -189,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				F14F4D3322D7B4AF00F83D60 /* Collections */,
+				F18FBA9122EA2D27001C0C42 /* Save Account */,
 				F14F4D3222D7B4AF00F83D60 /* Products */,
 				72C1FFFD31C8F6D3349DAE6D /* Pods */,
 				49744BA1A3892E7510876273 /* Frameworks */,
@@ -199,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				F14F4D3122D7B4AF00F83D60 /* Collections.app */,
+				F18FBA9022EA2D27001C0C42 /* Save Account.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -276,6 +320,17 @@
 				F1C352A822D7C576005198B8 /* AuthWireframe.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F18FBA9122EA2D27001C0C42 /* Save Account */ = {
+			isa = PBXGroup;
+			children = (
+				F18FBA9222EA2D27001C0C42 /* Media.xcassets */,
+				F18FBA9422EA2D27001C0C42 /* ActionViewController.swift */,
+				F18FBA9622EA2D27001C0C42 /* MainInterface.storyboard */,
+				F18FBA9922EA2D27001C0C42 /* Info.plist */,
+			);
+			path = "Save Account";
 			sourceTree = "<group>";
 		};
 		F1BF8D8122DD65DE004B76F4 /* Search */ = {
@@ -362,15 +417,34 @@
 				F14F4D2F22D7B4AF00F83D60 /* Resources */,
 				73CCB56F374474480FFC2F97 /* [CP] Embed Pods Frameworks */,
 				F19581FB22DC4DED005C0DD1 /* SwiftLint Run Script */,
+				F18FBAA022EA2D27001C0C42 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F18FBA9B22EA2D27001C0C42 /* PBXTargetDependency */,
 			);
 			name = Collections;
 			productName = Collections;
 			productReference = F14F4D3122D7B4AF00F83D60 /* Collections.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F18FBA8F22EA2D27001C0C42 /* Save Account */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F18FBA9F22EA2D27001C0C42 /* Build configuration list for PBXNativeTarget "Save Account" */;
+			buildPhases = (
+				F18FBA8C22EA2D27001C0C42 /* Sources */,
+				F18FBA8D22EA2D27001C0C42 /* Frameworks */,
+				F18FBA8E22EA2D27001C0C42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Save Account";
+			productName = "Save Account";
+			productReference = F18FBA9022EA2D27001C0C42 /* Save Account.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -378,7 +452,7 @@
 		F14F4D2922D7B4AE00F83D60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Bojan Stefanovic";
 				TargetAttributes = {
@@ -389,6 +463,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					F18FBA8F22EA2D27001C0C42 = {
+						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
@@ -406,6 +483,7 @@
 			projectRoot = "";
 			targets = (
 				F14F4D3022D7B4AF00F83D60 /* Collections */,
+				F18FBA8F22EA2D27001C0C42 /* Save Account */,
 			);
 		};
 /* End PBXProject section */
@@ -425,6 +503,15 @@
 				F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */,
 				F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */,
 				F1BF8D9722DD9BC4004B76F4 /* PostsViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F18FBA8E22EA2D27001C0C42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F18FBA9322EA2D27001C0C42 /* Media.xcassets in Resources */,
+				F18FBA9822EA2D27001C0C42 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +629,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F18FBA8C22EA2D27001C0C42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F18FBA9522EA2D27001C0C42 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F18FBA9B22EA2D27001C0C42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F18FBA8F22EA2D27001C0C42 /* Save Account */;
+			targetProxy = F18FBA9A22EA2D27001C0C42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F14F4D5122D7C39D00F83D60 /* LaunchScreen.storyboard */ = {
@@ -551,6 +654,14 @@
 				F14F4D5222D7C39D00F83D60 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F18FBA9622EA2D27001C0C42 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F18FBA9722EA2D27001C0C42 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -676,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F6BE6224DE0CEF56B83B357 /* Pods-Collections.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collections/Collections.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -697,6 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2332E7C8BD873927E4C525E /* Pods-Collections.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collections/Collections.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -709,6 +822,46 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.bojan.Collections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F18FBA9D22EA2D27001C0C42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8JFVKN675;
+				INFOPLIST_FILE = "Save Account/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.bojan.Collections.Save-Account";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F18FBA9E22EA2D27001C0C42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8JFVKN675;
+				INFOPLIST_FILE = "Save Account/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.bojan.Collections.Save-Account";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -731,6 +884,15 @@
 			buildConfigurations = (
 				F14F4D4422D7B4B100F83D60 /* Debug */,
 				F14F4D4522D7B4B100F83D60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F18FBA9F22EA2D27001C0C42 /* Build configuration list for PBXNativeTarget "Save Account" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F18FBA9D22EA2D27001C0C42 /* Debug */,
+				F18FBA9E22EA2D27001C0C42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
