@@ -8,7 +8,6 @@
 
 import Foundation
 import Firebase
-import FirebaseDynamicLinks
 
 final class NetworkGateway {
     private var userID: String? {

@@ -1,19 +1,15 @@
 //
 //  Account.swift
-//  Collections
+//  Save Account
 //
-//  Created by Bojan Stefanovic on 2019-07-19.
+//  Created by Bojan Stefanovic on 2019-07-25.
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
 import Foundation
 
-struct Account: Modellable, Comparable, Hashable {
+struct Account: Modellable, Hashable {
     let username: String
-
-    static func < (lhs: Account, rhs: Account) -> Bool {
-        return lhs.username < rhs.username
-    }
 
     static func == (lhs: Account, rhs: Account) -> Bool {
         return lhs.username == rhs.username

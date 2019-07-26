@@ -55,7 +55,7 @@ fileprivate extension AccountsViewController {
             switch result {
             case .success(let accounts):
                 DispatchQueue.main.async {
-                    self?.accounts = accounts
+                    self?.accounts = accounts.sorted()
                     self?.tableView.reloadData()
                 }
             case .failure(let error):

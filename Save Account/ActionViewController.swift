@@ -1,5 +1,5 @@
 //
-//  ActionViewController.swift
+//  SaveAccountViewController.swift
 //  Save Account
 //
 //  Created by Bojan Stefanovic on 2019-07-25.
@@ -8,9 +8,11 @@
 
 import UIKit
 import MobileCoreServices
+import Firebase
 
-final class ActionViewController: UIViewController {
+final class SaveAccountViewController: UIViewController {
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
+    var presenter: SaveAccountPresentable!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class Post: Modellable { // Use class for pass-by-reference semantics to save `imageData`.

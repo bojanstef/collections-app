@@ -88,6 +88,10 @@ fileprivate extension AppDelegate {
 
     func handleAuthStateChange(auth: Auth, user: User?) {
         if let currentUser = auth.currentUser, let user = user, currentUser.uid == user.uid {
+            if let sharedContainer = UserDefaults(suiteName: "group.xyz.bojan.Collections") {
+                sharedContainer.set(currentUser.uid, forKey: "userID")
+            }
+
             appCoordinator.didAuthenticate()
         } else {
             appCoordinator.start()
