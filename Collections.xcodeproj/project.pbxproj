@@ -1193,6 +1193,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E5DA0F4746C524F10AA234C /* Pods-Save Account.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = ExtensionIcon;
 				CODE_SIGN_ENTITLEMENTS = "Save Account/Save Account.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8JFVKN675;
@@ -1219,6 +1220,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 798312D1549DF3CE86AD2D8F /* Pods-Save Account.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = ExtensionIcon;
 				CODE_SIGN_ENTITLEMENTS = "Save Account/Save Account.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8JFVKN675;
