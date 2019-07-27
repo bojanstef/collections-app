@@ -10,7 +10,6 @@ import Foundation
 
 protocol SearchPresentable {
     func searchAfterDate(_ searchedDate: Date)
-    func navigateToAccounts()
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
@@ -27,10 +26,6 @@ final class SearchPresenter {
 extension SearchPresenter: SearchPresentable {
     func searchAfterDate(_ searchedDate: Date) {
         moduleDelegate?.searchAfterDate(searchedDate)
-    }
-
-    func navigateToAccounts() {
-        moduleDelegate?.navigateToAccounts()
     }
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {

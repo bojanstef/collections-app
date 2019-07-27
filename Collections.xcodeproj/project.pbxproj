@@ -28,6 +28,9 @@
 		F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */; };
 		F151E84522EA87B600D16EF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */; };
 		F151E84822EACE9600D16EF7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F151E84722EACE9600D16EF7 /* StoreKit.framework */; };
+		F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84922EBDEE200D16EF7 /* SearchCoordinator.swift */; };
+		F151E84C22EBE1F700D16EF7 /* AccountsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84B22EBE1F700D16EF7 /* AccountsCoordinator.swift */; };
+		F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */; };
 		F1578E7022E2EF9E0023C704 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E6F22E2EF9E0023C704 /* Account.swift */; };
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
@@ -140,6 +143,9 @@
 		F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F151E84622EA896E00D16EF7 /* Save Account.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Save Account.entitlements"; sourceTree = "<group>"; };
 		F151E84722EACE9600D16EF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F151E84922EBDEE200D16EF7 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		F151E84B22EBE1F700D16EF7 /* AccountsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCoordinator.swift; sourceTree = "<group>"; };
+		F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+LoadControllers.swift"; sourceTree = "<group>"; };
 		F1578E6F22E2EF9E0023C704 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
@@ -307,9 +313,11 @@
 		F14F4D4822D7C12C00F83D60 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				F151E84B22EBE1F700D16EF7 /* AccountsCoordinator.swift */,
 				F14F4D4922D7C14100F83D60 /* AppCoordinator.swift */,
 				F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */,
 				F1369F8922D815E6000EB574 /* HomeCoordinator.swift */,
+				F151E84922EBDEE200D16EF7 /* SearchCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 			children = (
 				F1457F0122DDA3CA00EBD322 /* Colletion+Modellable.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
+				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -675,6 +684,7 @@
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
+				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
@@ -686,6 +696,7 @@
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
 				F1C1EB1122E6BE48002A717A /* PostDetailInteractor.swift in Sources */,
 				F1578E7022E2EF9E0023C704 /* Account.swift in Sources */,
+				F151E84C22EBE1F700D16EF7 /* AccountsCoordinator.swift in Sources */,
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
@@ -697,6 +708,7 @@
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
+				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
 				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
 				F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */,

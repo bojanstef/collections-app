@@ -58,19 +58,6 @@
                                     <action selector="searchButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="xfc-v3-dEz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7Z-rN-KVh">
-                                <rect key="frame" x="32" y="531" width="311" height="44"/>
-                                <color key="backgroundColor" red="0.78039215689999997" green="0.84705882349999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="77i-N3-mm2"/>
-                                </constraints>
-                                <state key="normal" title="Accounts to Scrape">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="accountsToScrapeButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="JRA-iy-BMB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qT-oa-Prd">
                                 <rect key="frame" x="32" y="591" width="311" height="44"/>
                                 <color key="backgroundColor" red="0.94935252568493156" green="0.84705882349999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -93,11 +80,8 @@
                             <constraint firstItem="Utb-ze-i8f" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="Bzp-6M-6gf"/>
                             <constraint firstItem="zZb-vt-0fH" firstAttribute="top" secondItem="Utb-ze-i8f" secondAttribute="bottom" constant="16" id="HDj-CQ-qVQ"/>
                             <constraint firstItem="Utb-ze-i8f" firstAttribute="top" secondItem="TPv-mV-EUG" secondAttribute="bottom" constant="16" id="LAp-TJ-4lK"/>
-                            <constraint firstItem="3qT-oa-Prd" firstAttribute="top" secondItem="a7Z-rN-KVh" secondAttribute="bottom" constant="16" id="QqD-1r-Gfy"/>
-                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="a7Z-rN-KVh" secondAttribute="trailing" constant="32" id="RbB-2a-9fl"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="3qT-oa-Prd" secondAttribute="trailing" constant="32" id="SRu-p1-Ci9"/>
                             <constraint firstItem="TPv-mV-EUG" firstAttribute="top" secondItem="7vi-Ww-Mvg" secondAttribute="bottom" constant="16" id="Tnv-Kf-dk4"/>
-                            <constraint firstItem="a7Z-rN-KVh" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="Y4m-PK-u8T"/>
                             <constraint firstItem="zZb-vt-0fH" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="dVh-I1-9jJ"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="Utb-ze-i8f" secondAttribute="trailing" constant="32" id="f0q-QA-ZT1"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="zZb-vt-0fH" secondAttribute="trailing" constant="32" id="iK4-0E-j7Q"/>

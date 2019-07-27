@@ -10,7 +10,6 @@ import UIKit
 
 protocol SearchModuleDelegate: AnyObject {
     func searchAfterDate(_ searchedDate: Date)
-    func navigateToAccounts()
 }
 
 final class SearchWireframe {

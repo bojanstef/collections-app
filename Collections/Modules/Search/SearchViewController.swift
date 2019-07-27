@@ -33,10 +33,6 @@ fileprivate extension SearchViewController {
         setDatePickerToMidnight()
     }
 
-    @IBAction func accountsToScrapeButtonPressed(_ sender: Any) {
-        presenter.navigateToAccounts()
-    }
-
     @IBAction func scrapeAccountsButtonPressed(_ sender: Any) {
         presenter.scrapeAccounts { [weak self] result in
             switch result {

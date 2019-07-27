@@ -12,6 +12,9 @@ protocol HomeCoordinatorDelegate: AnyObject {}
 
 final class HomeCoordinator {
     fileprivate let navigationController: UINavigationController
+    fileprivate let tabBarController = UITabBarController()
+    fileprivate let searchCoordinator = SearchCoordinator()
+    fileprivate let accountsCoordinator = AccountsCoordinator()
     fileprivate weak var delegate: HomeCoordinatorDelegate?
 
     init(navigationController: UINavigationController, delegate: HomeCoordinatorDelegate) {
@@ -22,29 +25,12 @@ final class HomeCoordinator {
 
 extension HomeCoordinator: Coordinating {
     func start() {
-        let viewController = SearchWireframe(moduleDelegate: self).viewController
-        navigationController.setViewControllers([viewController], animated: true)
+        searchCoordinator.start()
+        accountsCoordinator.start()
+
+        let viewControllers = [searchCoordinator.navigationController, accountsCoordinator.navigationController]
+        tabBarController.loadControllers(viewControllers, animated: false)
+        navigationController.setViewControllers([tabBarController], animated: true)
+        navigationController.setNavigationBarHidden(true, animated: true)
     }
 }
-
-extension HomeCoordinator: SearchModuleDelegate {
-    func searchAfterDate(_ searchedDate: Date) {
-        let viewController = PostsWireframe(moduleDelegate: self, searchedDate: searchedDate).viewController
-        navigationController.pushViewController(viewController, animated: true)
-    }
-
-    func navigateToAccounts() {
-        let viewController = AccountsWireframe(moduleDelegate: self).viewController
-        navigationController.pushViewController(viewController, animated: true)
-    }
-}
-
-extension HomeCoordinator: PostsModuleDelegate {
-    func navigateToPostDetail(_ selectedPost: Post) {
-        let viewController = PostDetailWireframe(moduleDelegate: self, selectedPost: selectedPost).viewController
-        navigationController.pushViewController(viewController, animated: true)
-    }
-}
-
-extension HomeCoordinator: AccountsModuleDelegate {}
-extension HomeCoordinator: PostDetailModuleDelegate {}
