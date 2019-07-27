@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchModuleDelegate: AnyObject {
-    func searchAfterDate(_ searchedDate: Date)
+    func navigateToPostDetail(_ selectedPost: Post)
 }
 
 final class SearchWireframe {

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SearchAccessing {
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void))
 }

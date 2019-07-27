@@ -9,7 +9,8 @@
 import Foundation
 
 protocol SearchInteractable {
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void))
+    //func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class SearchInteractor {
@@ -21,7 +22,7 @@ final class SearchInteractor {
 }
 
 extension SearchInteractor: SearchInteractable {
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        networkAccess.scrapeAccounts(result: result)
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
+        networkAccess.loadPosts(after: date, result: result)
     }
 }

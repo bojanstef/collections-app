@@ -8,9 +8,14 @@
 
 import Foundation
 
+private enum Constants {
+    static let dateFormat = "MMM dd @ HH:mm"
+}
+
 protocol SearchPresentable {
-    func searchAfterDate(_ searchedDate: Date)
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func getTitleFromSearchedDate(_ searchedDate: Date) -> String
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void))
+    func navigateToPostDetail(_ selectedPost: Post)
 }
 
 final class SearchPresenter {
@@ -24,11 +29,18 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchPresentable {
-    func searchAfterDate(_ searchedDate: Date) {
-        moduleDelegate?.searchAfterDate(searchedDate)
+    func getTitleFromSearchedDate(_ searchedDate: Date) -> String {
+        // TODO: - Create a custom date formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormat
+        return dateFormatter.string(from: searchedDate)
     }
 
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        interactor.scrapeAccounts(result: result)
+    func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
+        interactor.loadPosts(after: date, result: result)
+    }
+
+    func navigateToPostDetail(_ selectedPost: Post) {
+        moduleDelegate?.navigateToPostDetail(selectedPost)
     }
 }
