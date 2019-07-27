@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseDynamicLinks
 import CollectionsKit
 
 final class NetworkGateway {
