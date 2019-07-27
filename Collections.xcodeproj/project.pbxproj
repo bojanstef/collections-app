@@ -27,6 +27,7 @@
 		F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D5122D7C39D00F83D60 /* LaunchScreen.storyboard */; };
 		F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */; };
 		F151E84522EA87B600D16EF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */; };
+		F151E84822EACE9600D16EF7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F151E84722EACE9600D16EF7 /* StoreKit.framework */; };
 		F1578E7022E2EF9E0023C704 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E6F22E2EF9E0023C704 /* Account.swift */; };
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
@@ -138,6 +139,7 @@
 		F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEmbedded.swift; sourceTree = "<group>"; };
 		F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F151E84622EA896E00D16EF7 /* Save Account.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Save Account.entitlements"; sourceTree = "<group>"; };
+		F151E84722EACE9600D16EF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F1578E6F22E2EF9E0023C704 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F151E84822EACE9600D16EF7 /* StoreKit.framework in Frameworks */,
 				DE688439E3CDD5DFE6C51CC3 /* (null) in Frameworks */,
 				F5AE7FD959054473A6E77FEF /* Pods_Collections.framework in Frameworks */,
 			);
@@ -212,6 +215,7 @@
 		49744BA1A3892E7510876273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F151E84722EACE9600D16EF7 /* StoreKit.framework */,
 				DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */,
 				0AE8A8759EAE4A3C6E7682C8 /* Pods_Collections.framework */,
 			);
@@ -500,6 +504,9 @@
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.Keychain = {
