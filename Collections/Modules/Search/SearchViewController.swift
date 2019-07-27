@@ -9,48 +9,32 @@
 import UIKit
 
 private enum Constants {
-    static let yesterdayTimeInterval: TimeInterval = -24 * 60 * 60
+    static let searchTitle = "Search"
+    static let blurViewAnimationDuration: TimeInterval = 0.4
+    static let blurAlphaMax: CGFloat = 0.75
 }
 
 final class SearchViewController: UIViewController {
+    fileprivate let dummyTextField = UITextField(frame: .zero)
+    fileprivate let navigationTitleButton = UIButton(type: .system)
     fileprivate let datePicker = UIDatePicker()
+    fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
     fileprivate var posts = [Post]()
     var presenter: SearchPresentable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search"
-        navigationItem.title = presenter.getTitleFromSearchedDate(Date())
-        setDatePickerToMidnight()
+        title = Constants.searchTitle
+        blurView.alpha = 0
+        setupNavigationItem()
         setupCollectionView(then: loadPosts)
     }
-}
 
-fileprivate extension SearchViewController {
-    func setupCollectionView(then loadData: (() -> Void)) {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.collectionViewLayout = GridLayout()
-        collectionView.alwaysBounceVertical = true
-        collectionView.register(PostsCell.nib, forCellWithReuseIdentifier: PostsCell.reuseId)
-        loadData()
-    }
-
-    func loadPosts() {
-        let now = Date()
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now) ?? now
-        presenter.loadPosts(after: yesterday) { [weak self] result in
-            switch result {
-            case .success(let posts):
-                DispatchQueue.main.async {
-                    self?.posts = posts
-                    self?.collectionView.reloadData()
-                }
-            case .failure(let error):
-                log.error(error.localizedDescription)
-            }
-        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        cancelDatePicker()
     }
 }
 
@@ -78,16 +62,75 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 fileprivate extension SearchViewController {
+    func setupNavigationItem() {
+        let toolbar = UIToolbar()
+        toolbar.items = [
+            .init(barButtonSystemItem: .cancel, target: self, action: .cancelDatePicker),
+            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            .init(title: Constants.searchTitle, style: .plain, target: self, action: .setDate)
+        ]
+        toolbar.sizeToFit()
+
+        dummyTextField.inputView = datePicker
+        dummyTextField.inputAccessoryView = toolbar
+        dummyTextField.autocorrectionType = .no
+        dummyTextField.inputAssistantItem.leadingBarButtonGroups.removeAll()
+        dummyTextField.inputAssistantItem.trailingBarButtonGroups.removeAll()
+
+        navigationTitleButton.setTitle(Constants.searchTitle, for: .normal)
+        navigationTitleButton.addTarget(self, action: .showDatePicker, for: .touchUpInside)
+        navigationTitleButton.addSubview(dummyTextField)
+        navigationItem.titleView = navigationTitleButton
+    }
+
+    func setupCollectionView(then loadData: (() -> Void)) {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = GridLayout()
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(PostsCell.nib, forCellWithReuseIdentifier: PostsCell.reuseId)
+        loadData()
+    }
+
+    func loadPosts() {
+        let now = Date()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now) ?? now
+        presenter.loadPosts(after: yesterday) { [weak self] result in
+            switch result {
+            case .success(let posts):
+                DispatchQueue.main.async {
+                    self?.posts = posts
+                    self?.collectionView.reloadData()
+                }
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
+    }
+
+    func addBlurView() {
+        blurView.frame = view.bounds
+        view.addSubview(blurView)
+        UIView.animate(withDuration: Constants.blurViewAnimationDuration) { [weak self] in
+            self?.blurView.alpha = Constants.blurAlphaMax
+        }
+    }
+
+    func removeBlurView() {
+        UIView.animate(withDuration: Constants.blurViewAnimationDuration, animations: { [weak self] in
+            self?.blurView.alpha = 0
+        }) { [weak self] _ in
+            self?.blurView.removeFromSuperview()
+        }
+    }
+
     @IBAction func searchButtonPressed(_ sender: Any) {
         let searchedDate = datePicker.date
         //presenter.searchAfterDate(searchedDate)
     }
 
-    @IBAction func resetButtonPressed(_ sender: Any) {
-        setDatePickerToMidnight()
-    }
-
     @IBAction func scrapeAccountsButtonPressed(_ sender: Any) {
+        // TODO: - Fix
 //        presenter.scrapeAccounts { [weak self] result in
 //            switch result {
 //            case .success:
@@ -98,13 +141,23 @@ fileprivate extension SearchViewController {
 //        }
     }
 
-    func setDatePickerToMidnight() {
-        guard let midnight = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: .init()) else {
-            log.debug("Could not initializing a date.")
-            return
-        }
+    @objc func showDatePicker() {
+        addBlurView()
+        dummyTextField.becomeFirstResponder()
+    }
 
-        datePicker.setDate(midnight, animated: true)
+    @objc func setDate() {
+        let dateTitle = presenter.getTitleFromSearchedDate(datePicker.date)
+        navigationTitleButton.setTitle(dateTitle, for: .normal)
+        dummyTextField.resignFirstResponder()
+
+        // TODO: - make network request and upon completion call removeBlurView
+        removeBlurView()
+    }
+
+    @objc func cancelDatePicker() {
+        removeBlurView()
+        dummyTextField.resignFirstResponder()
     }
 
     func showScrapeResultAlert(error: Error? = nil) {
@@ -117,4 +170,10 @@ fileprivate extension SearchViewController {
             self?.present(alert, animated: true)
         }
     }
+}
+
+fileprivate extension Selector {
+    static let showDatePicker = #selector(SearchViewController.showDatePicker)
+    static let setDate = #selector(SearchViewController.setDate)
+    static let cancelDatePicker = #selector(SearchViewController.cancelDatePicker)
 }
