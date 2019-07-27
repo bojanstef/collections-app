@@ -1,14 +1,14 @@
 //
 //  Modellable.swift
-//  Save Account
+//  CollectionsKit
 //
-//  Created by Bojan Stefanovic on 2019-07-25.
+//  Created by Bojan Stefanovic on 2019-07-26.
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
 import Foundation
 
-protocol Modellable: Codable {
+public protocol Modellable: Codable {
     static var jsonEncoder: JSONEncoder { get }
     var json: Any { get }
 
@@ -16,7 +16,7 @@ protocol Modellable: Codable {
     init(json: Any) throws
 }
 
-extension Modellable {
+public extension Modellable {
     static var jsonEncoder: JSONEncoder {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .secondsSince1970

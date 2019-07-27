@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import Firebase
+import CollectionsKit
 
 final class SaveAccountViewController: UIViewController {
     @IBOutlet fileprivate weak var usernameLabel: UILabel!

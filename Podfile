@@ -2,6 +2,9 @@ platform :ios, '12.0'
 
 use_frameworks!
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 def common_pods
   # Common pods
   pod 'SwiftLint'

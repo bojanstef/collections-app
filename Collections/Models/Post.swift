@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CollectionsKit
 
 final class Post: Modellable { // Use class for pass-by-reference semantics to save `imageData`.
     let instagramId: String

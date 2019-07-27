@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import CollectionsKit
 
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!

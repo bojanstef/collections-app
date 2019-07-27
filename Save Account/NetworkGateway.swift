@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import CollectionsKit
 
 final class NetworkGateway {
     private var userID: String? {
