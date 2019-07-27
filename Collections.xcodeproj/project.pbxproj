@@ -17,7 +17,6 @@
 		F1457EFE22DDA36100EBD322 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFD22DDA36100EBD322 /* Post.swift */; };
 		F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */; };
 		F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */; };
-		F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4622D7C06400F83D60 /* Logger.swift */; };
 		F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4922D7C14100F83D60 /* AppCoordinator.swift */; };
 		F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4C22D7C21700F83D60 /* Coordinating.swift */; };
 		F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */; };
@@ -45,6 +44,7 @@
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
+		F1B9105622EC26AA00408B8B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9105522EC26AA00408B8B /* Logger.swift */; };
 		F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */; };
 		F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
 		F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */; };
@@ -134,7 +134,6 @@
 		F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F14F4D4022D7B4B100F83D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F14F4D4622D7C06400F83D60 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F14F4D4922D7C14100F83D60 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F14F4D4C22D7C21700F83D60 /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
+		F1B9105522EC26AA00408B8B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccessing.swift; sourceTree = "<group>"; };
 		F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -300,7 +300,6 @@
 				F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */,
 				F14F4D4022D7B4B100F83D60 /* Info.plist */,
 				F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */,
-				F14F4D4622D7C06400F83D60 /* Logger.swift */,
 				F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */,
 				F14F4D5022D7C38F00F83D60 /* Base.lproj */,
 				F14F4D4822D7C12C00F83D60 /* Coordinators */,
@@ -373,6 +372,7 @@
 			children = (
 				F151E85622EC060400D16EF7 /* CollectionsKit.h */,
 				F151E85722EC060400D16EF7 /* Info.plist */,
+				F1B9105522EC26AA00408B8B /* Logger.swift */,
 				F151E87722EC0B6400D16EF7 /* Extensions */,
 				F151E87322EC06AF00D16EF7 /* Models */,
 				F151E87622EC071500D16EF7 /* Protocols */,
@@ -776,7 +776,6 @@
 				F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
 				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
-				F14F4D4722D7C06400F83D60 /* Logger.swift in Sources */,
 				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,6 +787,7 @@
 				F151E87222EC066B00D16EF7 /* Modellable.swift in Sources */,
 				F151E87922EC0B7400D16EF7 /* Collection+Modellable.swift in Sources */,
 				F151E87522EC06B700D16EF7 /* Account.swift in Sources */,
+				F1B9105622EC26AA00408B8B /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,8 @@
 //
 //  Logger.swift
-//  Collections
+//  CollectionsKit
 //
-//  Created by Bojan Stefanovic on 2019-07-11.
+//  Created by Bojan Stefanovic on 2019-07-26.
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
@@ -15,35 +15,35 @@ private enum Constants {
     static let extensionSeparator: Character = "."
 }
 
-final class Logger {
+public final class Logger {
     fileprivate let log: OSLog
 
-    init(subsystem: String! = Bundle.main.bundleIdentifier, category: String = .init(describing: Logger.self)) {
+    public init(subsystem: String! = Bundle.main.bundleIdentifier, category: String = .init(describing: Logger.self)) {
         self.log = OSLog(subsystem: subsystem, category: category)
     }
 
     /// Use this level to capture information about things that might result in a failure.
-    func `default`(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public func `default`(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .default, file: file, function: function, line: line)
     }
 
     /// Use this level to capture information that may be helpful, but isn’t essential, for troubleshooting errors.
-    func info(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public func info(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .info, file: file, function: function, line: line)
     }
 
     /// Use this level to capture information that may be useful during development or while troubleshooting a specific problem.
-    func debug(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public func debug(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .debug, file: file, function: function, line: line)
     }
 
     /// Use this log level to capture process-level information to report errors in the process.
-    func error(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public func error(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .error, file: file, function: function, line: line)
     }
 
     /// Use this level to capture system-level or multi-process information to report system errors.
-    func fault(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    public func fault(_ message: Any?, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         log(message, type: .fault, file: file, function: function, line: line)
     }
 }

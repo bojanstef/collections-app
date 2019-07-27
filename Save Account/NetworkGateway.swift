@@ -10,6 +10,8 @@ import Foundation
 import FirebaseFirestore
 import CollectionsKit
 
+private let log = Logger(category: "Network")
+
 final class NetworkGateway {
     private var userID: String? {
         guard let sharedContainer = UserDefaults(suiteName: "group.xyz.bojan.Collections") else { return nil }
@@ -38,7 +40,7 @@ extension NetworkGateway: SaveAccountAccessing {
                 return
             }
 
-            print(response.debugDescription)
+            log.info(response.debugDescription)
 
             guard let data = data else {
                 result(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))

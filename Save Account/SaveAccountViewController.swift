@@ -11,6 +11,8 @@ import MobileCoreServices
 import Firebase
 import CollectionsKit
 
+private let log = Logger(category: "Action Extension")
+
 final class SaveAccountViewController: UIViewController {
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
     fileprivate let networkGateway: SaveAccountAccessing = NetworkGateway()
@@ -33,26 +35,26 @@ fileprivate extension SaveAccountViewController {
     }
 
     @objc func savePressed() {
-        guard let username = usernameLabel.text else { print("No username"); return }
+        guard let username = usernameLabel.text else { log.debug("No username"); return }
         let account = Account(username: username)
         networkGateway.addAccount(account) { [weak self] result in
             switch result {
             case .success(let accountSaved):
                 self?.showSuccessAlert(accountSaved)
             case .failure(let error):
-                print(error.localizedDescription)
+                log.error(error.localizedDescription)
             }
         }
     }
 
     func loadInstagramAccountName() {
-        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem else { print("No extension item"); return }
-        guard let provider = extensionItem.attachments?.first else { print("No provider"); return }
+        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem else { log.debug("No extension item"); return }
+        guard let provider = extensionItem.attachments?.first else { log.debug("No provider"); return }
         provider.loadItem(forTypeIdentifier: String(kUTTypeURL)) { [weak self] coding, error in
-            guard error == nil else { print(error!.localizedDescription); return }
-            guard let photoURL = coding as? URL else { print("Could not get URL"); return }
+            guard error == nil else { log.error(error!.localizedDescription); return }
+            guard let photoURL = coding as? URL else { log.debug("Could not get URL"); return }
             let igEmbedUrlString = "https://api.instagram.com/oembed/?url=\(photoURL.absoluteString)"
-            guard let igEmbedURL = URL(string: igEmbedUrlString) else { print("Could not init IG Embed URL"); return }
+            guard let igEmbedURL = URL(string: igEmbedUrlString) else { log.debug("Could not init IG Embed URL"); return }
             self?.getInstagramEmbedded(fromURL: igEmbedURL)
         }
     }
@@ -65,7 +67,7 @@ fileprivate extension SaveAccountViewController {
                     self?.usernameLabel.text = instagramEmbedded.authorName
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                log.error(error.localizedDescription)
             }
         }
     }
