@@ -24,7 +24,12 @@ final class AccountsViewController: UIViewController {
         super.viewDidLoad()
         title = "Accounts"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
-        setupTableView(then: loadAccounts)
+        setupTableView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadAccounts()
     }
 }
 
@@ -43,11 +48,10 @@ fileprivate extension AccountsViewController {
         present(alert, animated: true)
     }
 
-    func setupTableView(then loadData: @escaping (() -> Void)) {
+    func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(AccountsCell.nib, forCellReuseIdentifier: AccountsCell.reuseId)
-        loadData()
     }
 
     func loadAccounts() {

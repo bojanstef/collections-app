@@ -91,6 +91,7 @@ fileprivate extension SearchViewController {
         navigationTitleButton.addTarget(self, action: .showDatePicker, for: .touchUpInside)
         navigationTitleButton.addSubview(dummyTextField)
         navigationItem.titleView = navigationTitleButton
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "GET", style: .done, target: self, action: .fetchImages)
     }
 
     func setupCollectionView(then loadData: ((Date?, (() -> Void)?) -> Void)) {
@@ -135,16 +136,15 @@ fileprivate extension SearchViewController {
         })
     }
 
-    @IBAction func scrapeAccountsButtonPressed(_ sender: Any) {
-        // TODO: - Fix
-//        presenter.scrapeAccounts { [weak self] result in
-//            switch result {
-//            case .success:
-//                self?.showScrapeResultAlert()
-//            case .failure(let error):
-//                self?.showScrapeResultAlert(error: error)
-//            }
-//        }
+    @objc func fetchImages() {
+        presenter.scrapeAccounts { [weak self] result in
+            switch result {
+            case .success:
+                self?.showScrapeResultAlert()
+            case .failure(let error):
+                self?.showScrapeResultAlert(error: error)
+            }
+        }
     }
 
     @objc func showDatePicker() {
@@ -189,4 +189,5 @@ fileprivate extension Selector {
     static let searchPressed = #selector(SearchViewController.searchPressed)
     static let cancelDatePicker = #selector(SearchViewController.cancelDatePicker)
     static let resetPressed = #selector(SearchViewController.resetPressed)
+    static let fetchImages = #selector(SearchViewController.fetchImages)
 }
