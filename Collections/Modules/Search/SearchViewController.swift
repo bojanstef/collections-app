@@ -22,6 +22,7 @@ final class SearchViewController: UIViewController {
     fileprivate let navigationTitleButton = NavigationTitleButton(type: .system)
     fileprivate let datePicker = UIDatePicker()
     fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    fileprivate var descriptionView = UIView()
     fileprivate var posts = [Post]()
     var presenter: SearchPresentable!
 
@@ -34,7 +35,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.searchTitle
+        navigationItem.title = Constants.searchTitle
         blurView.alpha = 0
         setupNavigationItem()
         setupCollectionView(then: loadPosts)
@@ -93,7 +94,6 @@ fileprivate extension SearchViewController {
         navigationTitleButton.addSubview(dummyTextField)
         navigationTitleButton.layoutIfNeeded()
         navigationItem.titleView = navigationTitleButton
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "GET", style: .done, target: self, action: .fetchImages)
     }
 
     func setupCollectionView(then loadData: ((Date?, (() -> Void)?) -> Void)) {
@@ -138,17 +138,6 @@ fileprivate extension SearchViewController {
         })
     }
 
-    @objc func fetchImages() {
-        presenter.scrapeAccounts { [weak self] result in
-            switch result {
-            case .success:
-                self?.showScrapeResultAlert()
-            case .failure(let error):
-                self?.showScrapeResultAlert(error: error)
-            }
-        }
-    }
-
     @objc func showDatePicker() {
         guard !dummyTextField.isFirstResponder else {
             cancelDatePicker()
@@ -178,17 +167,6 @@ fileprivate extension SearchViewController {
     @objc func resetPressed() {
         datePicker.setDate(lastMidnightOrYesterday, animated: true)
     }
-
-    func showScrapeResultAlert(error: Error? = nil) {
-        DispatchQueue.main.async { [weak self] in
-            let title = error == nil ? "Success 🎉" : "Error 😱"
-            let message = error?.localizedDescription ?? "Come back in 15 minutes or so to see the results."
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(okAction)
-            self?.present(alert, animated: true)
-        }
-    }
 }
 
 fileprivate extension Selector {
@@ -196,5 +174,4 @@ fileprivate extension Selector {
     static let searchPressed = #selector(SearchViewController.searchPressed)
     static let cancelDatePicker = #selector(SearchViewController.cancelDatePicker)
     static let resetPressed = #selector(SearchViewController.resetPressed)
-    static let fetchImages = #selector(SearchViewController.fetchImages)
 }

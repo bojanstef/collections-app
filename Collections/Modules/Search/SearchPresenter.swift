@@ -16,7 +16,6 @@ protocol SearchPresentable {
     func getTitleFromSearchedDate(_ searchedDate: Date) -> String
     func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void))
     func navigateToPostDetail(_ selectedPost: Post)
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class SearchPresenter {
@@ -43,9 +42,5 @@ extension SearchPresenter: SearchPresentable {
 
     func navigateToPostDetail(_ selectedPost: Post) {
         moduleDelegate?.navigateToPostDetail(selectedPost)
-    }
-
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        interactor.scrapeAccounts(result: result)
     }
 }

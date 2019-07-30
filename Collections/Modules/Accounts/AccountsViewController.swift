@@ -23,7 +23,7 @@ final class AccountsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Accounts"
+        navigationItem.title = "Accounts"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
         setupTableView()
     }
@@ -53,6 +53,10 @@ fileprivate extension AccountsViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(AccountsCell.nib, forCellReuseIdentifier: AccountsCell.reuseId)
+
+        let headerView = AccountsHeaderView.fromNib()
+        headerView.delegate = self
+        tableView.tableHeaderView = headerView
     }
 
     func loadAccounts() {
@@ -91,6 +95,17 @@ fileprivate extension AccountsViewController {
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
+        }
+    }
+
+    func showScrapeResultAlert(error: Error? = nil) {
+        DispatchQueue.main.async { [weak self] in
+            let title = error == nil ? "Success 🎉" : "Error 😱"
+            let message = error?.localizedDescription ?? "Come back in 15 minutes or so to see the results."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            self?.present(alert, animated: true)
         }
     }
 }
@@ -137,6 +152,19 @@ extension AccountsViewController: UITableViewDataSource {
         let cell = (tableView.dequeueReusableCell(withIdentifier: AccountsCell.reuseId, for: indexPath) as? AccountsCell)!
         cell.setup(with: accounts[indexPath.row])
         return cell
+    }
+}
+
+extension AccountsViewController: AccountsHeaderViewDelegate {
+    func getPhotos() {
+        presenter.scrapeAccounts { [weak self] result in
+            switch result {
+            case .success:
+                self?.showScrapeResultAlert()
+            case .failure(let error):
+                self?.showScrapeResultAlert(error: error)
+            }
+        }
     }
 }
 

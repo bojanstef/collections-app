@@ -9,10 +9,10 @@
 import UIKit
 
 final class AccountsCoordinator {
-    let navigationController: UINavigationController
+    let navigationController: TabBarNavigationController
 
     init() {
-        self.navigationController = UINavigationController()
+        self.navigationController = TabBarNavigationController(.accounts)
     }
 }
 

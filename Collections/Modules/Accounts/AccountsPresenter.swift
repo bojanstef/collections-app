@@ -13,6 +13,7 @@ protocol AccountsPresentable {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class AccountsPresenter {
@@ -36,5 +37,9 @@ extension AccountsPresenter: AccountsPresentable {
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
         interactor.deleteAccount(account, result: result)
+    }
+
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        interactor.scrapeAccounts(result: result)
     }
 }

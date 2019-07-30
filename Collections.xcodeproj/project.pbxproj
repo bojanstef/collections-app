@@ -13,6 +13,7 @@
 		F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */; };
 		F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56B22EECD85006621C8 /* DummyTextField.swift */; };
 		F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56D22EECF79006621C8 /* BarButtonItem.swift */; };
+		F13CB57022EFD818006621C8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56F22EFD818006621C8 /* MainTabBarController.swift */; };
 		F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF422DDA2C200EBD322 /* GridLayout.swift */; };
 		F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF622DDA31800EBD322 /* PostsCell.swift */; };
 		F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1457EF722DDA31800EBD322 /* PostsCell.xib */; };
@@ -44,6 +45,10 @@
 		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
+		F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */; };
+		F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693922F001A70051319A /* AccountsHeaderView.swift */; };
+		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
+		F19C693E22F0051B0051319A /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693D22F0051B0051319A /* UIView+LoadNib.swift */; };
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
@@ -131,6 +136,7 @@
 		F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleButton.swift; sourceTree = "<group>"; };
 		F13CB56B22EECD85006621C8 /* DummyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTextField.swift; sourceTree = "<group>"; };
 		F13CB56D22EECF79006621C8 /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
+		F13CB56F22EFD818006621C8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F1457EF422DDA2C200EBD322 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		F1457EF622DDA31800EBD322 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		F1457EF722DDA31800EBD322 /* PostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsCell.xib; sourceTree = "<group>"; };
@@ -167,6 +173,10 @@
 		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
 		F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationController.swift; sourceTree = "<group>"; };
+		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
+		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
+		F19C693D22F0051B0051319A /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
@@ -262,12 +272,16 @@
 			children = (
 				F1578E7122E2EFFC0023C704 /* AccountsCell.swift */,
 				F1578E7222E2EFFC0023C704 /* AccountsCell.xib */,
+				F19C693922F001A70051319A /* AccountsHeaderView.swift */,
+				F19C693B22F001B60051319A /* AccountsHeaderView.xib */,
 				F13CB56D22EECF79006621C8 /* BarButtonItem.swift */,
 				F13CB56B22EECD85006621C8 /* DummyTextField.swift */,
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
+				F13CB56F22EFD818006621C8 /* MainTabBarController.swift */,
 				F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
+				F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -460,6 +474,7 @@
 			children = (
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
+				F19C693D22F0051B0051319A /* UIView+LoadNib.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -637,6 +652,7 @@
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
+				F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */,
 				F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */,
 				F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */,
 			);
@@ -754,11 +770,13 @@
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
+				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
+				F19C693E22F0051B0051319A /* UIView+LoadNib.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
@@ -774,6 +792,7 @@
 				F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */,
 				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
 				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
+				F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */,
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
@@ -786,6 +805,7 @@
 				F1FAD9D522E03664000A699C /* AccountsWireframe.swift in Sources */,
 				F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */,
 				F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */,
+				F13CB57022EFD818006621C8 /* MainTabBarController.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
 				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
 				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,

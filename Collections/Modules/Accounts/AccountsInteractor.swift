@@ -13,6 +13,7 @@ protocol AccountsInteractable {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class AccountsInteractor {
@@ -34,5 +35,9 @@ extension AccountsInteractor: AccountsInteractable {
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
         networkAccess.deleteAccount(account, result: result)
+    }
+
+    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        networkAccess.scrapeAccounts(result: result)
     }
 }

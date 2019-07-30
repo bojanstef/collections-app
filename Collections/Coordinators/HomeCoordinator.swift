@@ -12,7 +12,7 @@ protocol HomeCoordinatorDelegate: AnyObject {}
 
 final class HomeCoordinator {
     fileprivate let navigationController: UINavigationController
-    fileprivate let tabBarController = UITabBarController()
+    fileprivate let tabBarController = MainTabBarController()
     fileprivate let searchCoordinator = SearchCoordinator()
     fileprivate let accountsCoordinator = AccountsCoordinator()
     fileprivate weak var delegate: HomeCoordinatorDelegate?

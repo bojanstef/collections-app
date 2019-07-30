@@ -18,7 +18,7 @@ final class SaveAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: .donePressed)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .dismiss)
         FirebaseApp.configure()
         loadAndSaveInstagramAccountName()
     }
@@ -81,5 +81,5 @@ fileprivate extension SaveAccountViewController {
 }
 
 fileprivate extension Selector {
-    static let donePressed = #selector(SaveAccountViewController.dismissAlertExtension)
+    static let dismiss = #selector(SaveAccountViewController.dismissAlertExtension)
 }
