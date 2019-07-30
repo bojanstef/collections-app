@@ -16,26 +16,10 @@
                     <view key="view" contentMode="scaleToFill" id="92j-qF-yQj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVY-Cv-kCk">
-                                <rect key="frame" x="32" y="128" width="311" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="jVY-Cv-kCk" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="iuu-7r-JUs"/>
-                            <constraint firstItem="jVY-Cv-kCk" firstAttribute="top" secondItem="T7B-1V-KKQ" secondAttribute="top" constant="64" id="wXm-nn-pQL"/>
-                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="jVY-Cv-kCk" secondAttribute="trailing" constant="32" id="wzi-mT-0xx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T7B-1V-KKQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pqj-tb-44v"/>
-                    <connections>
-                        <outlet property="usernameLabel" destination="jVY-Cv-kCk" id="6MW-60-fCI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecw-7j-5Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

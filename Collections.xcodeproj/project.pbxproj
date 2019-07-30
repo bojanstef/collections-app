@@ -10,6 +10,9 @@
 		275E5A8E6156963DADC33ED5 /* Pods_Save_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */; };
 		F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369F8922D815E6000EB574 /* HomeCoordinator.swift */; };
 		F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */; };
+		F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */; };
+		F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56B22EECD85006621C8 /* DummyTextField.swift */; };
+		F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56D22EECF79006621C8 /* BarButtonItem.swift */; };
 		F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF422DDA2C200EBD322 /* GridLayout.swift */; };
 		F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EF622DDA31800EBD322 /* PostsCell.swift */; };
 		F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1457EF722DDA31800EBD322 /* PostsCell.xib */; };
@@ -125,6 +128,9 @@
 		DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Save_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1369F8922D815E6000EB574 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleButton.swift; sourceTree = "<group>"; };
+		F13CB56B22EECD85006621C8 /* DummyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTextField.swift; sourceTree = "<group>"; };
+		F13CB56D22EECF79006621C8 /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		F1457EF422DDA2C200EBD322 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		F1457EF622DDA31800EBD322 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		F1457EF722DDA31800EBD322 /* PostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsCell.xib; sourceTree = "<group>"; };
@@ -256,7 +262,10 @@
 			children = (
 				F1578E7122E2EFFC0023C704 /* AccountsCell.swift */,
 				F1578E7222E2EFFC0023C704 /* AccountsCell.xib */,
+				F13CB56D22EECF79006621C8 /* BarButtonItem.swift */,
+				F13CB56B22EECD85006621C8 /* DummyTextField.swift */,
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
+				F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
 			);
@@ -740,6 +749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */,
+				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
@@ -761,9 +771,11 @@
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
+				F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */,
 				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
 				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
+				F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,

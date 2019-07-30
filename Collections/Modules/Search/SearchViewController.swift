@@ -12,16 +12,16 @@ private enum Constants {
     static let searchTitle = "Search"
     static let resetTitle = "Reset"
     static let blurViewAnimationDuration: TimeInterval = 0.4
-    static let blurAlphaMax: CGFloat = 0.75
+    static let blurAlphaMax: CGFloat = 0.25
     static let twentyFourHours: TimeInterval = 60 * 60 * 24
 }
 
 final class SearchViewController: UIViewController {
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
-    fileprivate let dummyTextField = UITextField(frame: .zero)
-    fileprivate let navigationTitleButton = UIButton(type: .system)
+    fileprivate let dummyTextField = DummyTextField()
+    fileprivate let navigationTitleButton = NavigationTitleButton(type: .system)
     fileprivate let datePicker = UIDatePicker()
-    fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     fileprivate var posts = [Post]()
     var presenter: SearchPresentable!
 
@@ -73,23 +73,25 @@ fileprivate extension SearchViewController {
     func setupNavigationItem() {
         let toolbar = UIToolbar()
         toolbar.items = [
-            .init(barButtonSystemItem: .cancel, target: self, action: .cancelDatePicker),
-            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            .init(title: Constants.resetTitle, style: .plain, target: self, action: .resetPressed),
-            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            .init(title: Constants.searchTitle, style: .plain, target: self, action: .searchPressed)
+            BarButtonItem(barButtonSystemItem: .cancel, target: self, action: .cancelDatePicker),
+            BarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            BarButtonItem(title: Constants.resetTitle, style: .plain, target: self, action: .resetPressed),
+            BarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            BarButtonItem(title: Constants.searchTitle, style: .plain, target: self, action: .searchPressed)
         ]
         toolbar.sizeToFit()
 
         dummyTextField.inputView = datePicker
         dummyTextField.inputAccessoryView = toolbar
-        dummyTextField.autocorrectionType = .no
-        dummyTextField.inputAssistantItem.leadingBarButtonGroups.removeAll()
-        dummyTextField.inputAssistantItem.trailingBarButtonGroups.removeAll()
 
+        let navTitleButtonWidth = view.bounds.width - 128
+        let navTitleButtonHeight = navigationController?.navigationBar.bounds.height ?? .zero
+        navigationTitleButton.frame = CGRect(x: 0, y: 0, width: navTitleButtonWidth, height: navTitleButtonHeight)
         navigationTitleButton.setTitle(Constants.searchTitle, for: .normal)
+        navigationTitleButton.setImage(UIImage(named: "expandArrow"), for: .normal)
         navigationTitleButton.addTarget(self, action: .showDatePicker, for: .touchUpInside)
         navigationTitleButton.addSubview(dummyTextField)
+        navigationTitleButton.layoutIfNeeded()
         navigationItem.titleView = navigationTitleButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "GET", style: .done, target: self, action: .fetchImages)
     }
@@ -148,6 +150,11 @@ fileprivate extension SearchViewController {
     }
 
     @objc func showDatePicker() {
+        guard !dummyTextField.isFirstResponder else {
+            cancelDatePicker()
+            return
+        }
+
         addBlurView()
         dummyTextField.becomeFirstResponder()
     }

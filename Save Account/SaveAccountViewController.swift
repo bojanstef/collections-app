@@ -14,15 +14,13 @@ import CollectionsKit
 private let log = Logger(category: "Action Extension")
 
 final class SaveAccountViewController: UIViewController {
-    @IBOutlet fileprivate weak var usernameLabel: UILabel!
     fileprivate let networkGateway: SaveAccountAccessing = NetworkGateway()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .cancelPressed)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: .savePressed)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: .donePressed)
         FirebaseApp.configure()
-        loadInstagramAccountName()
+        loadAndSaveInstagramAccountName()
     }
 }
 
@@ -34,9 +32,8 @@ fileprivate extension SaveAccountViewController {
         extensionContext?.completeRequest(returningItems: returningItems)
     }
 
-    @objc func savePressed() {
-        guard let username = usernameLabel.text else { log.debug("No username"); return }
-        let account = Account(username: username)
+    func saveAccount(instagramEmbedded: InstagramEmbedded) {
+        let account = Account(username: instagramEmbedded.authorName)
         networkGateway.addAccount(account) { [weak self] result in
             switch result {
             case .success(let accountSaved):
@@ -47,7 +44,7 @@ fileprivate extension SaveAccountViewController {
         }
     }
 
-    func loadInstagramAccountName() {
+    func loadAndSaveInstagramAccountName() {
         guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem else { log.debug("No extension item"); return }
         guard let provider = extensionItem.attachments?.first else { log.debug("No provider"); return }
         provider.loadItem(forTypeIdentifier: String(kUTTypeURL)) { [weak self] coding, error in
@@ -64,7 +61,7 @@ fileprivate extension SaveAccountViewController {
             switch result {
             case .success(let instagramEmbedded):
                 DispatchQueue.main.async { [weak self] in
-                    self?.usernameLabel.text = instagramEmbedded.authorName
+                    self?.saveAccount(instagramEmbedded: instagramEmbedded)
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -84,6 +81,5 @@ fileprivate extension SaveAccountViewController {
 }
 
 fileprivate extension Selector {
-    static let cancelPressed = #selector(SaveAccountViewController.dismissAlertExtension)
-    static let savePressed = #selector(SaveAccountViewController.savePressed)
+    static let donePressed = #selector(SaveAccountViewController.dismissAlertExtension)
 }
