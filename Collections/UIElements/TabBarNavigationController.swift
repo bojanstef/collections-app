@@ -41,5 +41,6 @@ final class TabBarNavigationController: UINavigationController {
 
         tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
         tabBarItem.imageInsets = Constants.tabBarInsets
+        tabBarController?.selectedIndex = 0
     }
 }
