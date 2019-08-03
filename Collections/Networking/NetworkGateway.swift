@@ -130,7 +130,7 @@ extension NetworkGateway: AccountsAccessing {
 
                 doc.reference.delete { error in
                     guard error == nil else { result(.failure(error!)); return }
-                    result(.success(()))
+                    result(.success)
                 }
             }
     }
@@ -190,7 +190,7 @@ extension NetworkGateway: AccountsAccessing {
                         }
 
                         print(response.debugDescription)
-                        result(.success(()))
+                        result(.success)
                     }
 
                     task.resume()

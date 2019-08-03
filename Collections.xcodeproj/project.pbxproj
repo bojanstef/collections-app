@@ -39,6 +39,7 @@
 		F151E87922EC0B7400D16EF7 /* Collection+Modellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E87822EC0B7400D16EF7 /* Collection+Modellable.swift */; };
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
+		F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
 		F18FBA9322EA2D27001C0C42 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18FBA9222EA2D27001C0C42 /* Media.xcassets */; };
 		F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18FBA9422EA2D27001C0C42 /* SaveAccountViewController.swift */; };
 		F18FBA9C22EA2D27001C0C42 /* Save Account.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F18FBA9022EA2D27001C0C42 /* Save Account.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -165,6 +166,7 @@
 		F151E87822EC0B7400D16EF7 /* Collection+Modellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Modellable.swift"; sourceTree = "<group>"; };
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
+		F163823022F5000E006363E8 /* Result+SuccessVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+SuccessVoid.swift"; sourceTree = "<group>"; };
 		F18FBA9022EA2D27001C0C42 /* Save Account.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Save Account.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18FBA9222EA2D27001C0C42 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F18FBA9422EA2D27001C0C42 /* SaveAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountViewController.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 		F1C352AF22D7C594005198B8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
 				F19C693D22F0051B0051319A /* UIView+LoadNib.swift */,
@@ -796,6 +799,7 @@
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
+				F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
