@@ -235,3 +235,4 @@ extension NetworkGateway: SearchAccessing {
 }
 
 extension NetworkGateway: PostDetailAccessing {}
+extension NetworkGateway: OnboardAccessing {}

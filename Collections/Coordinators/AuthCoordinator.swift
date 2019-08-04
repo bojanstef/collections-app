@@ -24,6 +24,13 @@ final class AuthCoordinator {
 
 extension AuthCoordinator: Coordinating {
     func start() {
+        let viewController = OnboardWireframe(moduleDelegate: self).viewController
+        navigationController.setViewControllers([viewController], animated: true)
+    }
+}
+
+extension AuthCoordinator: OnboardModuleDelegate {
+    func navigateToAuth() {
         let viewController = AuthWireframe(moduleDelegate: self).viewController
         navigationController.setViewControllers([viewController], animated: true)
     }

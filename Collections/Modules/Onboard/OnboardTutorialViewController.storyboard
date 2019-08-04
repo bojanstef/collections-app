@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MpL-0W-Zfr">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboard Tutorial View Controller-->
+        <scene sceneID="i7O-ds-QOc">
+            <objects>
+                <viewController id="MpL-0W-Zfr" customClass="OnboardTutorialViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r2Q-Xe-bly">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IC1-hF-iXk">
+                                <rect key="frame" x="48" y="649.5" width="318" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6y-Ov-KwG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="589.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8O7-jz-7IU" firstAttribute="trailing" secondItem="U6y-Ov-KwG" secondAttribute="trailing" id="AXw-P1-8Jg"/>
+                            <constraint firstItem="IC1-hF-iXk" firstAttribute="top" secondItem="U6y-Ov-KwG" secondAttribute="bottom" constant="16" id="EZN-AR-wgE"/>
+                            <constraint firstItem="8O7-jz-7IU" firstAttribute="trailing" secondItem="IC1-hF-iXk" secondAttribute="trailing" constant="48" id="LUf-C5-EES"/>
+                            <constraint firstItem="U6y-Ov-KwG" firstAttribute="top" secondItem="8O7-jz-7IU" secondAttribute="top" id="LZr-Vp-zF3"/>
+                            <constraint firstItem="U6y-Ov-KwG" firstAttribute="leading" secondItem="8O7-jz-7IU" secondAttribute="leading" id="Y49-FZ-Ctc"/>
+                            <constraint firstItem="IC1-hF-iXk" firstAttribute="leading" secondItem="8O7-jz-7IU" secondAttribute="leading" constant="48" id="g5n-UB-A8s"/>
+                            <constraint firstItem="8O7-jz-7IU" firstAttribute="bottom" secondItem="IC1-hF-iXk" secondAttribute="bottom" constant="192" id="ge7-fL-0cd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8O7-jz-7IU"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="IC1-hF-iXk" id="aV7-k8-yTL"/>
+                        <outlet property="previewContainerView" destination="U6y-Ov-KwG" id="wsM-wk-vNx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENA-HQ-kst" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+</document>
