@@ -15,7 +15,7 @@ final class ActionButton: UIButton {
     }
 
     fileprivate func setup() {
-        backgroundColor = UIColor(red: 80/255, green: 80/255, blue: 1, alpha: 1)
+        backgroundColor = .ultraviolet
         setTitleColor(.white, for: .normal)
         layer.masksToBounds = true
         layer.cornerRadius = 8

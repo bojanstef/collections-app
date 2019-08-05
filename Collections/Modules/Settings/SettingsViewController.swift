@@ -21,6 +21,16 @@ final class SettingsViewController: UIViewController {
 
 fileprivate extension SettingsViewController {
     @IBAction func signOutPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+            self?.runSignOut()
+        }))
+
+        present(alert, animated: true)
+    }
+
+    func runSignOut() {
         do {
             try presenter.signOut()
         } catch {

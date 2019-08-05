@@ -11,11 +11,12 @@ import SafariServices
 import CollectionsKit
 
 private enum Constants {
-    static let headerViewMinHeight: CGFloat = 84 // Min height given [top:16, bottom:16, between:8, button:44]
+    static let headerViewMinHeight: CGFloat = 96
 }
 
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
+    fileprivate var headerView = AccountsHeaderView()
     fileprivate var accounts = SortedSet<Account>()
     var presenter: AccountsPresentable!
 
@@ -57,7 +58,7 @@ fileprivate extension AccountsViewController {
         tableView.delegate = self
         tableView.register(AccountsCell.nib, forCellReuseIdentifier: AccountsCell.reuseId)
 
-        let headerView = AccountsHeaderView.nib()
+        headerView = AccountsHeaderView.nib()
         headerView.delegate = self
         headerView.frame.size.height = Constants.headerViewMinHeight
         tableView.tableHeaderView = headerView
@@ -160,8 +161,10 @@ extension AccountsViewController: UITableViewDataSource {
 }
 
 extension AccountsViewController: AccountsHeaderViewDelegate {
-    func getPhotos() {
+    func getPhotos(completion: @escaping (() -> Void)) {
         presenter.scrapeAccounts { [weak self] result in
+            completion()
+
             switch result {
             case .success:
                 self?.showScrapeResultAlert()

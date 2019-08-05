@@ -47,6 +47,7 @@
 		F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707F22F7DD6200B3C3DB /* SettingsInteractor.swift */; };
 		F175708622F7DD6200B3C3DB /* SettingsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */; };
 		F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708122F7DD6200B3C3DB /* SettingsWireframe.swift */; };
+		F175708B22F7FAF000B3C3DB /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */; };
 		F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90922F508FF00A6B29E /* OnboardPresenter.swift */; };
 		F185D91122F508FF00A6B29E /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90B22F508FF00A6B29E /* OnboardViewController.swift */; };
 		F185D91222F508FF00A6B29E /* OnboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */; };
@@ -193,6 +194,7 @@
 		F175707F22F7DD6200B3C3DB /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAccessing.swift; sourceTree = "<group>"; };
 		F175708122F7DD6200B3C3DB /* SettingsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWireframe.swift; sourceTree = "<group>"; };
+		F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		F185D90922F508FF00A6B29E /* OnboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPresenter.swift; sourceTree = "<group>"; };
 		F185D90B22F508FF00A6B29E /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInteractor.swift; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
+				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
 			);
@@ -918,6 +921,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */,
+				F175708B22F7FAF000B3C3DB /* UIColor+Theme.swift in Sources */,
 				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,

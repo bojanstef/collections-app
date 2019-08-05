@@ -8,4 +8,9 @@
 
 import UIKit
 
-final class EmptyPostsView: UIView, NibLoadable {}
+final class EmptyPostsView: UIView, NibLoadable {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backgroundColor = .appleToolbar
+    }
+}
