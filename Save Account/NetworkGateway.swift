@@ -48,7 +48,6 @@ extension NetworkGateway: SaveAccountAccessing {
             }
 
             do {
-                // TODO: - Move Models to CollectionKit and create Model for https://www.instagram.com/developer/embedding/#oembed
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
                 let instagramEmbedded = try InstagramEmbedded(json: json)
                 result(.success(instagramEmbedded))
