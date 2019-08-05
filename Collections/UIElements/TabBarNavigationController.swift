@@ -35,8 +35,8 @@ final class TabBarNavigationController: UINavigationController {
             image = UIImage(named: "search")
             selectedImage = UIImage(named: "searchFilled")
         case .accounts:
-            image = UIImage(named: "accounts")
-            selectedImage = UIImage(named: "accountsFilled")
+            image = UIImage(named: "account")
+            selectedImage = UIImage(named: "accountFilled")
         }
 
         tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
