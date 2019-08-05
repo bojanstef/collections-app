@@ -10,6 +10,10 @@ import UIKit
 import SafariServices
 import CollectionsKit
 
+private enum Constants {
+    static let headerViewMinHeight: CGFloat = 84 // Min height given [top:16, bottom:16, between:8, button:44]
+}
+
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
     fileprivate var accounts = SortedSet<Account>()
@@ -55,6 +59,7 @@ fileprivate extension AccountsViewController {
 
         let headerView = AccountsHeaderView.nib()
         headerView.delegate = self
+        headerView.frame.size.height = Constants.headerViewMinHeight
         tableView.tableHeaderView = headerView
     }
 

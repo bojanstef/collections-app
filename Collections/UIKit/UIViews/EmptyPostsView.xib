@@ -15,51 +15,51 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="551"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shrugEmoji" translatesAutoresizingMaskIntoConstraints="NO" id="l75-Hc-pZo">
-                    <rect key="frame" x="143" y="216.5" width="128" height="128"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="128" id="XPx-Bk-NfD"/>
-                        <constraint firstAttribute="height" constant="128" id="zH8-zk-afA"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing found after the date you searched" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-u6-vz8">
-                    <rect key="frame" x="32" y="352.5" width="350" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try searching further back" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-0l-hVW">
-                    <rect key="frame" x="32" y="60" width="350" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="111.5" y="60" width="191.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try adding more accounts" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8D-wt-nFG">
-                    <rect key="frame" x="128" y="480.5" width="254" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add more accounts" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8D-wt-nFG">
+                    <rect key="frame" x="241" y="481.5" width="141" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="2"/>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="23l-x9-lrH">
+                    <rect key="frame" x="32" y="178.5" width="350" height="204.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shrugEmoji" translatesAutoresizingMaskIntoConstraints="NO" id="l75-Hc-pZo">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="M9T-DD-Q8H"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing found after the date you searched" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-u6-vz8">
+                            <rect key="frame" x="0.0" y="128" width="350" height="76.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SfE-0l-hVW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="7i1-zj-HYK"/>
+                <constraint firstItem="23l-x9-lrH" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="3Tg-YK-ypW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D8D-wt-nFG" secondAttribute="trailing" constant="32" id="ERE-xP-rFe"/>
-                <constraint firstItem="8HA-u6-vz8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Ewn-uy-sQ7"/>
-                <constraint firstItem="8HA-u6-vz8" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="F9G-j6-lmH"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SfE-0l-hVW" secondAttribute="trailing" constant="32" id="L83-jy-HZk"/>
-                <constraint firstItem="D8D-wt-nFG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="128" id="ShS-lA-v3d"/>
-                <constraint firstItem="8HA-u6-vz8" firstAttribute="top" secondItem="l75-Hc-pZo" secondAttribute="bottom" constant="8" id="UqE-8d-Q77"/>
+                <constraint firstItem="23l-x9-lrH" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Fut-yQ-U2z"/>
                 <constraint firstItem="SfE-0l-hVW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="Z88-pK-Zh0"/>
                 <constraint firstItem="SfE-0l-hVW" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Zsd-fp-DxT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="D8D-wt-nFG" secondAttribute="bottom" constant="16" id="cAf-Z4-F8t"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8HA-u6-vz8" secondAttribute="trailing" constant="32" id="caN-vN-c60"/>
-                <constraint firstItem="l75-Hc-pZo" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="t77-bR-d07"/>
-                <constraint firstItem="l75-Hc-pZo" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="wRy-p1-XDv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="23l-x9-lrH" secondAttribute="trailing" constant="32" id="kLV-rp-sFU"/>
+                <constraint firstItem="23l-x9-lrH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="lut-Gp-aHQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-201" y="170"/>
+            <point key="canvasLocation" x="-201.44927536231884" y="169.75446428571428"/>
         </view>
     </objects>
     <resources>
