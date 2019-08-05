@@ -14,6 +14,7 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Settings"
         toolbar.tintColor = .black
     }
 }
