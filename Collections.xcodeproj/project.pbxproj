@@ -59,6 +59,7 @@
 		F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693922F001A70051319A /* AccountsHeaderView.swift */; };
 		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
 		F19C693E22F0051B0051319A /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693D22F0051B0051319A /* UIView+LoadNib.swift */; };
+		F1A28E7422F7ABFE002808B6 /* saveAccount.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */; };
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
@@ -197,6 +198,7 @@
 		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
 		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
 		F19C693D22F0051B0051319A /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
+		F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = saveAccount.mp4; sourceTree = "<group>"; };
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 		F14F4D3322D7B4AF00F83D60 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */,
 				F1944A7422DA939300C54C03 /* Collections.entitlements */,
 				F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */,
 				F14F4D4022D7B4B100F83D60 /* Info.plist */,
@@ -683,6 +686,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A28E7422F7ABFE002808B6 /* saveAccount.mp4 in Resources */,
 				F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */,
 				F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */,
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
@@ -1031,7 +1035,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F6BE6224DE0CEF56B83B357 /* Pods-Collections.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collections/Collections.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1057,7 +1060,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2332E7C8BD873927E4C525E /* Pods-Collections.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collections/Collections.entitlements;
 				CODE_SIGN_STYLE = Automatic;

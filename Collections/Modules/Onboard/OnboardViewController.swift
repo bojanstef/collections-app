@@ -26,8 +26,6 @@ final class OnboardViewController: UIPageViewController {
     }
 }
 
-extension OnboardViewController: OnboardTutorialViewControllerDelegate {}
-
 extension OnboardViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = tutorialViewControllers.firstIndex(of: viewController) else { return nil }
@@ -68,15 +66,15 @@ extension OnboardViewController: UIPageViewControllerDelegate {
 
 fileprivate extension OnboardViewController {
     func setupViewControllers() {
-        let titles = [
-            "Add usernames of accounts in your niche to get content from",
-            "Search for their content, we'll notify you when it's ready",
-            "Save images and post to your account without the hastle of searching Instagram for hours"
+        let tutorialData: [(videoResource: String, descriptionText: String)] = [
+            (videoResource: "saveAccount", descriptionText: "Add accounts in your niche to get content from"),
+            (videoResource: "saveAccount", descriptionText: "Search for content based on the date it was posted"),
+            (videoResource: "saveAccount", descriptionText: "Find images to post without searching for hours")
         ]
 
-        tutorialViewControllers = (0..<titles.count).map { offset in
+        tutorialViewControllers = tutorialData.map { data in
             let controller = UIStoryboard.instantiateInitialViewController(OnboardTutorialViewController.self)
-            controller.setup(descriptionText: titles[offset])
+            controller.setup(videoResource: data.videoResource, descriptionText: data.descriptionText)
             return controller
         }
         guard let firstVC = tutorialViewControllers.first else { fatalError("Could not load tutorial view controllers.") }
