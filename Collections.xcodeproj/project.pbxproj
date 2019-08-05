@@ -295,26 +295,19 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		F1457EF322DDA2A000EBD322 /* UIElements */ = {
+		F1457EF322DDA2A000EBD322 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				F1578E7122E2EFFC0023C704 /* AccountsCell.swift */,
-				F1578E7222E2EFFC0023C704 /* AccountsCell.xib */,
-				F19C693922F001A70051319A /* AccountsHeaderView.swift */,
-				F19C693B22F001B60051319A /* AccountsHeaderView.xib */,
-				F185D91B22F6595700A6B29E /* ActionButton.swift */,
-				F13CB56D22EECF79006621C8 /* BarButtonItem.swift */,
-				F13CB56B22EECD85006621C8 /* DummyTextField.swift */,
-				F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */,
-				F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */,
-				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
-				F13CB56F22EFD818006621C8 /* MainTabBarController.swift */,
-				F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */,
-				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
-				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
-				F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */,
+				F175707822F7DC4700B3C3DB /* UIBarButtonItems */,
+				F175707622F7DC0700B3C3DB /* UIButtons */,
+				F175707522F7DBF600B3C3DB /* UICollectionViewCells */,
+				F175707A22F7DC6200B3C3DB /* UICollectionViewFlowLayouts */,
+				F175707322F7DBA800B3C3DB /* UITableViewCells */,
+				F175707922F7DC5200B3C3DB /* UITextFields */,
+				F175707722F7DC2E00B3C3DB /* UIViewControllers */,
+				F175707422F7DBC600B3C3DB /* UIViews */,
 			);
-			path = UIElements;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		F1457EFC22DDA35500EBD322 /* Models */ = {
@@ -364,7 +357,7 @@
 				F14F4D5422D7C48500F83D60 /* Modules */,
 				F1C352B222D7C615005198B8 /* Networking */,
 				F14F4D4B22D7C20400F83D60 /* Protocols */,
-				F1457EF322DDA2A000EBD322 /* UIElements */,
+				F1457EF322DDA2A000EBD322 /* UIKit */,
 				F179F43A22F7DB0600C8FDBB /* Utilities */,
 			);
 			path = Collections;
@@ -475,6 +468,77 @@
 				F185D90E22F508FF00A6B29E /* OnboardWireframe.swift */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		F175707322F7DBA800B3C3DB /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F1578E7122E2EFFC0023C704 /* AccountsCell.swift */,
+				F1578E7222E2EFFC0023C704 /* AccountsCell.xib */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		F175707422F7DBC600B3C3DB /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				F19C693922F001A70051319A /* AccountsHeaderView.swift */,
+				F19C693B22F001B60051319A /* AccountsHeaderView.xib */,
+				F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */,
+				F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		F175707522F7DBF600B3C3DB /* UICollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
+				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
+			);
+			path = UICollectionViewCells;
+			sourceTree = "<group>";
+		};
+		F175707622F7DC0700B3C3DB /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				F185D91B22F6595700A6B29E /* ActionButton.swift */,
+				F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */,
+			);
+			path = UIButtons;
+			sourceTree = "<group>";
+		};
+		F175707722F7DC2E00B3C3DB /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F13CB56F22EFD818006621C8 /* MainTabBarController.swift */,
+				F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		F175707822F7DC4700B3C3DB /* UIBarButtonItems */ = {
+			isa = PBXGroup;
+			children = (
+				F13CB56D22EECF79006621C8 /* BarButtonItem.swift */,
+			);
+			path = UIBarButtonItems;
+			sourceTree = "<group>";
+		};
+		F175707922F7DC5200B3C3DB /* UITextFields */ = {
+			isa = PBXGroup;
+			children = (
+				F13CB56B22EECD85006621C8 /* DummyTextField.swift */,
+			);
+			path = UITextFields;
+			sourceTree = "<group>";
+		};
+		F175707A22F7DC6200B3C3DB /* UICollectionViewFlowLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
+			);
+			path = UICollectionViewFlowLayouts;
 			sourceTree = "<group>";
 		};
 		F179F43A22F7DB0600C8FDBB /* Utilities */ = {
