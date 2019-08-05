@@ -18,6 +18,7 @@ private enum Constants {
 
 final class SearchViewController: UIViewController {
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    fileprivate let refreshControl = UIRefreshControl()
     fileprivate let dummyTextField = DummyTextField()
     fileprivate let navigationTitleButton = NavigationTitleButton(type: .system)
     fileprivate let datePicker = UIDatePicker()
@@ -32,6 +33,7 @@ final class SearchViewController: UIViewController {
         blurView.alpha = 0
         setupNavigationItem()
         setupCollectionView(then: loadPosts)
+        refreshControl.addTarget(self, action: .searchPressed, for: .valueChanged)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,6 +101,7 @@ fileprivate extension SearchViewController {
     func setupCollectionView(then loadData: ((Date?, (() -> Void)?) -> Void)) {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.refreshControl = refreshControl
         collectionView.collectionViewLayout = GridLayout()
         collectionView.alwaysBounceVertical = true
         collectionView.register(PostsCell.nib, forCellWithReuseIdentifier: PostsCell.reuseId)
@@ -113,7 +116,7 @@ fileprivate extension SearchViewController {
             switch result {
             case .success(let posts):
                 DispatchQueue.main.async {
-                    self?.setupCollectionView(with: posts)
+                    self?.updateCollectionView(with: posts)
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -121,7 +124,7 @@ fileprivate extension SearchViewController {
         }
     }
 
-    func setupCollectionView(with posts: [Post]) {
+    func updateCollectionView(with posts: [Post]) {
         self.posts = posts
         collectionView.reloadData()
 
@@ -168,6 +171,7 @@ fileprivate extension SearchViewController {
         dummyTextField.resignFirstResponder()
 
         loadPosts(after: searchDate) { [weak self] in
+            self?.refreshControl.endRefreshing()
             self?.removeBlurView()
         }
     }
