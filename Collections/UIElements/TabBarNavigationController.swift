@@ -27,6 +27,7 @@ final class TabBarNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.tintColor = .black
 
         let image: UIImage?
         let selectedImage: UIImage?

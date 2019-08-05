@@ -71,13 +71,35 @@ extension NetworkGateway: SaveAccountAccessing {
             .collection("users")
             .document(userID)
             .collection("accounts")
-            .addDocument(data: (account.json as? [String: Any])!) { error in
-                guard let error = error else {
-                    result(.success(account))
-                    return
-                }
+            .whereField("username", isEqualTo: account.username)
+            .getDocuments { snapshots, error in
+                guard error == nil else { result(.failure(error!)); return }
+                do {
+                    let accounts: [Account] = try snapshots!.documents.compactMap { snapshot -> Account in
+                        let json = snapshot.data()
+                        return try Account(json: json)
+                    }
 
-                result(.failure(error))
-        }
+                    guard accounts.isEmpty else {
+                        // TODO: - Read a custom error and present it to the user.
+                        throw NSError(domain: "This username already exists", code: 0, userInfo: nil)
+                    }
+
+                    Firestore.firestore()
+                        .collection("users")
+                        .document(userID)
+                        .collection("accounts")
+                        .addDocument(data: (account.json as? [String: Any])!) { error in
+                            guard let error = error else {
+                                result(.success(account))
+                                return
+                            }
+
+                            result(.failure(error))
+                    }
+                } catch {
+                    result(.failure(error))
+                }
+            }
     }
 }

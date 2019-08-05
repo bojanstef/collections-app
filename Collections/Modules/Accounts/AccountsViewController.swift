@@ -12,19 +12,14 @@ import CollectionsKit
 
 final class AccountsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
-    fileprivate var accountsSet = Set<Account>()
-    fileprivate var accounts = [Account]() {
-        didSet {
-            accountsSet = Set(accountsSet)
-        }
-    }
-
+    fileprivate var accounts = SortedSet<Account>()
     var presenter: AccountsPresentable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Accounts"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsGlyph"), style: .plain, target: self, action: .addAccount)
         setupTableView()
     }
 
@@ -64,7 +59,7 @@ fileprivate extension AccountsViewController {
             switch result {
             case .success(let accounts):
                 DispatchQueue.main.async {
-                    self?.accounts = accounts.sorted()
+                    self?.accounts = SortedSet(accounts)
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
@@ -80,7 +75,7 @@ fileprivate extension AccountsViewController {
         }
 
         let account = Account(username: username)
-        guard !accountsSet.contains(account) else {
+        guard !accounts.contains(account) else {
             log.error("This username already exists") // TODO: - Show info here (UX).
             return
         }

@@ -40,6 +40,7 @@
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
 		F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
+		F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707122F7DB5600B3C3DB /* SortedSet.swift */; };
 		F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90922F508FF00A6B29E /* OnboardPresenter.swift */; };
 		F185D91122F508FF00A6B29E /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90B22F508FF00A6B29E /* OnboardViewController.swift */; };
 		F185D91222F508FF00A6B29E /* OnboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */; };
@@ -179,6 +180,7 @@
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
 		F163823022F5000E006363E8 /* Result+SuccessVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+SuccessVoid.swift"; sourceTree = "<group>"; };
+		F175707122F7DB5600B3C3DB /* SortedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSet.swift; sourceTree = "<group>"; };
 		F185D90922F508FF00A6B29E /* OnboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPresenter.swift; sourceTree = "<group>"; };
 		F185D90B22F508FF00A6B29E /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInteractor.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				F1C352B222D7C615005198B8 /* Networking */,
 				F14F4D4B22D7C20400F83D60 /* Protocols */,
 				F1457EF322DDA2A000EBD322 /* UIElements */,
+				F179F43A22F7DB0600C8FDBB /* Utilities */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -472,6 +475,14 @@
 				F185D90E22F508FF00A6B29E /* OnboardWireframe.swift */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		F179F43A22F7DB0600C8FDBB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F175707122F7DB5600B3C3DB /* SortedSet.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F18FBA9122EA2D27001C0C42 /* Save Account */ = {
@@ -822,6 +833,7 @@
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
+				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
