@@ -234,5 +234,11 @@ extension NetworkGateway: SearchAccessing {
     }
 }
 
+extension NetworkGateway: SettingsAccessing {
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+}
+
 extension NetworkGateway: PostDetailAccessing {}
 extension NetworkGateway: OnboardAccessing {}

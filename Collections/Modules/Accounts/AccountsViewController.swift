@@ -19,7 +19,7 @@ final class AccountsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Accounts"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsGlyph"), style: .plain, target: self, action: .addAccount)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsGlyph"), style: .plain, target: self, action: .openSettings)
         setupTableView()
     }
 
@@ -42,6 +42,10 @@ fileprivate extension AccountsViewController {
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+
+    @objc func openSettingsPressed() {
+        presenter.navigateToSettings()
     }
 
     func setupTableView() {
@@ -165,4 +169,5 @@ extension AccountsViewController: AccountsHeaderViewDelegate {
 
 fileprivate extension Selector {
     static let addAccount = #selector(AccountsViewController.addAccountToList)
+    static let openSettings = #selector(AccountsViewController.openSettingsPressed)
 }

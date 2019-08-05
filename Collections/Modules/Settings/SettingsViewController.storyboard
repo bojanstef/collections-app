@@ -9,30 +9,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Accounts View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="pCW-5F-CpR">
             <objects>
-                <viewController id="lHg-vJ-4kU" customClass="AccountsViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lHg-vJ-4kU" customClass="SettingsViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="92j-qF-yQj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wkV-A9-ia9">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISH-xM-tCA">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aOf-Fn-uuH"/>
+                                    <barButtonItem title="Sign out" id="ZB6-7o-Fcc">
+                                        <connections>
+                                            <action selector="signOutPressed:" destination="lHg-vJ-4kU" id="wvU-zx-Ben"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YU1-Cz-Log"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="bottom" secondItem="wkV-A9-ia9" secondAttribute="bottom" id="4gq-x1-BOe"/>
-                            <constraint firstItem="wkV-A9-ia9" firstAttribute="top" secondItem="T7B-1V-KKQ" secondAttribute="top" id="lSB-qF-LSY"/>
-                            <constraint firstItem="wkV-A9-ia9" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" id="lns-t8-qth"/>
-                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="wkV-A9-ia9" secondAttribute="trailing" id="xQN-Y0-J99"/>
+                            <constraint firstItem="ISH-xM-tCA" firstAttribute="trailing" secondItem="T7B-1V-KKQ" secondAttribute="trailing" id="3uj-cC-1LL"/>
+                            <constraint firstItem="ISH-xM-tCA" firstAttribute="bottom" secondItem="T7B-1V-KKQ" secondAttribute="bottom" id="VGY-YV-gGk"/>
+                            <constraint firstItem="ISH-xM-tCA" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" id="k59-TI-Bce"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7B-1V-KKQ"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="wkV-A9-ia9" id="6Mh-Ht-5Ae"/>
+                        <outlet property="toolbar" destination="ISH-xM-tCA" id="f4c-FP-vLm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecw-7j-5Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>

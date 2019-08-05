@@ -41,6 +41,12 @@
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
 		F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
 		F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707122F7DB5600B3C3DB /* SortedSet.swift */; };
+		F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */; };
+		F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175707D22F7DD6200B3C3DB /* SettingsViewController.storyboard */; };
+		F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707E22F7DD6200B3C3DB /* SettingsViewController.swift */; };
+		F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707F22F7DD6200B3C3DB /* SettingsInteractor.swift */; };
+		F175708622F7DD6200B3C3DB /* SettingsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */; };
+		F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708122F7DD6200B3C3DB /* SettingsWireframe.swift */; };
 		F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90922F508FF00A6B29E /* OnboardPresenter.swift */; };
 		F185D91122F508FF00A6B29E /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90B22F508FF00A6B29E /* OnboardViewController.swift */; };
 		F185D91222F508FF00A6B29E /* OnboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */; };
@@ -181,6 +187,12 @@
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
 		F163823022F5000E006363E8 /* Result+SuccessVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+SuccessVoid.swift"; sourceTree = "<group>"; };
 		F175707122F7DB5600B3C3DB /* SortedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSet.swift; sourceTree = "<group>"; };
+		F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		F175707D22F7DD6200B3C3DB /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		F175707E22F7DD6200B3C3DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F175707F22F7DD6200B3C3DB /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAccessing.swift; sourceTree = "<group>"; };
+		F175708122F7DD6200B3C3DB /* SettingsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWireframe.swift; sourceTree = "<group>"; };
 		F185D90922F508FF00A6B29E /* OnboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPresenter.swift; sourceTree = "<group>"; };
 		F185D90B22F508FF00A6B29E /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardInteractor.swift; sourceTree = "<group>"; };
@@ -401,6 +413,7 @@
 				F163823222F50856006363E8 /* Onboard */,
 				F1C1EB0722E6BE33002A717A /* PostDetail */,
 				F1BF8D8122DD65DE004B76F4 /* Search */,
+				F175707B22F7DD5400B3C3DB /* Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -539,6 +552,19 @@
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
 			);
 			path = UICollectionViewFlowLayouts;
+			sourceTree = "<group>";
+		};
+		F175707B22F7DD5400B3C3DB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */,
+				F175707F22F7DD6200B3C3DB /* SettingsInteractor.swift */,
+				F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */,
+				F175707D22F7DD6200B3C3DB /* SettingsViewController.storyboard */,
+				F175707E22F7DD6200B3C3DB /* SettingsViewController.swift */,
+				F175708122F7DD6200B3C3DB /* SettingsWireframe.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F179F43A22F7DB0600C8FDBB /* Utilities */ = {
@@ -774,6 +800,7 @@
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
 				F185D91A22F522EB00A6B29E /* OnboardTutorialViewController.storyboard in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
+				F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -895,20 +922,24 @@
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
+				F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
 				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
+				F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */,
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
+				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
+				F175708622F7DD6200B3C3DB /* SettingsAccessing.swift in Sources */,
 				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
 				F1C1EB1122E6BE48002A717A /* PostDetailInteractor.swift in Sources */,
@@ -917,6 +948,7 @@
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
 				F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */,
+				F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
 				F185D91422F508FF00A6B29E /* OnboardWireframe.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,

@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol AccountsModuleDelegate: AnyObject {}
+protocol AccountsModuleDelegate: AnyObject {
+    func navigateToSettings()
+}
 
 final class AccountsWireframe {
     fileprivate weak var moduleDelegate: AccountsModuleDelegate?

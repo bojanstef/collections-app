@@ -23,4 +23,11 @@ extension AccountsCoordinator: Coordinating {
     }
 }
 
-extension AccountsCoordinator: AccountsModuleDelegate {}
+extension AccountsCoordinator: AccountsModuleDelegate {
+    func navigateToSettings() {
+        let viewController = SettingsWireframe(moduleDelegate: self).viewController
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AccountsCoordinator: SettingsModuleDelegate {}

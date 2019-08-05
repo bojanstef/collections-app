@@ -14,6 +14,7 @@ protocol AccountsPresentable {
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func navigateToSettings()
 }
 
 final class AccountsPresenter {
@@ -41,5 +42,9 @@ extension AccountsPresenter: AccountsPresentable {
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
         interactor.scrapeAccounts(result: result)
+    }
+
+    func navigateToSettings() {
+        moduleDelegate?.navigateToSettings()
     }
 }
