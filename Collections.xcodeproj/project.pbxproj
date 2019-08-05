@@ -58,8 +58,10 @@
 		F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */; };
 		F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693922F001A70051319A /* AccountsHeaderView.swift */; };
 		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
-		F19C693E22F0051B0051319A /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693D22F0051B0051319A /* UIView+LoadNib.swift */; };
 		F1A28E7422F7ABFE002808B6 /* saveAccount.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */; };
+		F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */; };
+		F1A28E7822F7B109002808B6 /* EmptyPostsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */; };
+		F1A28E7A22F7B460002808B6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A28E7922F7B460002808B6 /* NibLoadable.swift */; };
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
@@ -197,8 +199,10 @@
 		F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationController.swift; sourceTree = "<group>"; };
 		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
 		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
-		F19C693D22F0051B0051319A /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
 		F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = saveAccount.mp4; sourceTree = "<group>"; };
+		F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPostsView.swift; sourceTree = "<group>"; };
+		F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPostsView.xib; sourceTree = "<group>"; };
+		F1A28E7922F7B460002808B6 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				F185D91B22F6595700A6B29E /* ActionButton.swift */,
 				F13CB56D22EECF79006621C8 /* BarButtonItem.swift */,
 				F13CB56B22EECD85006621C8 /* DummyTextField.swift */,
+				F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */,
+				F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */,
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
 				F13CB56F22EFD818006621C8 /* MainTabBarController.swift */,
 				F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */,
@@ -377,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				F14F4D4C22D7C21700F83D60 /* Coordinating.swift */,
+				F1A28E7922F7B460002808B6 /* NibLoadable.swift */,
 				F1457EFA22DDA34500EBD322 /* Reusable.swift */,
 			);
 			path = Protocols;
@@ -515,7 +522,6 @@
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
-				F19C693D22F0051B0051319A /* UIView+LoadNib.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A28E7822F7B109002808B6 /* EmptyPostsView.xib in Resources */,
 				F1A28E7422F7ABFE002808B6 /* saveAccount.mp4 in Resources */,
 				F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */,
 				F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */,
@@ -822,7 +829,6 @@
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
-				F19C693E22F0051B0051319A /* UIView+LoadNib.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
@@ -834,6 +840,7 @@
 				F185D91222F508FF00A6B29E /* OnboardInteractor.swift in Sources */,
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
+				F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
 				F185D91422F508FF00A6B29E /* OnboardWireframe.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
@@ -845,6 +852,7 @@
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */,
 				F185D91C22F6595800A6B29E /* ActionButton.swift in Sources */,
+				F1A28E7A22F7B460002808B6 /* NibLoadable.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,

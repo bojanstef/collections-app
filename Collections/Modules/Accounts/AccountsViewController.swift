@@ -54,7 +54,7 @@ fileprivate extension AccountsViewController {
         tableView.delegate = self
         tableView.register(AccountsCell.nib, forCellReuseIdentifier: AccountsCell.reuseId)
 
-        let headerView = AccountsHeaderView.fromNib()
+        let headerView = AccountsHeaderView.nib()
         headerView.delegate = self
         tableView.tableHeaderView = headerView
     }

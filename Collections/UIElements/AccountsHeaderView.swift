@@ -12,7 +12,7 @@ protocol AccountsHeaderViewDelegate: AnyObject {
     func getPhotos()
 }
 
-final class AccountsHeaderView: UIView {
+final class AccountsHeaderView: UIView, NibLoadable {
     weak var delegate: AccountsHeaderViewDelegate?
 }
 

@@ -26,13 +26,6 @@ final class SearchViewController: UIViewController {
     fileprivate var posts = [Post]()
     var presenter: SearchPresentable!
 
-    fileprivate var lastMidnightOrYesterday: Date {
-        let now = Date()
-        let lastMidnight = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: now)
-        let aDayAgo = Date(timeIntervalSinceNow: -Constants.twentyFourHours)
-        return lastMidnight ?? aDayAgo
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.searchTitle
@@ -71,6 +64,13 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 fileprivate extension SearchViewController {
+    var lastMidnightOrYesterday: Date {
+        let now = Date()
+        let lastMidnight = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: now)
+        let aDayAgo = Date(timeIntervalSinceNow: -Constants.twentyFourHours)
+        return lastMidnight ?? aDayAgo
+    }
+
     func setupNavigationItem() {
         let toolbar = UIToolbar()
         toolbar.items = [
@@ -113,13 +113,26 @@ fileprivate extension SearchViewController {
             switch result {
             case .success(let posts):
                 DispatchQueue.main.async {
-                    self?.posts = posts
-                    self?.collectionView.reloadData()
+                    self?.setupCollectionView(with: posts)
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
         }
+    }
+
+    func setupCollectionView(with posts: [Post]) {
+        self.posts = posts
+        collectionView.reloadData()
+
+        guard posts.isEmpty else {
+            collectionView.backgroundView = nil
+            return
+        }
+
+        let emptyPostView = EmptyPostsView.nib()
+        emptyPostView.frame = collectionView.bounds
+        collectionView.backgroundView = emptyPostView
     }
 
     func addBlurView() {
