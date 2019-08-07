@@ -14,9 +14,11 @@ protocol SettingsInteractable {
 
 final class SettingsInteractor {
     fileprivate let networkAccess: SettingsAccessing
+    fileprivate let inAppStore: InAppStore
 
-    init(networkAccess: SettingsAccessing) {
+    init(networkAccess: SettingsAccessing, inAppStore: InAppStore) {
         self.networkAccess = networkAccess
+        self.inAppStore = inAppStore
     }
 }
 
