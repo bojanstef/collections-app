@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		275E5A8E6156963DADC33ED5 /* Pods_Save_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */; };
+		F129D22922F924F500470FAF /* CardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22822F924F500470FAF /* CardLayout.swift */; };
+		F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* CreditsCard.swift */; };
+		F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* CreditsCard.xib */; };
 		F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369F8922D815E6000EB574 /* HomeCoordinator.swift */; };
 		F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */; };
 		F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */; };
@@ -152,6 +155,9 @@
 		8F6BE6224DE0CEF56B83B357 /* Pods-Collections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.debug.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.debug.xcconfig"; sourceTree = "<group>"; };
 		A2332E7C8BD873927E4C525E /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
 		DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Save_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F129D22822F924F500470FAF /* CardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayout.swift; sourceTree = "<group>"; };
+		F129D22A22F9277E00470FAF /* CreditsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCard.swift; sourceTree = "<group>"; };
+		F129D22B22F9277E00470FAF /* CreditsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsCard.xib; sourceTree = "<group>"; };
 		F1369F8922D815E6000EB574 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleButton.swift; sourceTree = "<group>"; };
@@ -508,6 +514,8 @@
 		F175707522F7DBF600B3C3DB /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F129D22A22F9277E00470FAF /* CreditsCard.swift */,
+				F129D22B22F9277E00470FAF /* CreditsCard.xib */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
 			);
@@ -551,6 +559,7 @@
 		F175707A22F7DC6200B3C3DB /* UICollectionViewFlowLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				F129D22822F924F500470FAF /* CardLayout.swift */,
 				F1457EF422DDA2C200EBD322 /* GridLayout.swift */,
 			);
 			path = UICollectionViewFlowLayouts;
@@ -804,6 +813,7 @@
 				F185D91A22F522EB00A6B29E /* OnboardTutorialViewController.storyboard in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
 				F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */,
+				F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -930,6 +940,7 @@
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
 				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
+				F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */,
@@ -955,6 +966,7 @@
 				F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
 				F185D91422F508FF00A6B29E /* OnboardWireframe.swift in Sources */,
+				F129D22922F924F500470FAF /* CardLayout.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
 				F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */,
 				F185D91122F508FF00A6B29E /* OnboardViewController.swift in Sources */,
