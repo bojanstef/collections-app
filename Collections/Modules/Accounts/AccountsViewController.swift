@@ -11,7 +11,7 @@ import SafariServices
 import CollectionsKit
 
 private enum Constants {
-    static let headerViewMinHeight: CGFloat = 156
+    static let headerViewMinHeight: CGFloat = 188
 }
 
 final class AccountsViewController: UIViewController {
