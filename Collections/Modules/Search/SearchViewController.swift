@@ -23,7 +23,6 @@ final class SearchViewController: UIViewController {
     fileprivate let navigationTitleButton = NavigationTitleButton(type: .system)
     fileprivate let datePicker = UIDatePicker()
     fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-    fileprivate var descriptionView = UIView()
     fileprivate var posts = [Post]()
     var presenter: SearchPresentable!
 
