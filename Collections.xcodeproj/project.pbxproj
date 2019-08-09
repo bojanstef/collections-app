@@ -98,6 +98,7 @@
 		F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */; };
 		F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
 		F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EED22FA6BC800322768 /* InAppStore.swift */; };
+		F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
 		F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */; };
 		F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */; };
 		F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CC22E03664000A699C /* AccountsViewController.swift */; };
@@ -251,6 +252,7 @@
 		F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+DependencyInjection.swift"; sourceTree = "<group>"; };
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
 		F1EA3EED22FA6BC800322768 /* InAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
+		F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+IsSuccessCode.swift"; sourceTree = "<group>"; };
 		F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPresenter.swift; sourceTree = "<group>"; };
 		F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountsViewController.storyboard; sourceTree = "<group>"; };
 		F1FAD9CC22E03664000A699C /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 		F1C352AF22D7C594005198B8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */,
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
 				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
@@ -953,6 +956,7 @@
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
+				F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
 				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,

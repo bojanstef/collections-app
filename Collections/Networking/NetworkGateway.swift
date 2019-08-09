@@ -183,7 +183,7 @@ extension NetworkGateway: AccountsAccessing {
                             return
                         }
 
-                        guard 200...299 ~= httpResponse.statusCode else {
+                        guard httpResponse.isSuccessCode else {
                             // TODO: - Add custom error.
                             result(.failure(NSError(domain: "Error status code \(httpResponse.statusCode)", code: 0, userInfo: nil)))
                             return

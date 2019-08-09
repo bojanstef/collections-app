@@ -165,7 +165,7 @@ fileprivate extension SearchViewController {
     }
 
     @objc func searchPressed() {
-        let searchDate = datePicker.date
+        let searchDate = dummyTextField.isFirstResponder ? datePicker.date : lastMidnightOrYesterday
         let dateTitle = presenter.getTitleFromSearchedDate(searchDate)
         navigationTitleButton.setTitle(dateTitle, for: .normal)
         dummyTextField.resignFirstResponder()
