@@ -6,9 +6,11 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
+import StoreKit
 import Foundation
 
 protocol SettingsPresentable {
+    func fetchProducts(ofType type: ProductIDs, result: @escaping ((Result<[SKProduct], Error>) -> Void))
     func signOut() throws
 }
 
@@ -23,6 +25,10 @@ final class SettingsPresenter {
 }
 
 extension SettingsPresenter: SettingsPresentable {
+    func fetchProducts(ofType type: ProductIDs, result: @escaping ((Result<[SKProduct], Error>) -> Void)) {
+        interactor.fetchProducts(ofType: type, result: result)
+    }
+
     func signOut() throws {
         try interactor.signOut()
     }

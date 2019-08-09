@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		275E5A8E6156963DADC33ED5 /* Pods_Save_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */; };
 		F129D22922F924F500470FAF /* CardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22822F924F500470FAF /* CardLayout.swift */; };
-		F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* CreditsCard.swift */; };
-		F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* CreditsCard.xib */; };
+		F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* ProductCard.swift */; };
+		F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* ProductCard.xib */; };
 		F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369F8922D815E6000EB574 /* HomeCoordinator.swift */; };
 		F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */; };
 		F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */; };
@@ -99,6 +99,8 @@
 		F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
 		F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EED22FA6BC800322768 /* InAppStore.swift */; };
 		F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
+		F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */; };
+		F1EA3EF622FD2BD200322768 /* Sequence+MapKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */; };
 		F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */; };
 		F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */; };
 		F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CC22E03664000A699C /* AccountsViewController.swift */; };
@@ -158,8 +160,8 @@
 		A2332E7C8BD873927E4C525E /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
 		DBCC26FE7BDC1E652BD98323 /* Pods_Save_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Save_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F129D22822F924F500470FAF /* CardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayout.swift; sourceTree = "<group>"; };
-		F129D22A22F9277E00470FAF /* CreditsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCard.swift; sourceTree = "<group>"; };
-		F129D22B22F9277E00470FAF /* CreditsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsCard.xib; sourceTree = "<group>"; };
+		F129D22A22F9277E00470FAF /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
+		F129D22B22F9277E00470FAF /* ProductCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCard.xib; sourceTree = "<group>"; };
 		F1369F8922D815E6000EB574 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleButton.swift; sourceTree = "<group>"; };
@@ -253,6 +255,8 @@
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
 		F1EA3EED22FA6BC800322768 /* InAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+IsSuccessCode.swift"; sourceTree = "<group>"; };
+		F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
+		F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+MapKeyPath.swift"; sourceTree = "<group>"; };
 		F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPresenter.swift; sourceTree = "<group>"; };
 		F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountsViewController.storyboard; sourceTree = "<group>"; };
 		F1FAD9CC22E03664000A699C /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 		F1457EFC22DDA35500EBD322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
 			path = Models;
@@ -518,8 +523,8 @@
 		F175707522F7DBF600B3C3DB /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				F129D22A22F9277E00470FAF /* CreditsCard.swift */,
-				F129D22B22F9277E00470FAF /* CreditsCard.xib */,
+				F129D22A22F9277E00470FAF /* ProductCard.swift */,
+				F129D22B22F9277E00470FAF /* ProductCard.xib */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
 			);
@@ -637,6 +642,7 @@
 			children = (
 				F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */,
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
+				F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */,
 				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
@@ -819,7 +825,7 @@
 				F185D91A22F522EB00A6B29E /* OnboardTutorialViewController.storyboard in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
 				F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */,
-				F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */,
+				F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -941,12 +947,13 @@
 				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
+				F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
 				F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
 				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
-				F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */,
+				F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */,
@@ -999,6 +1006,7 @@
 				F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */,
 				F13CB57022EFD818006621C8 /* MainTabBarController.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
+				F1EA3EF622FD2BD200322768 /* Sequence+MapKeyPath.swift in Sources */,
 				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
 				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,
 			);

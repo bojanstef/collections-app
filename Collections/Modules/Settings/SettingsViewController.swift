@@ -6,13 +6,14 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
+import StoreKit
 import UIKit
 
 final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var maxAccountsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var toolbar: UIToolbar!
-    fileprivate var creditPackages = ["best", "better", "good", "okay", "mediocre"]
+    fileprivate var credits = [SKProduct]()
     fileprivate var maxAccounts = [5, 10, 25, 50, 100]
     var presenter: SettingsPresentable!
 
@@ -38,27 +39,30 @@ extension SettingsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == creditsCollectionView {
-            return creditPackages.count
-        } else if collectionView == maxAccountsCollectionView {
+        switch collectionView {
+        case creditsCollectionView:
+            return credits.count
+        case maxAccountsCollectionView:
             return maxAccounts.count
-        } else {
-            fatalError("Whose mans is this?")
+        default:
+            fatalError("CollectionView: \(collectionView) does not exist.")
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: CreditsCard.reuseId, for: indexPath) as? CreditsCard)!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCard.reuseId, for: indexPath) as? ProductCard
 
-        if collectionView == creditsCollectionView {
-            cell.setup(with: creditPackages[indexPath.row])
-        } else if collectionView == maxAccountsCollectionView {
-            cell.setup(with: "\(maxAccounts[indexPath.row])")
-        } else {
-            fatalError("Whose mans is this?")
+        switch collectionView {
+        case creditsCollectionView:
+            cell?.setup(with: credits[indexPath.row])
+        case maxAccountsCollectionView:
+            //cell?.setup(with: credits[indexPath.row])
+            break
+        default:
+            fatalError("CollectionView: \(collectionView) does not exist.")
         }
 
-        return cell
+        return cell!
     }
 }
 
@@ -86,7 +90,18 @@ fileprivate extension SettingsViewController {
         creditsCollectionView.delegate = self
         creditsCollectionView.collectionViewLayout = CardLayout()
         creditsCollectionView.alwaysBounceHorizontal = true
-        creditsCollectionView.register(CreditsCard.nib, forCellWithReuseIdentifier: CreditsCard.reuseId)
+        creditsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
+        presenter.fetchProducts(ofType: .credits) { [weak self] result in
+            switch result {
+            case .success(let credits):
+                DispatchQueue.main.async { [weak self] in
+                    self?.credits = credits
+                    self?.creditsCollectionView.reloadData()
+                }
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
     }
 
     func setupMaxAccountsCollectionView() {
@@ -94,6 +109,17 @@ fileprivate extension SettingsViewController {
         maxAccountsCollectionView.delegate = self
         maxAccountsCollectionView.collectionViewLayout = CardLayout()
         maxAccountsCollectionView.alwaysBounceHorizontal = true
-        maxAccountsCollectionView.register(CreditsCard.nib, forCellWithReuseIdentifier: CreditsCard.reuseId)
+        maxAccountsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
+//        presenter.fetchProducts(ofType: .accountsMax) { [weak self] result in
+//            switch result {
+//            case .success(let credits):
+//                DispatchQueue.main.async { [weak self] in
+//                    self?.credits = credits
+//                    self?.creditsCollectionView.reloadData()
+//                }
+//            case .failure(let error):
+//                log.error(error.localizedDescription)
+//            }
+//        }
     }
 }

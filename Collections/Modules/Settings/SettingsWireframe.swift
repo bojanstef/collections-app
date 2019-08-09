@@ -21,7 +21,8 @@ final class SettingsWireframe {
 extension SettingsWireframe {
     var viewController: UIViewController {
         let networkAccess: SettingsAccessing = NetworkGateway()
-        let interactor = SettingsInteractor(networkAccess: networkAccess, inAppStore: InAppStore.shared)
+        let inAppStore: InAppStoreAccessing = InAppStore()
+        let interactor = SettingsInteractor(networkAccess: networkAccess, inAppStore: inAppStore)
         let presenter = SettingsPresenter(moduleDelegate: moduleDelegate, interactor: interactor)
         return UIStoryboard.instantiateInitialViewController(SettingsViewController.self) { viewController in
             viewController.presenter = presenter
