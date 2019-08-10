@@ -31,6 +31,12 @@ final class AccountsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadAccounts()
+        NotificationCenter.default.addObserver(self, selector: .appDidBecomeActive, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 }
 
@@ -51,6 +57,10 @@ fileprivate extension AccountsViewController {
 
     @objc func openSettingsPressed() {
         presenter.navigateToSettings()
+    }
+
+    @objc func appDidBecomeActive() {
+        loadAccounts()
     }
 
     func setupTableView() {
@@ -178,4 +188,5 @@ extension AccountsViewController: AccountsHeaderViewDelegate {
 fileprivate extension Selector {
     static let addAccount = #selector(AccountsViewController.addAccountToList)
     static let openSettings = #selector(AccountsViewController.openSettingsPressed)
+    static let appDidBecomeActive = #selector(AccountsViewController.appDidBecomeActive)
 }
