@@ -13,6 +13,7 @@ protocol AccountsHeaderViewDelegate: AnyObject {
 }
 
 final class AccountsHeaderView: UIView, NibLoadable {
+    @IBOutlet fileprivate weak var creditsCountButton: UIButton!
     @IBOutlet fileprivate weak var getButton: ActionButton!
     fileprivate let activityView = UIActivityIndicatorView(style: .whiteLarge)
     weak var delegate: AccountsHeaderViewDelegate?
@@ -26,6 +27,10 @@ final class AccountsHeaderView: UIView, NibLoadable {
     override func layoutSubviews() {
         super.layoutSubviews()
         activityView.frame = getButton.bounds
+    }
+
+    func setCreditsCount(_ newValue: Int) {
+        creditsCountButton.setTitle(String(newValue), for: .normal)
     }
 }
 

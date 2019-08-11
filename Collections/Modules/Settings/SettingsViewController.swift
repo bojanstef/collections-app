@@ -43,15 +43,12 @@ extension SettingsViewController: UICollectionViewDelegate {
                 self?.activityIndicator.startAnimating()
             },
             result: { [weak self] result in
-                let completion: (() -> Void) = { [weak self] in
-                    self?.activityIndicator.stopAnimating()
-                }
+                self?.activityIndicator.stopAnimating()
 
                 switch result {
                 case .success:
-                    self?.upload(credits: creditsBundle, completion: completion)
+                    self?.upload(credits: creditsBundle)
                 case .failure(let error):
-                    completion()
                     log.error(error.localizedDescription)
                 }
             })
@@ -102,13 +99,11 @@ fileprivate extension SettingsViewController {
         present(alert, animated: true)
     }
 
-    func upload(credits: Credit, completion: @escaping (() -> Void)) {
+    func upload(credits: Credit) {
         presenter.upload(credits: credits) { result in
-            completion()
-
             switch result {
             case .success:
-                break
+                log.info("Successfully added more credits")
             case .failure(let error):
                 log.error(error.localizedDescription)
             }

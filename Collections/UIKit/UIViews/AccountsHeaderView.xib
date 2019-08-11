@@ -41,7 +41,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9n-1z-i2p">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                    <state key="normal" title="2">
+                                    <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
@@ -91,6 +91,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="creditsCountButton" destination="b9n-1z-i2p" id="spV-0R-RX8"/>
                 <outlet property="getButton" destination="Hc5-Ua-smc" id="LGD-Bd-w0d"/>
             </connections>
             <point key="canvasLocation" x="-528.98550724637687" y="83.035714285714278"/>

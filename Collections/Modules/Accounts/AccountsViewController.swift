@@ -29,7 +29,7 @@ final class AccountsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadAccounts()
+        appDidBecomeActive()
         NotificationCenter.default.addObserver(self, selector: .appDidBecomeActive, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
@@ -60,6 +60,18 @@ fileprivate extension AccountsViewController {
 
     @objc func appDidBecomeActive() {
         loadAccounts()
+        getCreditsCount()
+    }
+
+    func getCreditsCount() {
+        presenter.getCreditsCount { [weak self] result in
+            switch result {
+            case .success(let creditsCount):
+                self?.headerView.setCreditsCount(creditsCount)
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
     }
 
     func setupTableView() {
@@ -119,7 +131,10 @@ fileprivate extension AccountsViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
-            self?.present(alert, animated: true)
+            self?.present(alert, animated: true) { [weak self] in
+                guard error == nil else { return }
+                self?.getCreditsCount()
+            }
         }
     }
 }

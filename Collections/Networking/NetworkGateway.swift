@@ -13,7 +13,9 @@ import FirebaseDynamicLinks
 import FirebaseFunctions
 
 final class NetworkGateway {
-    private var userID: String? {
+    fileprivate let keychain = KeychainStorage()
+
+    fileprivate var userID: String? {
         return Auth.auth().currentUser?.uid
     }
 }
@@ -149,7 +151,7 @@ extension NetworkGateway: AccountsAccessing {
             .collection("users")
             .document(userID)
             .collection("accounts")
-            .getDocuments { snapshot, error in
+            .getDocuments { [weak self] snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 do {
                     let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
@@ -177,6 +179,12 @@ extension NetworkGateway: AccountsAccessing {
                     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameterDictionary)
 
+                    guard let creditsCount = try self?.keychain.getInt(.creditsCount), creditsCount > 0 else {
+                        throw NSError(domain: "No credits left", code: 0, userInfo: nil)
+                    }
+
+                    try self?.keychain.set(creditsCount - 1, forKey: .creditsCount)
+
                     let task = URLSession.shared.dataTask(with: request) { _, response, error in
                         guard error == nil else { result(.failure(error!)); return }
                         guard let httpResponse = response as? HTTPURLResponse else {
@@ -191,7 +199,6 @@ extension NetworkGateway: AccountsAccessing {
                             return
                         }
 
-                        print(response.debugDescription)
                         result(.success)
                     }
 
@@ -201,6 +208,15 @@ extension NetworkGateway: AccountsAccessing {
                 } catch {
                     result(.failure(error))
                 }
+        }
+    }
+
+    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
+        do {
+            let creditsCount = try keychain.getInt(.creditsCount) ?? 0
+            result(.success(creditsCount))
+        } catch {
+            result(.failure(error))
         }
     }
 }
@@ -238,14 +254,17 @@ extension NetworkGateway: SearchAccessing {
 
 extension NetworkGateway: SettingsAccessing {
     func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
+        do {
+            if let creditsCount = try keychain.getInt(.creditsCount) {
+                try keychain.set(creditsCount + credits.creditType.intValue, forKey: .creditsCount)
+            } else {
+                try keychain.set(credits.creditType.intValue, forKey: .creditsCount)
+            }
+        } catch {
+            result(.failure(error))
         }
 
-        
-        /*
+        /* TODO: - Switch to Local + Server implementation
         Functions.functions()
             .httpsCallable("incrementCreditCount")
             .call(["count": credits.creditType.intValue]) { firResult, error in

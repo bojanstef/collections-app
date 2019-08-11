@@ -13,6 +13,7 @@ protocol AccountsPresentable {
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func getCreditsCount(result: ((Result<Int, Error>) -> Void))
     func navigateToSettings()
 }
 
@@ -41,6 +42,10 @@ extension AccountsPresenter: AccountsPresentable {
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
         interactor.scrapeAccounts(result: result)
+    }
+
+    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
+        interactor.getCreditsCount(result: result)
     }
 
     func navigateToSettings() {

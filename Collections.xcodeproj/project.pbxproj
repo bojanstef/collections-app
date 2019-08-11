@@ -14,6 +14,7 @@
 		F10CE43922FFCE1300130871 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43822FFCE1300130871 /* Account.swift */; };
 		F10CE43B22FFCE3F00130871 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43A22FFCE3F00130871 /* Logger.swift */; };
 		F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43A22FFCE3F00130871 /* Logger.swift */; };
+		F125389A22FFF02000161DB1 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389922FFF02000161DB1 /* KeychainStorage.swift */; };
 		F129D22922F924F500470FAF /* CardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22822F924F500470FAF /* CardLayout.swift */; };
 		F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* ProductCard.swift */; };
 		F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* ProductCard.xib */; };
@@ -158,6 +159,7 @@
 		F10CE43622FFCDEB00130871 /* Modellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modellable.swift; sourceTree = "<group>"; };
 		F10CE43822FFCE1300130871 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F10CE43A22FFCE3F00130871 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F125389922FFF02000161DB1 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		F129D22822F924F500470FAF /* CardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayout.swift; sourceTree = "<group>"; };
 		F129D22A22F9277E00470FAF /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
 		F129D22B22F9277E00470FAF /* ProductCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCard.xib; sourceTree = "<group>"; };
@@ -301,6 +303,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F125389822FFF00600161DB1 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				F125389922FFF02000161DB1 /* KeychainStorage.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		F12A0AB422DC30D100CC9031 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +379,7 @@
 				F14F4D4822D7C12C00F83D60 /* Coordinators */,
 				F12A0AB422DC30D100CC9031 /* Enums */,
 				F1C352AF22D7C594005198B8 /* Extensions */,
+				F125389822FFF00600161DB1 /* Local */,
 				F1457EFC22DDA35500EBD322 /* Models */,
 				F14F4D5422D7C48500F83D60 /* Modules */,
 				F1C352B222D7C615005198B8 /* Networking */,
@@ -884,6 +895,7 @@
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
+				F125389A22FFF02000161DB1 /* KeychainStorage.swift in Sources */,
 				F175708622F7DD6200B3C3DB /* SettingsAccessing.swift in Sources */,
 				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
 				F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */,
