@@ -235,6 +235,29 @@ extension NetworkGateway: SearchAccessing {
 }
 
 extension NetworkGateway: SettingsAccessing {
+    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
+        guard let userID = userID else {
+            // TODO: - Add custom error.
+            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
+            return
+        }
+
+//        Firestore.firestore()
+//            .collection("users")
+//            .document(userID)
+//            .collection("credits")
+//            .addDocument(data: ["count": credits.creditType.intValue]) { error in
+//                guard let error = error else {
+//                    result(.success)
+//                    return
+//                }
+//
+//                result(.failure(error))
+//        }
+
+        result(.success)
+    }
+
     func signOut() throws {
         try Auth.auth().signOut()
     }

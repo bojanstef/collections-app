@@ -36,17 +36,22 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let creditsBundle = credits[indexPath.row]
         presenter.purchase(
-            credits: credits[indexPath.row],
+            credits: creditsBundle,
             start: { [weak self] in
                 self?.activityIndicator.startAnimating()
             },
             result: { [weak self] result in
-                self?.activityIndicator.stopAnimating()
+                let completion: (() -> Void) = { [weak self] in
+                    self?.activityIndicator.stopAnimating()
+                }
+
                 switch result {
                 case .success:
-                    log.info("Purchase succeeded!")
+                    self?.upload(credits: creditsBundle, completion: completion)
                 case .failure(let error):
+                    completion()
                     log.error(error.localizedDescription)
                 }
             })
@@ -95,6 +100,19 @@ fileprivate extension SettingsViewController {
         }))
 
         present(alert, animated: true)
+    }
+
+    func upload(credits: Credit, completion: @escaping (() -> Void)) {
+        presenter.upload(credits: credits) { result in
+            completion()
+
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
     }
 
     func runSignOut() {

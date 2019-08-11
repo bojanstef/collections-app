@@ -9,5 +9,6 @@
 import Foundation
 
 protocol SettingsAccessing {
+    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
 }

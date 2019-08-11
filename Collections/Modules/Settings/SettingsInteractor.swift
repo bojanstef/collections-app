@@ -11,6 +11,7 @@ import Foundation
 protocol SettingsInteractable {
     func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void))
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
+    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
 }
 
@@ -39,6 +40,10 @@ extension SettingsInteractor: SettingsInteractable {
 
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
         inAppStore.purchase(credits: credits, result: result)
+    }
+
+    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
+        networkAccess.upload(credits: credits, result: result)
     }
 
     func signOut() throws {
