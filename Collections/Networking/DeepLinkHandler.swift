@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAuth
 import FirebaseDynamicLinks
 
 final class DeepLinkHandler {
