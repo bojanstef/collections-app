@@ -14,13 +14,16 @@ protocol AccountsInteractable {
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
     func getCreditsCount(result: ((Result<Int, Error>) -> Void))
+    func getAccountsMax(result: ((Result<Int, Error>) -> Void))
 }
 
 final class AccountsInteractor {
     fileprivate let networkAccess: AccountsAccessing
+    fileprivate let keychainStorage: KeychainAccessing
 
-    init(networkAccess: AccountsAccessing) {
+    init(networkAccess: AccountsAccessing, keychainStorage: KeychainAccessing) {
         self.networkAccess = networkAccess
+        self.keychainStorage = keychainStorage
     }
 }
 
@@ -42,6 +45,10 @@ extension AccountsInteractor: AccountsInteractable {
     }
 
     func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
-        networkAccess.getCreditsCount(result: result)
+        keychainStorage.getCreditsCount(result: result)
+    }
+
+    func getAccountsMax(result: ((Result<Int, Error>) -> Void)) {
+        keychainStorage.getAccountsMax(result: result)
     }
 }

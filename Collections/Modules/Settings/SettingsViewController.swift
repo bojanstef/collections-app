@@ -34,22 +34,42 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let creditsBundle = credits[indexPath.row]
-        presenter.purchase(
-            credits: creditsBundle,
-            start: { [weak self] in
-                self?.activityIndicator.startAnimating()
-            },
-            result: { [weak self] result in
-                self?.activityIndicator.stopAnimating()
+        let start: (() -> Void) = { [weak self] in self?.activityIndicator.startAnimating() }
 
-                switch result {
-                case .success:
-                    self?.upload(credits: creditsBundle)
-                case .failure(let error):
-                    log.error(error.localizedDescription)
-                }
+        switch collectionView {
+        case creditsCollectionView:
+            let creditsBundle = credits[indexPath.row]
+            presenter.purchase(
+                credits: creditsBundle,
+                start: start,
+                result: { [weak self] result in
+                    self?.activityIndicator.stopAnimating()
+
+                    switch result {
+                    case .success:
+                        log.info("Purchased \(creditsBundle)!")
+                    case .failure(let error):
+                        log.error(error.localizedDescription)
+                    }
             })
+        case maxAccountsCollectionView:
+            let maxAccountsBundle = maxAccounts[indexPath.row]
+            presenter.purchase(
+                maxAccounts: maxAccountsBundle,
+                start: start,
+                result: { [weak self] result in
+                    self?.activityIndicator.stopAnimating()
+
+                    switch result {
+                    case .success:
+                        log.info("Purchased \(maxAccountsBundle)!")
+                    case .failure(let error):
+                        log.error(error.localizedDescription)
+                    }
+            })
+        default:
+            fatalError("CollectionView: \(collectionView) does not exist.")
+        }
     }
 }
 
@@ -94,17 +114,6 @@ fileprivate extension SettingsViewController {
         }))
 
         present(alert, animated: true)
-    }
-
-    func upload(credits: Credit) {
-        presenter.upload(credits: credits) { result in
-            switch result {
-            case .success:
-                log.info("Successfully added more credits")
-            case .failure(let error):
-                log.error(error.localizedDescription)
-            }
-        }
     }
 
     func runSignOut() {

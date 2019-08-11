@@ -11,7 +11,7 @@ import Foundation
 protocol SettingsPresentable {
     func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(credits: Credit, start: (() -> Void), result: @escaping ((Result<Void, Error>) -> Void))
-    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
+    func purchase(maxAccounts: MaxAccount, start: (() -> Void), result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
 }
 
@@ -35,8 +35,9 @@ extension SettingsPresenter: SettingsPresentable {
         interactor.purchase(credits: credits, result: result)
     }
 
-    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
-        interactor.upload(credits: credits, result: result)
+    func purchase(maxAccounts: MaxAccount, start: (() -> Void), result: @escaping ((Result<Void, Error>) -> Void)) {
+        start()
+        interactor.purchase(maxAccounts: maxAccounts, result: result)
     }
 
     func signOut() throws {

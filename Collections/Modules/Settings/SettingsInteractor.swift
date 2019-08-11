@@ -11,17 +11,19 @@ import Foundation
 protocol SettingsInteractable {
     func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
-    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
+    func purchase(maxAccounts: MaxAccount, result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
 }
 
 final class SettingsInteractor {
     fileprivate let networkAccess: SettingsAccessing
     fileprivate let inAppStore: InAppStoreAccessing
+    fileprivate let keychainStorage: KeychainAccessing
 
-    init(networkAccess: SettingsAccessing, inAppStore: InAppStoreAccessing) {
+    init(networkAccess: SettingsAccessing, inAppStore: InAppStoreAccessing, keychainStorage: KeychainAccessing) {
         self.networkAccess = networkAccess
         self.inAppStore = inAppStore
+        self.keychainStorage = keychainStorage
     }
 }
 
@@ -31,11 +33,25 @@ extension SettingsInteractor: SettingsInteractable {
     }
 
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
-        inAppStore.purchase(credits: credits, result: result)
+        inAppStore.purchase(product: credits.product) { [weak self] purchaseResult in
+            switch purchaseResult {
+            case .success:
+                self?.keychainStorage.save(credits, result: result)
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
     }
 
-    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
-        networkAccess.upload(credits: credits, result: result)
+    func purchase(maxAccounts: MaxAccount, result: @escaping ((Result<Void, Error>) -> Void)) {
+        inAppStore.purchase(product: maxAccounts.product) { [weak self] purchaseResult in
+            switch purchaseResult {
+            case .success:
+                self?.keychainStorage.save(maxAccounts, result: result)
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
     }
 
     func signOut() throws {

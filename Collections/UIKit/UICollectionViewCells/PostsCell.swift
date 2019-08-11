@@ -53,14 +53,12 @@ fileprivate extension PostsCell {
         dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard error == nil else { log.error(error!.localizedDescription); return }
             guard let data = data, let response = response else { return }
-
-            log.debug(response.debugDescription)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.isSuccessCode else { return }
 
             DispatchQueue.main.async {
                 guard let image = UIImage(data: data) else { return }
                 post.saveImage(image)
                 self?.imageView.image = UIImage(data: data)
-
             }
         }
 

@@ -11,7 +11,7 @@ import Foundation
 
 protocol InAppStoreAccessing {
     func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
-    func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
+    func purchase(product: SKProduct, result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class InAppStore: NSObject {
@@ -33,9 +33,9 @@ extension InAppStore: InAppStoreAccessing {
         productRequest?.start()
     }
 
-    func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
+    func purchase(product: SKProduct, result: @escaping ((Result<Void, Error>) -> Void)) {
         purchaseResult = result
-        let payment = SKPayment(product: credits.product)
+        let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
     }
 }

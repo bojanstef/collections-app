@@ -210,15 +210,6 @@ extension NetworkGateway: AccountsAccessing {
                 }
         }
     }
-
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
-        do {
-            let creditsCount = try keychain.getInt(.creditsCount) ?? 0
-            result(.success(creditsCount))
-        } catch {
-            result(.failure(error))
-        }
-    }
 }
 
 extension NetworkGateway: SearchAccessing {
@@ -253,31 +244,6 @@ extension NetworkGateway: SearchAccessing {
 }
 
 extension NetworkGateway: SettingsAccessing {
-    func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
-        do {
-            if let creditsCount = try keychain.getInt(.creditsCount) {
-                try keychain.set(creditsCount + credits.creditType.intValue, forKey: .creditsCount)
-            } else {
-                try keychain.set(credits.creditType.intValue, forKey: .creditsCount)
-            }
-        } catch {
-            result(.failure(error))
-        }
-
-        /* TODO: - Switch to Local + Server implementation
-        Functions.functions()
-            .httpsCallable("incrementCreditCount")
-            .call(["count": credits.creditType.intValue]) { firResult, error in
-                guard let error = error else {
-                    result(.success)
-                    return
-                }
-
-                result(.failure(error))
-        }
-        */
-    }
-
     func signOut() throws {
         try Auth.auth().signOut()
     }

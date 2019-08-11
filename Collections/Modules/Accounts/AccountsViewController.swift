@@ -61,6 +61,7 @@ fileprivate extension AccountsViewController {
     @objc func appDidBecomeActive() {
         loadAccounts()
         getCreditsCount()
+        getAccountsMax()
     }
 
     func getCreditsCount() {
@@ -68,6 +69,17 @@ fileprivate extension AccountsViewController {
             switch result {
             case .success(let creditsCount):
                 self?.headerView.setCreditsCount(creditsCount)
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
+    }
+
+    func getAccountsMax() {
+        presenter.getAccountsMax { result in
+            switch result {
+            case .success(let accountsMax):
+                log.info(accountsMax)
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
@@ -90,6 +102,7 @@ fileprivate extension AccountsViewController {
             switch result {
             case .success(let accounts):
                 DispatchQueue.main.async {
+                    self?.headerView.setFollowingCount(accounts.count)
                     self?.accounts = SortedSet(accounts)
                     self?.tableView.reloadData()
                 }
