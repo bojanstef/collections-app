@@ -12,6 +12,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var maxAccountsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var toolbar: UIToolbar!
+    fileprivate var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     fileprivate var credits = [Credit]()
     fileprivate var maxAccounts = [Int]()
     var presenter: SettingsPresentable!
@@ -20,15 +21,35 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Settings"
         toolbar.tintColor = .lightGray
+        activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
+        view.addSubview(activityIndicator)
+
         setupCreditsCollectionView()
         setupMaxAccountsCollectionView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        activityIndicator.frame = view.bounds
     }
 }
 
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        //presenter.purchase(credits[indexPath.row])
+        presenter.purchase(
+            credits: credits[indexPath.row],
+            start: { [weak self] in
+                self?.activityIndicator.startAnimating()
+            },
+            result: { [weak self] result in
+                self?.activityIndicator.stopAnimating()
+                switch result {
+                case .success:
+                    log.info("Purchase succeeded!")
+                case .failure(let error):
+                    log.error(error.localizedDescription)
+                }
+            })
     }
 }
 
