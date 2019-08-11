@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SettingsPresentable {
-    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void))
+    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(credits: Credit, start: (() -> Void), result: @escaping ((Result<Void, Error>) -> Void))
     func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
@@ -26,8 +26,8 @@ final class SettingsPresenter {
 }
 
 extension SettingsPresenter: SettingsPresentable {
-    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void)) {
-        interactor.fetchCredits(result: result)
+    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void)) {
+        interactor.fetchProducts(result: result)
     }
 
     func purchase(credits: Credit, start: (() -> Void), result: @escaping ((Result<Void, Error>) -> Void)) {

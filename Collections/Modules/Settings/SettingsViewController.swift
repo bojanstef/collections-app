@@ -14,7 +14,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var toolbar: UIToolbar!
     fileprivate var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     fileprivate var credits = [Credit]()
-    fileprivate var maxAccounts = [Int]()
+    fileprivate var maxAccounts = [MaxAccount]()
     var presenter: SettingsPresentable!
 
     override func viewDidLoad() {
@@ -24,8 +24,8 @@ final class SettingsViewController: UIViewController {
         activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
         view.addSubview(activityIndicator)
 
-        setupCreditsCollectionView()
-        setupMaxAccountsCollectionView()
+        setup(creditsCollectionView, cell: CreditsCard.self, fetchOnce: nil)
+        setup(maxAccountsCollectionView, cell: MaxAccountsCard.self, fetchOnce: fetchProducts)
     }
 
     override func viewDidLayoutSubviews() {
@@ -72,19 +72,18 @@ extension SettingsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCard.reuseId, for: indexPath) as? ProductCard
-
         switch collectionView {
         case creditsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreditsCard.reuseId, for: indexPath) as? CreditsCard
             cell?.setup(with: credits[indexPath.row])
+            return cell!
         case maxAccountsCollectionView:
-            //cell?.setup(with: credits[indexPath.row])
-            break
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaxAccountsCard.reuseId, for: indexPath) as? MaxAccountsCard
+            cell?.setup(with: maxAccounts[indexPath.row])
+            return cell!
         default:
             fatalError("CollectionView: \(collectionView) does not exist.")
         }
-
-        return cell!
     }
 }
 
@@ -118,41 +117,28 @@ fileprivate extension SettingsViewController {
         }
     }
 
-    func setupCreditsCollectionView() {
-        creditsCollectionView.dataSource = self
-        creditsCollectionView.delegate = self
-        creditsCollectionView.collectionViewLayout = CardLayout()
-        creditsCollectionView.alwaysBounceHorizontal = true
-        creditsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
-        presenter.fetchCredits { result in
+    func setup<T: NibReusable>(_ collectionView: UICollectionView, cell: T.Type, fetchOnce: (() -> Void)?) {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = CardLayout()
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.register(cell.nib, forCellWithReuseIdentifier: cell.reuseId)
+        fetchOnce?()
+    }
+
+    func fetchProducts() {
+        presenter.fetchProducts { [weak self] result in
             switch result {
-            case .success(let credits):
+            case .success(let products):
                 DispatchQueue.main.async { [weak self] in
-                    self?.credits = credits.sorted(by: >)
+                    self?.credits = products.credits.sorted(by: >)
                     self?.creditsCollectionView.reloadData()
+                    self?.maxAccounts = products.maxAccounts.sorted(by: >)
+                    self?.maxAccountsCollectionView.reloadData()
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
         }
-    }
-
-    func setupMaxAccountsCollectionView() {
-        maxAccountsCollectionView.dataSource = self
-        maxAccountsCollectionView.delegate = self
-        maxAccountsCollectionView.collectionViewLayout = CardLayout()
-        maxAccountsCollectionView.alwaysBounceHorizontal = true
-        maxAccountsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
-//        presenter.fetchProducts(ofType: .accountMax) { [weak self] result in
-//            switch result {
-//            case .success(let credits):
-//                DispatchQueue.main.async { [weak self] in
-//                    self?.credits = credits
-//                    self?.creditsCollectionView.reloadData()
-//                }
-//            case .failure(let error):
-//                log.error(error.localizedDescription)
-//            }
-//        }
     }
 }

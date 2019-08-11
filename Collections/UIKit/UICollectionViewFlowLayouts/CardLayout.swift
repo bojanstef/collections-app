@@ -19,8 +19,9 @@ final class CardLayout: UICollectionViewFlowLayout {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         let threeSeventhsWidth = collectionView.bounds.width * Constants.threeSevenths
-        itemSize = CGSize(width: threeSeventhsWidth, height: collectionView.bounds.height)
-        minimumInteritemSpacing = 8
+        let heightPadding = collectionView.bounds.height - 10
+        itemSize = CGSize(width: threeSeventhsWidth, height: heightPadding)
+        minimumLineSpacing = 16
         scrollDirection = .horizontal
     }
 }

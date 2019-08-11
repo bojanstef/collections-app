@@ -15,9 +15,14 @@
 		F10CE43B22FFCE3F00130871 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43A22FFCE3F00130871 /* Logger.swift */; };
 		F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43A22FFCE3F00130871 /* Logger.swift */; };
 		F125389A22FFF02000161DB1 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389922FFF02000161DB1 /* KeychainStorage.swift */; };
+		F125389C22FFFEF600161DB1 /* MaxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389B22FFFEF600161DB1 /* MaxAccount.swift */; };
+		F125389E230001E100161DB1 /* ProductIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389D230001E100161DB1 /* ProductIDs.swift */; };
+		F12538A12300024E00161DB1 /* MaxAccountsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389F2300024E00161DB1 /* MaxAccountsCard.swift */; };
+		F12538A22300024E00161DB1 /* MaxAccountsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12538A02300024E00161DB1 /* MaxAccountsCard.xib */; };
+		F12538A42300A89E00161DB1 /* ShadowCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12538A32300A89E00161DB1 /* ShadowCardCell.swift */; };
 		F129D22922F924F500470FAF /* CardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22822F924F500470FAF /* CardLayout.swift */; };
-		F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* ProductCard.swift */; };
-		F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* ProductCard.xib */; };
+		F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129D22A22F9277E00470FAF /* CreditsCard.swift */; };
+		F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F129D22B22F9277E00470FAF /* CreditsCard.xib */; };
 		F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369F8922D815E6000EB574 /* HomeCoordinator.swift */; };
 		F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */; };
 		F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */; };
@@ -160,9 +165,14 @@
 		F10CE43822FFCE1300130871 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F10CE43A22FFCE3F00130871 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F125389922FFF02000161DB1 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		F125389B22FFFEF600161DB1 /* MaxAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAccount.swift; sourceTree = "<group>"; };
+		F125389D230001E100161DB1 /* ProductIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIDs.swift; sourceTree = "<group>"; };
+		F125389F2300024E00161DB1 /* MaxAccountsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAccountsCard.swift; sourceTree = "<group>"; };
+		F12538A02300024E00161DB1 /* MaxAccountsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaxAccountsCard.xib; sourceTree = "<group>"; };
+		F12538A32300A89E00161DB1 /* ShadowCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCardCell.swift; sourceTree = "<group>"; };
 		F129D22822F924F500470FAF /* CardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayout.swift; sourceTree = "<group>"; };
-		F129D22A22F9277E00470FAF /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
-		F129D22B22F9277E00470FAF /* ProductCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCard.xib; sourceTree = "<group>"; };
+		F129D22A22F9277E00470FAF /* CreditsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCard.swift; sourceTree = "<group>"; };
+		F129D22B22F9277E00470FAF /* CreditsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsCard.xib; sourceTree = "<group>"; };
 		F1369F8922D815E6000EB574 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F13CB56922EEC76F006621C8 /* NavigationTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleButton.swift; sourceTree = "<group>"; };
@@ -314,6 +324,7 @@
 		F12A0AB422DC30D100CC9031 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				F125389D230001E100161DB1 /* ProductIDs.swift */,
 				F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */,
 			);
 			path = Enums;
@@ -340,6 +351,7 @@
 				F10CE43822FFCE1300130871 /* Account.swift */,
 				F1496C9E22FF9D6900C43E9A /* Credit.swift */,
 				F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */,
+				F125389B22FFFEF600161DB1 /* MaxAccount.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
 			path = Models;
@@ -485,10 +497,13 @@
 		F175707522F7DBF600B3C3DB /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				F129D22A22F9277E00470FAF /* ProductCard.swift */,
-				F129D22B22F9277E00470FAF /* ProductCard.xib */,
+				F129D22A22F9277E00470FAF /* CreditsCard.swift */,
+				F129D22B22F9277E00470FAF /* CreditsCard.xib */,
+				F125389F2300024E00161DB1 /* MaxAccountsCard.swift */,
+				F12538A02300024E00161DB1 /* MaxAccountsCard.xib */,
 				F1457EF622DDA31800EBD322 /* PostsCell.swift */,
 				F1457EF722DDA31800EBD322 /* PostsCell.xib */,
+				F12538A32300A89E00161DB1 /* ShadowCardCell.swift */,
 			);
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
@@ -753,8 +768,9 @@
 				F1369F8C22D818C8000EB574 /* GoogleService-Info.plist in Resources */,
 				F185D91A22F522EB00A6B29E /* OnboardTutorialViewController.storyboard in Resources */,
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
+				F12538A22300024E00161DB1 /* MaxAccountsCard.xib in Resources */,
 				F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */,
-				F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */,
+				F129D22D22F9277E00470FAF /* CreditsCard.xib in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -873,11 +889,12 @@
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
+				F12538A12300024E00161DB1 /* MaxAccountsCard.swift in Sources */,
 				F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
 				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
-				F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */,
+				F129D22C22F9277E00470FAF /* CreditsCard.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F1496CA122FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift in Sources */,
@@ -886,6 +903,7 @@
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */,
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
+				F12538A42300A89E00161DB1 /* ShadowCardCell.swift in Sources */,
 				F10CE43B22FFCE3F00130871 /* Logger.swift in Sources */,
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
@@ -904,6 +922,7 @@
 				F185D91222F508FF00A6B29E /* OnboardInteractor.swift in Sources */,
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
+				F125389C22FFFEF600161DB1 /* MaxAccount.swift in Sources */,
 				F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */,
 				F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */,
 				F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */,
@@ -923,6 +942,7 @@
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
+				F125389E230001E100161DB1 /* ProductIDs.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,

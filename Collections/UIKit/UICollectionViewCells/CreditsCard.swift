@@ -1,5 +1,5 @@
 //
-//  ProductCard.swift
+//  CreditsCard.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-08-05.
@@ -8,18 +8,11 @@
 
 import UIKit
 
-final class ProductCard: UICollectionViewCell, NibReusable {
+final class CreditsCard: ShadowCardCell, NibReusable {
     @IBOutlet fileprivate weak var creditCountLabel: UILabel!
     @IBOutlet fileprivate weak var priceLabel: UILabel!
     @IBOutlet fileprivate weak var percentSavingsLabel: UILabel!
     @IBOutlet fileprivate weak var extraCreditsLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.cornerRadius = 32
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.lightGray.cgColor
-    }
 
     func setup(with credit: Credit) {
         creditCountLabel.text = "\(credit.creditType.intValue)"

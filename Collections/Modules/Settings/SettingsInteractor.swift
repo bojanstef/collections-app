@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SettingsInteractable {
-    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void))
+    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func upload(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
@@ -26,16 +26,8 @@ final class SettingsInteractor {
 }
 
 extension SettingsInteractor: SettingsInteractable {
-    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void)) {
-        inAppStore.fetchProducts(ofType: .credit) { productResult in
-            switch productResult {
-            case .success(let products):
-                let credits = products.compactMap { Credit(product: $0) }
-                result(.success(credits))
-            case .failure(let error):
-                result(.failure(error))
-            }
-        }
+    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void)) {
+        inAppStore.fetchProducts(result: result)
     }
 
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
