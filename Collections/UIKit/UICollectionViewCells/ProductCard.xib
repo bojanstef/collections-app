@@ -12,30 +12,71 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductCard" customModule="Collections" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="259" height="179"/>
+            <rect key="frame" x="0.0" y="0.0" width="265" height="305"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="259" height="179"/>
+                <rect key="frame" x="0.0" y="0.0" width="265" height="305"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZt-gJ-xBa">
-                        <rect key="frame" x="108.5" y="84" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcs-KI-qkD">
+                        <rect key="frame" x="93.5" y="16" width="78" height="76.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="64"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kC-EQ-bEF">
+                        <rect key="frame" x="105" y="100.5" width="55" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ECH-HC-6GK">
+                        <rect key="frame" x="16" y="242" width="233" height="31"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You save 15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-hh-X4s">
+                                <rect key="frame" x="0.0" y="0.0" width="233" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and get 3 extra credits" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-pu-VkY">
+                                <rect key="frame" x="0.0" y="16.5" width="233" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CA1-Oq-DU4">
+                        <rect key="frame" x="82" y="137" width="101.5" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="aZt-gJ-xBa" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="FRN-Ub-5Kk"/>
-                <constraint firstItem="aZt-gJ-xBa" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="OqZ-q7-w2E"/>
+                <constraint firstItem="CA1-Oq-DU4" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="0po-Ug-6HB"/>
+                <constraint firstItem="CA1-Oq-DU4" firstAttribute="top" secondItem="3kC-EQ-bEF" secondAttribute="bottom" constant="16" id="CWg-PV-cTO"/>
+                <constraint firstItem="3kC-EQ-bEF" firstAttribute="top" secondItem="xcs-KI-qkD" secondAttribute="bottom" constant="8" id="KFN-eo-t4l"/>
+                <constraint firstItem="3kC-EQ-bEF" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="KlK-7i-5Kj"/>
+                <constraint firstItem="ECH-HC-6GK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="OBZ-Bn-9kT"/>
+                <constraint firstItem="xcs-KI-qkD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="W50-SX-2F7"/>
+                <constraint firstItem="ECH-HC-6GK" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="XhN-EI-eVt"/>
+                <constraint firstAttribute="trailing" secondItem="ECH-HC-6GK" secondAttribute="trailing" constant="16" id="dkM-0A-xAG"/>
+                <constraint firstItem="xcs-KI-qkD" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="kwd-rW-QLf"/>
+                <constraint firstAttribute="bottom" secondItem="ECH-HC-6GK" secondAttribute="bottom" constant="32" id="nAO-XH-ya6"/>
+                <constraint firstItem="ECH-HC-6GK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CA1-Oq-DU4" secondAttribute="bottom" constant="8" id="umO-Gm-gKg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="259" height="179"/>
+            <size key="customSize" width="265" height="305"/>
             <connections>
-                <outlet property="testLabel" destination="aZt-gJ-xBa" id="upl-BM-agn"/>
+                <outlet property="creditCountLabel" destination="xcs-KI-qkD" id="ZmA-9D-N9Z"/>
+                <outlet property="extraCreditsLabel" destination="2v8-pu-VkY" id="8Us-IW-kXs"/>
+                <outlet property="percentSavingsLabel" destination="fm9-hh-X4s" id="veQ-d3-bAA"/>
+                <outlet property="priceLabel" destination="CA1-Oq-DU4" id="usD-xd-pIu"/>
             </connections>
-            <point key="canvasLocation" x="-38.405797101449281" y="185.15625"/>
+            <point key="canvasLocation" x="-86.231884057971016" y="114.84375"/>
         </collectionViewCell>
     </objects>
 </document>

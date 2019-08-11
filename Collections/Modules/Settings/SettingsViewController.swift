@@ -6,15 +6,14 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
-import StoreKit
 import UIKit
 
 final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var maxAccountsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var toolbar: UIToolbar!
-    fileprivate var credits = [SKProduct]()
-    fileprivate var maxAccounts = [5, 10, 25, 50, 100]
+    fileprivate var credits = [Credit]()
+    fileprivate var maxAccounts = [Int]()
     var presenter: SettingsPresentable!
 
     override func viewDidLoad() {
@@ -29,7 +28,7 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        //presenter.navigateToPostDetail(posts[indexPath.row])
+        //presenter.purchase(credits[indexPath.row])
     }
 }
 
@@ -91,11 +90,11 @@ fileprivate extension SettingsViewController {
         creditsCollectionView.collectionViewLayout = CardLayout()
         creditsCollectionView.alwaysBounceHorizontal = true
         creditsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
-        presenter.fetchProducts(ofType: .credits) { [weak self] result in
+        presenter.fetchCredits { result in
             switch result {
             case .success(let credits):
                 DispatchQueue.main.async { [weak self] in
-                    self?.credits = credits
+                    self?.credits = credits.sorted(by: >)
                     self?.creditsCollectionView.reloadData()
                 }
             case .failure(let error):
@@ -110,7 +109,7 @@ fileprivate extension SettingsViewController {
         maxAccountsCollectionView.collectionViewLayout = CardLayout()
         maxAccountsCollectionView.alwaysBounceHorizontal = true
         maxAccountsCollectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
-//        presenter.fetchProducts(ofType: .accountsMax) { [weak self] result in
+//        presenter.fetchProducts(ofType: .accountMax) { [weak self] result in
 //            switch result {
 //            case .success(let credits):
 //                DispatchQueue.main.async { [weak self] in

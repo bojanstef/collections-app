@@ -22,6 +22,8 @@
 		F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1457EF722DDA31800EBD322 /* PostsCell.xib */; };
 		F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFA22DDA34500EBD322 /* Reusable.swift */; };
 		F1457EFE22DDA36100EBD322 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFD22DDA36100EBD322 /* Post.swift */; };
+		F1496C9F22FF9D6900C43E9A /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496C9E22FF9D6900C43E9A /* Credit.swift */; };
+		F1496CA122FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */; };
 		F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */; };
 		F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */; };
 		F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4922D7C14100F83D60 /* AppCoordinator.swift */; };
@@ -173,6 +175,8 @@
 		F1457EF722DDA31800EBD322 /* PostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsCell.xib; sourceTree = "<group>"; };
 		F1457EFA22DDA34500EBD322 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F1457EFD22DDA36100EBD322 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F1496C9E22FF9D6900C43E9A /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
+		F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
 		F14F4D3122D7B4AF00F83D60 /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		F1457EFC22DDA35500EBD322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1496C9E22FF9D6900C43E9A /* Credit.swift */,
 				F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
@@ -643,6 +648,7 @@
 				F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */,
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
 				F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */,
+				F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */,
 				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
@@ -944,6 +950,7 @@
 			files = (
 				F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */,
 				F175708B22F7FAF000B3C3DB /* UIColor+Theme.swift in Sources */,
+				F1496C9F22FF9D6900C43E9A /* Credit.swift in Sources */,
 				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
@@ -956,6 +963,7 @@
 				F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
+				F1496CA122FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift in Sources */,
 				F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */,
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,

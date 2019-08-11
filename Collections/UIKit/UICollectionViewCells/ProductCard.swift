@@ -6,18 +6,25 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
-import StoreKit
 import UIKit
 
 final class ProductCard: UICollectionViewCell, NibReusable {
-    @IBOutlet fileprivate weak var testLabel: UILabel!
+    @IBOutlet fileprivate weak var creditCountLabel: UILabel!
+    @IBOutlet fileprivate weak var priceLabel: UILabel!
+    @IBOutlet fileprivate weak var percentSavingsLabel: UILabel!
+    @IBOutlet fileprivate weak var extraCreditsLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .blue
+        layer.cornerRadius = 32
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.lightGray.cgColor
     }
 
-    func setup(with product: SKProduct) {
-        testLabel.text = product.localizedTitle
+    func setup(with credit: Credit) {
+        creditCountLabel.text = "\(credit.creditType.intValue)"
+        priceLabel.text = credit.product.localizedPrice
+        percentSavingsLabel.text = "You save \(credit.creditType.percentSavings)%"
+        extraCreditsLabel.text = "and get \(credit.creditType.extraCredits) extra credits"
     }
 }

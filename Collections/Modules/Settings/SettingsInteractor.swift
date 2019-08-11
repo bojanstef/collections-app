@@ -6,11 +6,10 @@
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 
-import StoreKit
 import Foundation
 
 protocol SettingsInteractable {
-    func fetchProducts(ofType type: ProductIDs, result: @escaping ((Result<[SKProduct], Error>) -> Void))
+    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void))
     func signOut() throws
 }
 
@@ -25,8 +24,16 @@ final class SettingsInteractor {
 }
 
 extension SettingsInteractor: SettingsInteractable {
-    func fetchProducts(ofType type: ProductIDs, result: @escaping ((Result<[SKProduct], Error>) -> Void)) {
-        inAppStore.fetchProducts(ofType: type, result: result)
+    func fetchCredits(result: @escaping ((Result<[Credit], Error>) -> Void)) {
+        inAppStore.fetchProducts(ofType: .credit) { productResult in
+            switch productResult {
+            case .success(let products):
+                let credits = products.compactMap { Credit(product: $0) }
+                result(.success(credits))
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
     }
 
     func signOut() throws {
