@@ -9,12 +9,12 @@
 import Foundation
 
 protocol AccountsPresentable {
+    var accountsMax: Int { get }
+    var creditsCount: Int { get }
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void))
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void))
     func navigateToSettings()
 }
 
@@ -29,6 +29,14 @@ final class AccountsPresenter {
 }
 
 extension AccountsPresenter: AccountsPresentable {
+    var accountsMax: Int {
+        return interactor.accountsMax
+    }
+
+    var creditsCount: Int {
+        return interactor.creditsCount
+    }
+
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
         interactor.loadAccounts(result: result)
     }
@@ -43,14 +51,6 @@ extension AccountsPresenter: AccountsPresentable {
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
         interactor.scrapeAccounts(result: result)
-    }
-
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
-        interactor.getCreditsCount(result: result)
-    }
-
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void)) {
-        interactor.getAccountsMax(result: result)
     }
 
     func navigateToSettings() {

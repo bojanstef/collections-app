@@ -23,7 +23,7 @@ final class AccountsWireframe {
 extension AccountsWireframe {
     var viewController: UIViewController {
         let networkAccess: AccountsAccessing = NetworkGateway()
-        let keychainStorage: KeychainAccessing = KeychainStorage()
+        let keychainStorage: KeychainAccessing = KeychainStorage(networkAccess.userID)
         let interactor = AccountsInteractor(networkAccess: networkAccess, keychainStorage: keychainStorage)
         let presenter = AccountsPresenter(moduleDelegate: moduleDelegate, interactor: interactor)
         return UIStoryboard.instantiateInitialViewController(AccountsViewController.self) { viewController in

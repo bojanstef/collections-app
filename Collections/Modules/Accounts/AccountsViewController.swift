@@ -60,30 +60,7 @@ fileprivate extension AccountsViewController {
 
     @objc func appDidBecomeActive() {
         loadAccounts()
-        getCreditsCount()
-        getAccountsMax()
-    }
-
-    func getCreditsCount() {
-        presenter.getCreditsCount { [weak self] result in
-            switch result {
-            case .success(let creditsCount):
-                self?.headerView.setCreditsCount(creditsCount)
-            case .failure(let error):
-                log.error(error.localizedDescription)
-            }
-        }
-    }
-
-    func getAccountsMax() {
-        presenter.getAccountsMax { result in
-            switch result {
-            case .success(let accountsMax):
-                log.info(accountsMax)
-            case .failure(let error):
-                log.error(error.localizedDescription)
-            }
-        }
+        headerView.setCreditsCount(presenter.creditsCount)
     }
 
     func setupTableView() {
@@ -118,6 +95,11 @@ fileprivate extension AccountsViewController {
             return
         }
 
+        guard accounts.count < presenter.accountsMax else {
+            log.error("Increase account max") // TODO: - Show info here (UX).
+            return
+        }
+
         let account = Account(username: username)
         guard !accounts.contains(account) else {
             log.error("This username already exists") // TODO: - Show info here (UX).
@@ -127,8 +109,9 @@ fileprivate extension AccountsViewController {
         presenter.addAccount(account) { [weak self] result in
             switch result {
             case .success(let account):
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     self?.accounts.append(account)
+                    self?.headerView.setFollowingCount(self?.accounts.count ?? 0)
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
@@ -145,8 +128,9 @@ fileprivate extension AccountsViewController {
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
             self?.present(alert, animated: true) { [weak self] in
+                guard let self = self else { return }
                 guard error == nil else { return }
-                self?.getCreditsCount()
+                self.headerView.setCreditsCount(self.presenter.creditsCount)
             }
         }
     }
@@ -183,6 +167,7 @@ extension AccountsViewController: UITableViewDataSource {
             switch result {
             case .success:
                 self?.accounts.remove(at: indexPath.row)
+                self?.headerView.setFollowingCount(self?.accounts.count ?? 0)
                 self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             case .failure(let error):
                 log.error(error.localizedDescription)

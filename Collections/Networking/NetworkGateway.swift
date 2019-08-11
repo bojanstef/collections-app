@@ -13,10 +13,20 @@ import FirebaseDynamicLinks
 import FirebaseFunctions
 
 final class NetworkGateway {
-    fileprivate let keychain = KeychainStorage()
+    fileprivate let db: Firestore
+    fileprivate lazy var keychain: KeychainAccessing = KeychainStorage(userID)
 
-    fileprivate var userID: String? {
-        return Auth.auth().currentUser?.uid
+    init() {
+        db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+    }
+}
+
+extension NetworkGateway { // Common properties and methods
+    var userID: String {
+        return Auth.auth().currentUser!.uid
     }
 }
 
@@ -66,16 +76,7 @@ extension NetworkGateway: AuthAccessing {
 
 extension NetworkGateway: AccountsAccessing {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
-        }
-
-        Firestore.firestore()
-            .collection("users")
-            .document(userID)
-            .collection("accounts")
+        db.collection("users").document(userID).collection("accounts")
             .getDocuments { snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 do {
@@ -87,20 +88,11 @@ extension NetworkGateway: AccountsAccessing {
                 } catch {
                     result(.failure(error))
                 }
-            }
+        }
     }
 
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error OR create a better user management system.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
-        }
-
-        Firestore.firestore()
-            .collection("users")
-            .document(userID)
-            .collection("accounts")
+        db.collection("users").document(userID).collection("accounts")
             .addDocument(data: (account.json as? [String: Any])!) { error in
                 guard let error = error else {
                     result(.success(account))
@@ -112,17 +104,7 @@ extension NetworkGateway: AccountsAccessing {
     }
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error OR create a better user management system.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
-        }
-
-        Firestore.firestore()
-            .collection("users")
-            .document(userID)
-            .collection("accounts")
-            .whereField("username", isEqualTo: account.username)
+        db.collection("users").document(userID).collection("accounts").whereField("username", isEqualTo: account.username)
             .getDocuments { snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 guard let doc = snapshot?.documents.first else {
@@ -140,18 +122,15 @@ extension NetworkGateway: AccountsAccessing {
     }
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error OR create a better user management system.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
-        }
-
         // TODO: - Refactor this so that the server gets the users list
-        Firestore.firestore()
-            .collection("users")
-            .document(userID)
-            .collection("accounts")
+        db.collection("users").document(userID).collection("accounts")
             .getDocuments { [weak self] snapshot, error in
+                guard let self = self else {
+                    let error = NSError(domain: "No reference to self", code: 0, userInfo: nil)
+                    result(.failure(error))
+                    return
+                }
+
                 guard error == nil else { result(.failure(error!)); return }
                 do {
                     let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
@@ -171,7 +150,7 @@ extension NetworkGateway: AccountsAccessing {
                     let accountUsernames = accounts.map { $0.username }
                     let parameterDictionary: [String: Any] = [
                         "accounts": accountUsernames,
-                        "user_id": userID
+                        "user_id": self.userID
                     ]
 
                     var request = URLRequest(url: url)
@@ -179,11 +158,11 @@ extension NetworkGateway: AccountsAccessing {
                     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameterDictionary)
 
-                    guard let creditsCount = try self?.keychain.getInt(.creditsCount), creditsCount > 0 else {
+                    guard self.keychain.creditsCount > 0 else {
                         throw NSError(domain: "No credits left", code: 0, userInfo: nil)
                     }
 
-                    try self?.keychain.set(creditsCount - 1, forKey: .creditsCount)
+                    try self.keychain.updateCredits(self.keychain.creditsCount - 1)
 
                     let task = URLSession.shared.dataTask(with: request) { _, response, error in
                         guard error == nil else { result(.failure(error!)); return }
@@ -214,12 +193,6 @@ extension NetworkGateway: AccountsAccessing {
 
 extension NetworkGateway: SearchAccessing {
     func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
-        guard let userID = userID else {
-            // TODO: - Add custom error.
-            result(.failure(NSError(domain: "No User ID", code: 0, userInfo: nil)))
-            return
-        }
-
         let unixTimestamp = date.timeIntervalSince1970
 
         // TODO: - Add enum for Collection string values

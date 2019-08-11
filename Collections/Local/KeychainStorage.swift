@@ -15,20 +15,22 @@ enum KeychainKey: String {
 }
 
 protocol KeychainAccessing {
+    var creditsCount: Int { get }
     func save(_ credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void))
+    func updateCredits(_ count: Int) throws
+
+    var accountsMax: Int { get }
     func save(_ maxAccounts: MaxAccount, result: @escaping ((Result<Void, Error>) -> Void))
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void))
 }
 
 final class KeychainStorage {
     fileprivate let store: Keychain
 
-    init(_ identifier: String = "xyz.bojan.Collections.default") {
-        self.store = Keychain(service: identifier)
+    init(_ userID: String) {
+        self.store = Keychain(service: userID)
     }
 
-    func getInt(_ key: KeychainKey) throws -> Int? {
+    fileprivate func getInt(_ key: KeychainKey) throws -> Int? {
         guard let strValue = try store.getString(key.rawValue) else {
             return nil
         }
@@ -36,12 +38,22 @@ final class KeychainStorage {
         return Int(strValue)
     }
 
-    func set(_ value: Int, forKey key: KeychainKey) throws {
+    fileprivate func set(_ value: Int, forKey key: KeychainKey) throws {
         try store.set(String(value), key: key.rawValue)
     }
 }
 
 extension KeychainStorage: KeychainAccessing {
+    var creditsCount: Int {
+        do {
+            let creditsCountValue = try getInt(.creditsCount)
+            return creditsCountValue ?? 0
+        } catch {
+            log.error(error.localizedDescription)
+            return 0
+        }
+    }
+
     func save(_ credits: Credit, result: @escaping ((Result<Void, Error>) -> Void)) {
         do {
             if let creditsCount = try getInt(.creditsCount) {
@@ -49,32 +61,30 @@ extension KeychainStorage: KeychainAccessing {
             } else {
                 try set(credits.creditType.intValue, forKey: .creditsCount)
             }
+            result(.success)
         } catch {
             result(.failure(error))
         }
     }
 
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
+    func updateCredits(_ count: Int) throws {
+        try set(count, forKey: .creditsCount)
+    }
+
+    var accountsMax: Int {
         do {
-            let creditsCount = try getInt(.creditsCount) ?? 0
-            result(.success(creditsCount))
+            let accountsMaxValue = try getInt(.accountsMax)
+            return accountsMaxValue ?? 5
         } catch {
-            result(.failure(error))
+            log.error(error.localizedDescription)
+            return 5
         }
     }
 
     func save(_ maxAccounts: MaxAccount, result: @escaping ((Result<Void, Error>) -> Void)) {
         do {
             try set(maxAccounts.maxAccountType.intValue, forKey: .accountsMax)
-        } catch {
-            result(.failure(error))
-        }
-    }
-
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void)) {
-        do {
-            let accountsMax = try getInt(.accountsMax) ?? 5
-            result(.success(accountsMax))
+            result(.success)
         } catch {
             result(.failure(error))
         }

@@ -140,7 +140,7 @@ fileprivate extension SettingsViewController {
         presenter.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.credits = products.credits.sorted(by: >)
                     self?.creditsCollectionView.reloadData()
                     self?.maxAccounts = products.maxAccounts.sorted(by: >)

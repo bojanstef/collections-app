@@ -9,12 +9,12 @@
 import Foundation
 
 protocol AccountsInteractable {
+    var accountsMax: Int { get }
+    var creditsCount: Int { get }
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void))
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void))
 }
 
 final class AccountsInteractor {
@@ -28,6 +28,14 @@ final class AccountsInteractor {
 }
 
 extension AccountsInteractor: AccountsInteractable {
+    var accountsMax: Int {
+        return keychainStorage.accountsMax
+    }
+
+    var creditsCount: Int {
+        return keychainStorage.creditsCount
+    }
+
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
         networkAccess.loadAccounts(result: result)
     }
@@ -42,13 +50,5 @@ extension AccountsInteractor: AccountsInteractable {
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
         networkAccess.scrapeAccounts(result: result)
-    }
-
-    func getCreditsCount(result: ((Result<Int, Error>) -> Void)) {
-        keychainStorage.getCreditsCount(result: result)
-    }
-
-    func getAccountsMax(result: ((Result<Int, Error>) -> Void)) {
-        keychainStorage.getAccountsMax(result: result)
     }
 }

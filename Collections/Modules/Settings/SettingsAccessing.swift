@@ -9,5 +9,6 @@
 import Foundation
 
 protocol SettingsAccessing {
+    var userID: String { get }
     func signOut() throws
 }

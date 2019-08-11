@@ -22,7 +22,7 @@ extension SettingsWireframe {
     var viewController: UIViewController {
         let networkAccess: SettingsAccessing = NetworkGateway()
         let inAppStore: InAppStoreAccessing = InAppStore()
-        let keychainStorage: KeychainAccessing = KeychainStorage()
+        let keychainStorage: KeychainAccessing = KeychainStorage(networkAccess.userID)
         let interactor = SettingsInteractor(networkAccess: networkAccess, inAppStore: inAppStore, keychainStorage: keychainStorage)
         let presenter = SettingsPresenter(moduleDelegate: moduleDelegate, interactor: interactor)
         return UIStoryboard.instantiateInitialViewController(SettingsViewController.self) { viewController in
