@@ -23,9 +23,7 @@ final class SettingsViewController: UIViewController {
         toolbar.tintColor = .lightGray
         activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
         view.addSubview(activityIndicator)
-
-        setup(creditsCollectionView, cell: CreditsCard.self, fetchOnce: nil)
-        setup(maxAccountsCollectionView, cell: MaxAccountsCard.self, fetchOnce: fetchProducts)
+        setup(creditsCollectionView, maxAccountsCollectionView, cell: ProductCard.self, fetchOnce: fetchProducts)
     }
 
     override func viewDidLayoutSubviews() {
@@ -72,18 +70,18 @@ extension SettingsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ProductCard = collectionView.dequeueReusableCell(for: indexPath)
+
         switch collectionView {
         case creditsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CreditsCard.reuseId, for: indexPath) as? CreditsCard
-            cell?.setup(with: credits[indexPath.row])
-            return cell!
+            cell.setup(with: credits[indexPath.row])
         case maxAccountsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaxAccountsCard.reuseId, for: indexPath) as? MaxAccountsCard
-            cell?.setup(with: maxAccounts[indexPath.row])
-            return cell!
+            cell.setup(with: maxAccounts[indexPath.row])
         default:
             fatalError("CollectionView: \(collectionView) does not exist.")
         }
+
+        return cell
     }
 }
 
@@ -117,12 +115,15 @@ fileprivate extension SettingsViewController {
         }
     }
 
-    func setup<T: NibReusable>(_ collectionView: UICollectionView, cell: T.Type, fetchOnce: (() -> Void)?) {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.collectionViewLayout = CardLayout()
-        collectionView.alwaysBounceHorizontal = true
-        collectionView.register(cell.nib, forCellWithReuseIdentifier: cell.reuseId)
+    func setup<T: NibReusable>(_ collectionViews: UICollectionView..., cell: T.Type, fetchOnce: (() -> Void)?) {
+        collectionViews.forEach {
+            $0.dataSource = self
+            $0.delegate = self
+            $0.collectionViewLayout = CardLayout()
+            $0.alwaysBounceHorizontal = true
+            $0.register(cell.nib, forCellWithReuseIdentifier: cell.reuseId)
+        }
+
         fetchOnce?()
     }
 

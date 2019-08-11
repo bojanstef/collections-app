@@ -51,7 +51,28 @@ enum ProductIDs {
     }
 
     enum AccountMax: String, CaseIterable {
-        case ten = "xyz.bojan.Collections.maxAccounts.10more"
+        case ten =          "xyz.bojan.Collections.maxAccounts.10more"
+        case twentyFive =   "xyz.bojan.Collections.maxAccounts.25more"
+        case fifty =        "xyz.bojan.Collections.maxAccounts.50more"
+        case hundred =      "xyz.bojan.Collections.maxAccounts.100more"
+
+        var intValue: Int {
+            switch self {
+            case .ten:          return 10
+            case .twentyFive:   return 25
+            case .fifty:        return 50
+            case .hundred:      return 100
+            }
+        }
+
+        var imagesEstimate: Int {
+            switch self {
+            case .ten:          return 2
+            case .twentyFive:   return 8
+            case .fifty:        return 15
+            case .hundred:      return 30
+            }
+        }
 
         static var rawValues: Set<String> {
             return Set(allCases.map(\.rawValue))
