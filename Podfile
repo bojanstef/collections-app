@@ -1,8 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '12.0'
-
 use_frameworks!
-
-# ignore all warnings from all pods
 inhibit_all_warnings!
 
 def common_pods
@@ -21,7 +20,7 @@ target 'Collections' do
   common_pods
 
   # Firebase Pods for Collections
-  pod 'Firebase/DynamicLinks'
+  pod 'Firebase/DynamicLinks', '~> 4.2'
 end
 
 target 'Save Account' do

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CollectionsKit
 
 protocol AccountsPresentable {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))

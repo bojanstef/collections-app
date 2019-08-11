@@ -12,7 +12,12 @@ import FirebaseDynamicLinks
 
 final class DeepLinkHandler {
     func isFirebaseDynamicLink(fromCustomSchemeURL url: URL) -> Bool {
-        guard let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) else {
+        guard let dynamicLinks = DynamicLinks.dynamicLinks() else {
+            log.debug("Dynamic links could not be instantiated")
+            return false
+        }
+
+        guard let dynamicLink = dynamicLinks.dynamicLink(fromCustomSchemeURL: url) else {
             log.debug("Dynamic link could not be instantiated from url: \(url)")
             return false
         }

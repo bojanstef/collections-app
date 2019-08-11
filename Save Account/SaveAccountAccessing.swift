@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CollectionsKit
 
 protocol SaveAccountAccessing {
     func getInstagramEmbedded(fromURL url: URL, result: @escaping ((Result<InstagramEmbedded, Error>) -> Void))

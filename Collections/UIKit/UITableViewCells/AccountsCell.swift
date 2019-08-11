@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CollectionsKit
 
 private enum Constants {
     static let cellHeight: CGFloat = 44

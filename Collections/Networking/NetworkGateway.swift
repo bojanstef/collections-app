@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseDynamicLinks
-import CollectionsKit
 
 final class NetworkGateway {
     private var userID: String? {
@@ -33,7 +32,9 @@ extension NetworkGateway: AppDelegateAccessing {
     }
 
     func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool {
-        let linkHandled = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynanicLink, error in
+        guard let dynamicLinks = DynamicLinks.dynamicLinks() else { return false }
+
+        let linkHandled = dynamicLinks.handleUniversalLink(url) { dynanicLink, error in
             guard error == nil else { completion(.failure(error!)); return }
             guard let dynamicLinkURL = dynanicLink?.url else {
                 // TODO: - Add some custom error.

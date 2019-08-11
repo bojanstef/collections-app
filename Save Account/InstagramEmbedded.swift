@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CollectionsKit
 
 struct InstagramEmbedded: Modellable {
     let authorName: String

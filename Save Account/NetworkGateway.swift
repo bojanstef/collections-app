@@ -8,7 +8,6 @@
 
 import Foundation
 import FirebaseFirestore
-import CollectionsKit
 
 private let log = Logger(category: "Network")
 

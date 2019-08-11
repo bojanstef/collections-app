@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CollectionsKit
 
 protocol AccountsInteractable {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))

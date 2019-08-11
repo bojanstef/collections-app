@@ -9,7 +9,6 @@
 import UIKit
 import MobileCoreServices
 import Firebase
-import CollectionsKit
 
 private let log = Logger(category: "Action Extension")
 

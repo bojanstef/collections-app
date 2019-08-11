@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import CollectionsKit
 
 private enum Constants {
     static let headerViewMinHeight: CGFloat = 188
