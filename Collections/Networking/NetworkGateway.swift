@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDynamicLinks
+import FirebaseFunctions
 
 final class NetworkGateway {
     private var userID: String? {
@@ -243,20 +244,19 @@ extension NetworkGateway: SettingsAccessing {
             return
         }
 
-//        Firestore.firestore()
-//            .collection("users")
-//            .document(userID)
-//            .collection("credits")
-//            .addDocument(data: ["count": credits.creditType.intValue]) { error in
-//                guard let error = error else {
-//                    result(.success)
-//                    return
-//                }
-//
-//                result(.failure(error))
-//        }
+        
+        /*
+        Functions.functions()
+            .httpsCallable("incrementCreditCount")
+            .call(["count": credits.creditType.intValue]) { firResult, error in
+                guard let error = error else {
+                    result(.success)
+                    return
+                }
 
-        result(.success)
+                result(.failure(error))
+        }
+        */
     }
 
     func signOut() throws {

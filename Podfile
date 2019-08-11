@@ -22,6 +22,9 @@ target 'Collections' do
   # Firebase Pods for Collections
   pod 'Firebase/DynamicLinks', '~> 4.2'
   pod 'Firebase/Functions'
+
+  # Other Pods for Collections
+  pod 'KeychainAccess'
 end
 
 target 'Save Account' do
