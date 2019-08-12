@@ -13,8 +13,8 @@ private let log = Logger(category: "Network")
 
 final class NetworkGateway {
     private var userID: String? {
-        guard let sharedContainer = UserDefaults(suiteName: "group.xyz.bojan.Collections") else { return nil }
-        return sharedContainer.string(forKey: "userID")
+        guard let sharedContainer = UserDefaults(suiteName: UserDefaultSharedContainer.default) else { return nil }
+        return sharedContainer.string(forKey: UserDefaultsKey.userID)
     }
 }
 

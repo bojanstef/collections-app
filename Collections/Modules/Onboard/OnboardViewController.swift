@@ -19,7 +19,6 @@ final class OnboardViewController: UIPageViewController {
         dataSource = self
         delegate = self
         view.backgroundColor = .white
-        title = "Collections"
         setupViewControllers()
         setupPageControl()
         setupNextButton()

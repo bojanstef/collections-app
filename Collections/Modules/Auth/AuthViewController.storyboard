@@ -17,8 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR1-lU-ZxS">
-                                <rect key="frame" x="32" y="321.5" width="311" height="44"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alU-A4-pn1">
+                                <rect key="frame" x="64" y="323" width="247" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" textContentType="email"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="OqO-Rx-HkB">
+                                <rect key="frame" x="123.5" y="52" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="9BD-Yy-WOF"/>
+                                    <constraint firstAttribute="width" constant="128" id="lSg-50-1jl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grow your following fast with Collections" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DL5-mJ-4ld">
+                                <rect key="frame" x="16" y="212" width="343" height="79"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR1-lU-ZxS" customClass="ActionButton" customModule="Collections" customModuleProvider="target">
+                                <rect key="frame" x="32" y="369" width="311" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="StT-Wj-Ve8"/>
                                 </constraints>
@@ -27,22 +46,21 @@
                                     <action selector="continueWithEmailButtonPressed:" destination="lHg-vJ-4kU" eventType="touchUpInside" id="ZW1-vr-bZt"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alU-A4-pn1">
-                                <rect key="frame" x="64" y="275.5" width="247" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" textContentType="email"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JR1-lU-ZxS" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="32" id="2LX-kx-PkB"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="alU-A4-pn1" secondAttribute="trailing" constant="64" id="5Cj-zf-yrz"/>
                             <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="JR1-lU-ZxS" secondAttribute="trailing" constant="32" id="HY2-Ec-GVo"/>
-                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="top" secondItem="alU-A4-pn1" secondAttribute="bottom" constant="16" id="Krb-qp-CPT"/>
+                            <constraint firstItem="DL5-mJ-4ld" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="16" id="ILt-lS-ZNN"/>
+                            <constraint firstItem="alU-A4-pn1" firstAttribute="top" secondItem="DL5-mJ-4ld" secondAttribute="bottom" constant="32" id="IV1-xd-wJ6"/>
+                            <constraint firstItem="T7B-1V-KKQ" firstAttribute="trailing" secondItem="DL5-mJ-4ld" secondAttribute="trailing" constant="16" id="MQ9-EJ-ypV"/>
+                            <constraint firstItem="DL5-mJ-4ld" firstAttribute="top" secondItem="OqO-Rx-HkB" secondAttribute="bottom" constant="32" id="OiO-di-FYL"/>
                             <constraint firstItem="JR1-lU-ZxS" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="SrJ-A9-S6Z"/>
-                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="centerY" secondItem="T7B-1V-KKQ" secondAttribute="centerY" id="aXH-Av-lbp"/>
+                            <constraint firstItem="OqO-Rx-HkB" firstAttribute="top" secondItem="T7B-1V-KKQ" secondAttribute="top" constant="32" id="VcU-px-HOI"/>
                             <constraint firstItem="alU-A4-pn1" firstAttribute="leading" secondItem="T7B-1V-KKQ" secondAttribute="leading" constant="64" id="oFc-1l-3Ho"/>
+                            <constraint firstItem="OqO-Rx-HkB" firstAttribute="centerX" secondItem="T7B-1V-KKQ" secondAttribute="centerX" id="xVq-hA-fMU"/>
+                            <constraint firstItem="JR1-lU-ZxS" firstAttribute="top" secondItem="alU-A4-pn1" secondAttribute="bottom" constant="16" id="z1F-F3-ebp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7B-1V-KKQ"/>
                     </view>
@@ -56,4 +74,7 @@
             <point key="canvasLocation" x="-4" y="144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appIcon" width="1536" height="1536"/>
+    </resources>
 </document>

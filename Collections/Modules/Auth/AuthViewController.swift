@@ -10,23 +10,49 @@ import UIKit
 
 final class AuthViewController: UIViewController {
     @IBOutlet fileprivate weak var emailTextField: UITextField!
-    @IBOutlet fileprivate weak var continueWithEmailButton: UIButton!
+    @IBOutlet fileprivate weak var continueWithEmailButton: ActionButton!
     var presenter: AuthPresentable!
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        emailTextField.becomeFirstResponder()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
 }
 
 fileprivate extension AuthViewController {
     @IBAction func continueWithEmailButtonPressed(_ sender: Any) {
         guard let emailText = emailTextField.text else {
-            log.info("Validate email text field contains an email.")
+            showAlert(EmailError.invalid)
             return
         }
 
-        // TODO: - Add proper validation for the email.
-        presenter.signIn(withEmail: emailText) { error in
-            guard error == nil else { log.error(error!.localizedDescription); return }
-            UserDefaults.standard.set(emailText, forKey: UserDefaultsKey.accountEmail)
-            // TODO: - Create UI / UX to prompt the user to check their email.
-            log.info("Check your email.")
+        let cleanedEmail = emailText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard cleanedEmail.isValidEmail else {
+            showAlert(EmailError.invalid)
+            return
         }
+
+        presenter.signIn(withEmail: cleanedEmail) { [weak self] error in
+            guard let error = error else {
+                UserDefaults.standard.set(cleanedEmail, forKey: UserDefaultsKey.accountEmail)
+                self?.showAlert()
+                return
+            }
+
+            self?.showAlert(error)
+        }
+    }
+
+    func showAlert(_ error: Error? = nil) {
+        let title = error == nil ? "Success" : "Error"
+        let message = error == nil ? "To login open your email client on your iPhone" : error?.localizedDescription
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
     }
 }

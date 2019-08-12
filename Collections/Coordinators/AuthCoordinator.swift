@@ -36,7 +36,4 @@ extension AuthCoordinator: OnboardModuleDelegate {
     }
 }
 
-extension AuthCoordinator: AuthModuleDelegate {
-    // TODO: - Add a didAttemptPasswordlessAuth that pushes a spinning screen
-    // prompting the user to open their email client.
-}
+extension AuthCoordinator: AuthModuleDelegate {}

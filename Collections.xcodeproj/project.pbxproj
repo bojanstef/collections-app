@@ -86,6 +86,9 @@
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
 		F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */; };
+		F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6123010387007680DA /* String+EmailValidation.swift */; };
+		F1BA9E65230105B9007680DA /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E64230105B9007680DA /* EmailError.swift */; };
+		F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */; };
 		F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
 		F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */; };
@@ -239,6 +242,8 @@
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
 		F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = savePhoto.mp4; sourceTree = "<group>"; };
+		F1BA9E6123010387007680DA /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
+		F1BA9E64230105B9007680DA /* EmailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailError.swift; sourceTree = "<group>"; };
 		F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccessing.swift; sourceTree = "<group>"; };
 		F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -391,6 +396,7 @@
 				F14F4D5022D7C38F00F83D60 /* Base.lproj */,
 				F14F4D4822D7C12C00F83D60 /* Coordinators */,
 				F12A0AB422DC30D100CC9031 /* Enums */,
+				F1BA9E6323010597007680DA /* Errors */,
 				F1C352AF22D7C594005198B8 /* Extensions */,
 				F125389822FFF00600161DB1 /* Local */,
 				F1457EFC22DDA35500EBD322 /* Models */,
@@ -587,6 +593,14 @@
 			path = "Save Account";
 			sourceTree = "<group>";
 		};
+		F1BA9E6323010597007680DA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F1BA9E64230105B9007680DA /* EmailError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		F1BF8D8122DD65DE004B76F4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +639,7 @@
 				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
+				F1BA9E6123010387007680DA /* String+EmailValidation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -909,9 +924,11 @@
 				F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
 				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
+				F1BA9E65230105B9007680DA /* EmailError.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
+				F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */,
 				F125389A22FFF02000161DB1 /* KeychainStorage.swift in Sources */,
 				F175708622F7DD6200B3C3DB /* SettingsAccessing.swift in Sources */,
 				F1FAD9D322E03664000A699C /* AccountsInteractor.swift in Sources */,
@@ -965,6 +982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */,
 				F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */,
 				F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */,
 				F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */,

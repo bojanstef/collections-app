@@ -13,14 +13,14 @@ import FirebaseDynamicLinks
 import FirebaseFunctions
 
 final class NetworkGateway {
-    fileprivate let db: Firestore
+    fileprivate let fireDB: Firestore
     fileprivate lazy var keychain: KeychainAccessing = KeychainStorage(userID)
 
     init() {
-        db = Firestore.firestore()
-        let settings = db.settings
+        fireDB = Firestore.firestore()
+        let settings = fireDB.settings
         settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
+        fireDB.settings = settings
     }
 }
 
@@ -76,7 +76,7 @@ extension NetworkGateway: AuthAccessing {
 
 extension NetworkGateway: AccountsAccessing {
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
-        db.collection("users").document(userID).collection("accounts")
+        fireDB.collection("users").document(userID).collection("accounts")
             .getDocuments { snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 do {
@@ -92,7 +92,7 @@ extension NetworkGateway: AccountsAccessing {
     }
 
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
-        db.collection("users").document(userID).collection("accounts")
+        fireDB.collection("users").document(userID).collection("accounts")
             .addDocument(data: (account.json as? [String: Any])!) { error in
                 guard let error = error else {
                     result(.success(account))
@@ -104,7 +104,7 @@ extension NetworkGateway: AccountsAccessing {
     }
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
-        db.collection("users").document(userID).collection("accounts").whereField("username", isEqualTo: account.username)
+        fireDB.collection("users").document(userID).collection("accounts").whereField("username", isEqualTo: account.username)
             .getDocuments { snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 guard let doc = snapshot?.documents.first else {
@@ -123,7 +123,7 @@ extension NetworkGateway: AccountsAccessing {
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
         // TODO: - Refactor this so that the server gets the users list
-        db.collection("users").document(userID).collection("accounts")
+        fireDB.collection("users").document(userID).collection("accounts")
             .getDocuments { [weak self] snapshot, error in
                 guard let self = self else {
                     let error = NSError(domain: "No reference to self", code: 0, userInfo: nil)
@@ -196,11 +196,7 @@ extension NetworkGateway: SearchAccessing {
         let unixTimestamp = date.timeIntervalSince1970
 
         // TODO: - Add enum for Collection string values
-        Firestore.firestore()
-            .collection("users")
-            .document(userID)
-            .collection("posts")
-            .whereField("timestamp", isGreaterThan: unixTimestamp)
+        fireDB.collection("users").document(userID).collection("posts").whereField("timestamp", isGreaterThan: unixTimestamp)
             .getDocuments { snapshots, error in
                 guard error == nil else { result(.failure(error!)); return }
                 do {
