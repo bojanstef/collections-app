@@ -31,6 +31,7 @@ final class OnboardTutorialViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: .videoEnded, name: .AVPlayerItemDidPlayToEndTime, object: player.currentItem)
+        playerLayer.frame = previewContainerView.bounds
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -8,14 +8,27 @@
 
 import UIKit
 
-private enum Constants {
-    static let taggedPrefix = "Tagged users"
+final class InteractiveImageView: UIImageView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        alpha = 0.75
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        alpha = 1
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        alpha = 1
+    }
 }
 
 final class PostDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
     @IBOutlet fileprivate weak var locationLabel: UILabel!
-    @IBOutlet fileprivate weak var imageView: UIImageView!
+    @IBOutlet fileprivate weak var imageView: InteractiveImageView!
     @IBOutlet fileprivate weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet fileprivate weak var descriptionLabel: UILabel!
     var presenter: PostDetailPresentable!
@@ -39,19 +52,11 @@ fileprivate extension PostDetailViewController {
         usernameLabel.text = "@" + post.ownerUsername
         locationLabel.text = post.taggedLocation
         descriptionLabel.attributedText = generateAttributedDescription(post.description)
-//        taggedUsersLabel.backgroundColor = .init(white: 1, alpha: 0.5)
-//        taggedUsersLabel.text = generateTaggedUsersText(post.taggedUsernames)
     }
 
     func generateAttributedDescription(_ description: String?) -> NSAttributedString? {
         guard let description = description else { return nil }
         return NSAttributedString(string: description)
-    }
-
-    func generateTaggedUsersText(_ usernames: [String]) -> String? {
-        guard !usernames.isEmpty else { return nil }
-        let usersText = usernames.reduce("") { $0 + "@" + $1 + "\n" }
-        return Constants.taggedPrefix + "\n" + usersText
     }
 
     func setupImageView(with image: UIImage) {

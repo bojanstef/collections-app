@@ -85,6 +85,7 @@
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
+		F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */; };
 		F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */; };
 		F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
 		F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */; };
@@ -237,6 +238,7 @@
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
+		F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = savePhoto.mp4; sourceTree = "<group>"; };
 		F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccessing.swift; sourceTree = "<group>"; };
 		F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */,
+				F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */,
 				F1944A7422DA939300C54C03 /* Collections.entitlements */,
 				F1369F8B22D818C8000EB574 /* GoogleService-Info.plist */,
 				F14F4D4022D7B4B100F83D60 /* Info.plist */,
@@ -773,6 +776,7 @@
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
 				F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */,
 				F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */,
+				F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */,
 				F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

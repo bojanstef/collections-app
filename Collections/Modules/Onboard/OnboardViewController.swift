@@ -54,7 +54,7 @@ extension OnboardViewController: UIPageViewControllerDelegate {
         pageControl.currentPage = viewControllerIndex
 
         if viewControllerIndex == pageControl.numberOfPages - 1 { // Last page
-            UIView.animate(withDuration: 1, animations: { [weak self] in
+            UIView.animate(withDuration: 1, delay: 20, animations: { [weak self] in
                 self?.nextButton.alpha = 1
             }, completion: { [weak self] _ in
                 self?.nextButton.isUserInteractionEnabled = true
@@ -68,8 +68,7 @@ fileprivate extension OnboardViewController {
     func setupViewControllers() {
         let tutorialData: [(videoResource: String, descriptionText: String)] = [
             (videoResource: "saveAccount", descriptionText: "Add accounts in your niche to get content from"),
-            (videoResource: "saveAccount", descriptionText: "Search for content based on the date it was posted"),
-            (videoResource: "saveAccount", descriptionText: "Find images to post without searching for hours")
+            (videoResource: "savePhoto", descriptionText: "Search for content based on the date it was posted. Find images to post without searching for hours")
         ]
 
         tutorialViewControllers = tutorialData.map { data in
