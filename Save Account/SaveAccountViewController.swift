@@ -22,11 +22,13 @@ final class SaveAccountViewController: UIViewController {
 
         // TODO: - Check account max is not full.
         loadAndSaveInstagramAccountName { [weak self] result in
-            switch result {
-            case .success(let savedAccount):
-                self?.showSuccessAlert(savedAccount)
-            case .failure(let error):
-                self?.showErrorAlert(error)
+            DispatchQueue.main.async { [weak self] in
+                switch result {
+                case .success(let savedAccount):
+                    self?.showSuccessAlert(savedAccount)
+                case .failure(let error):
+                    self?.showErrorAlert(error)
+                }
             }
         }
     }
@@ -88,9 +90,7 @@ fileprivate extension SaveAccountViewController {
         networkGateway.getInstagramEmbedded(fromURL: url) { [weak self] embedResult in
             switch embedResult {
             case .success(let instagramEmbedded):
-                DispatchQueue.main.async { [weak self] in
-                    self?.saveAccount(instagramEmbedded: instagramEmbedded, result: result)
-                }
+                self?.saveAccount(instagramEmbedded: instagramEmbedded, result: result)
             case .failure(let error):
                 result(.failure(error))
             }
@@ -108,7 +108,14 @@ fileprivate extension SaveAccountViewController {
     }
 
     func showErrorAlert(_ error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let message: String
+        if let urlError = error as? URLError, urlError.code == .badServerResponse {
+            message = "Cannot save private accounts"
+        } else {
+            message = "Maybe try again"
+        }
+
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Done", style: .default, handler: { [weak self] _ in
             self?.dismissAlertExtension()
         })

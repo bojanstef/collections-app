@@ -17,14 +17,13 @@ final class NetworkGateway {
         return sharedContainer.string(forKey: UserDefaultsKey.userID)
     }
 
-    fileprivate let fireDB: Firestore
-
-    init() {
-        fireDB = Firestore.firestore()
-        let settings = fireDB.settings
+    fileprivate lazy var fireDB: Firestore = {
+        let firestore = Firestore.firestore()
+        let settings = firestore.settings
         settings.areTimestampsInSnapshotsEnabled = true
-        fireDB.settings = settings
-    }
+        firestore.settings = settings
+        return firestore
+    }()
 }
 
 extension NetworkGateway: SaveAccountAccessing {
