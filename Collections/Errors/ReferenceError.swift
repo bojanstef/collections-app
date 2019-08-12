@@ -1,5 +1,5 @@
 //
-//  EmailError.swift
+//  ReferenceError.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-08-11.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum EmailError: LocalizedError {
-    case invalid
+enum ReferenceError: LocalizedError {
+    case type(Any?)
 
     var errorDescription: String? {
         switch self {
-        case .invalid: return "This is not a valid email."
+        case .type(let value): return "No reference to type \(value)"
         }
     }
 }

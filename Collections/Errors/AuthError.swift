@@ -1,5 +1,5 @@
 //
-//  EmailError.swift
+//  AuthError.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-08-11.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum EmailError: LocalizedError {
-    case invalid
+enum AuthError: LocalizedError {
+    case noUser
 
     var errorDescription: String? {
         switch self {
-        case .invalid: return "This is not a valid email."
+        case .noUser: return "You are not signed in"
         }
     }
 }

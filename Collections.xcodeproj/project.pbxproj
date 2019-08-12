@@ -89,6 +89,15 @@
 		F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6123010387007680DA /* String+EmailValidation.swift */; };
 		F1BA9E65230105B9007680DA /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E64230105B9007680DA /* EmailError.swift */; };
 		F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
+		F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
+		F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6823010EB4007680DA /* ExtensionError.swift */; };
+		F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
+		F1BA9E6C2301295D007680DA /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6B2301295D007680DA /* AuthError.swift */; };
+		F1BA9E6D230129A2007680DA /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6B2301295D007680DA /* AuthError.swift */; };
+		F1BA9E6F230129C7007680DA /* ReferenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6E230129C7007680DA /* ReferenceError.swift */; };
+		F1BA9E70230129CD007680DA /* ReferenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6E230129C7007680DA /* ReferenceError.swift */; };
+		F1BA9E7223012BC6007680DA /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E7123012BC6007680DA /* AccountError.swift */; };
+		F1BA9E7323012C19007680DA /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E7123012BC6007680DA /* AccountError.swift */; };
 		F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */; };
 		F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
 		F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */; };
@@ -244,6 +253,10 @@
 		F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = savePhoto.mp4; sourceTree = "<group>"; };
 		F1BA9E6123010387007680DA /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 		F1BA9E64230105B9007680DA /* EmailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailError.swift; sourceTree = "<group>"; };
+		F1BA9E6823010EB4007680DA /* ExtensionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionError.swift; sourceTree = "<group>"; };
+		F1BA9E6B2301295D007680DA /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		F1BA9E6E230129C7007680DA /* ReferenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceError.swift; sourceTree = "<group>"; };
+		F1BA9E7123012BC6007680DA /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		F1BF8D8222DD65EE004B76F4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccessing.swift; sourceTree = "<group>"; };
 		F1BF8D8422DD65EE004B76F4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -584,6 +597,7 @@
 				F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */,
 				F18FBA9922EA2D27001C0C42 /* Info.plist */,
 				F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */,
+				F1BA9E6823010EB4007680DA /* ExtensionError.swift */,
 				F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */,
 				F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */,
 				F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */,
@@ -596,7 +610,10 @@
 		F1BA9E6323010597007680DA /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				F1BA9E7123012BC6007680DA /* AccountError.swift */,
+				F1BA9E6B2301295D007680DA /* AuthError.swift */,
 				F1BA9E64230105B9007680DA /* EmailError.swift */,
+				F1BA9E6E230129C7007680DA /* ReferenceError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -899,6 +916,7 @@
 				F175708B22F7FAF000B3C3DB /* UIColor+Theme.swift in Sources */,
 				F1496C9F22FF9D6900C43E9A /* Credit.swift in Sources */,
 				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
+				F1BA9E6F230129C7007680DA /* ReferenceError.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F10CE43922FFCE1300130871 /* Account.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
@@ -953,6 +971,7 @@
 				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
 				F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */,
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
+				F1BA9E7223012BC6007680DA /* AccountError.swift in Sources */,
 				F13CB56C22EECD85006621C8 /* DummyTextField.swift in Sources */,
 				F185D91C22F6595800A6B29E /* ActionButton.swift in Sources */,
 				F1A28E7A22F7B460002808B6 /* NibLoadable.swift in Sources */,
@@ -964,6 +983,7 @@
 				F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
 				F10CE43422FFCDCE00130871 /* Collection+Modellable.swift in Sources */,
+				F1BA9E6C2301295D007680DA /* AuthError.swift in Sources */,
 				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
 				F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */,
@@ -982,12 +1002,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */,
+				F1BA9E7323012C19007680DA /* AccountError.swift in Sources */,
 				F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */,
+				F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */,
 				F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */,
 				F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */,
 				F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */,
 				F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */,
+				F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
+				F1BA9E6D230129A2007680DA /* AuthError.swift in Sources */,
 				F19EBA9222FFD4D000761DD2 /* Modellable.swift in Sources */,
+				F1BA9E70230129CD007680DA /* ReferenceError.swift in Sources */,
 				F10CE43522FFCDD700130871 /* Collection+Modellable.swift in Sources */,
 				F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */,
 				F19EBA9122FFD4BC00761DD2 /* Account.swift in Sources */,
