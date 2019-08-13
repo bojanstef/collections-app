@@ -25,6 +25,7 @@ final class AuthCoordinator {
 extension AuthCoordinator: Coordinating {
     func start() {
         let viewController = OnboardWireframe(moduleDelegate: self).viewController
+        navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.setViewControllers([viewController], animated: true)
     }
 }

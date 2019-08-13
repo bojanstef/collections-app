@@ -10,8 +10,8 @@ import Foundation
 
 protocol AccountsAccessing {
     var userID: String { get }
-    func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
+    func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
