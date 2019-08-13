@@ -26,7 +26,7 @@ extension NetworkGateway { // Common properties and methods
     var userID: String {
         if let currentUserId = Auth.auth().currentUser?.uid {
             return currentUserId
-        } else if let sharedContainer = UserDefaults(suiteName: UserDefaultSharedContainer.default),
+        } else if let sharedContainer = UserDefaults(suiteName: AccessGroup.default),
             let containerUserId = sharedContainer.string(forKey: UserDefaultsKey.userID) {
             return containerUserId
         } else {
@@ -35,17 +35,30 @@ extension NetworkGateway { // Common properties and methods
     }
 
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
-        fireDB.collection("users").document(userID).collection("accounts").whereField("username", isEqualTo: account.username)
-            .getDocuments { [weak self] snapshots, error in
+        fireDB.collection("users").document(userID).collection("accounts")
+            .getDocuments { [weak self] snapshot, error in
                 do {
-                    guard let this = self else { throw ReferenceError.type(self) }
-                    if let error = error { throw error }
-                    let accounts: [Account] = try snapshots!.documents.compactMap { snapshot -> Account in
+                    guard let this = self else {
+                        throw ReferenceError.type(self)
+                    }
+
+                    if let error = error {
+                        throw error
+                    }
+
+                    let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
                         let json = snapshot.data()
                         return try Account(json: json)
                     }
 
-                    guard accounts.isEmpty else { throw AccountError.duplicate(accounts.first?.username) }
+                    guard accounts.count < this.keychain.accountsMax else {
+                        throw AccountError.maximumReached
+                    }
+
+                    guard !accounts.contains(account) else {
+                        throw AccountError.duplicate(accounts.first?.username)
+                    }
+
                     this.fireDB.collection("users").document(this.userID).collection("accounts")
                         .addDocument(data: account.json as! [String: Any]) { error in // swiftlint:disable:this force_cast
                             if let error = error {

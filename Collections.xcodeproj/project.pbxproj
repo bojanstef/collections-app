@@ -133,6 +133,8 @@
 		F1D2231B23026658009843B0 /* PostDetailAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0C22E6BE48002A717A /* PostDetailAccessing.swift */; };
 		F1D2231C2302665A009843B0 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
 		F1D2231D2302665E009843B0 /* SettingsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */; };
+		F1D223212302796A009843B0 /* AccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D223202302796A009843B0 /* AccessGroup.swift */; };
+		F1D223222302799C009843B0 /* AccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D223202302796A009843B0 /* AccessGroup.swift */; };
 		F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EED22FA6BC800322768 /* InAppStore.swift */; };
 		F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
 		F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */; };
@@ -291,6 +293,7 @@
 		F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+DependencyInjection.swift"; sourceTree = "<group>"; };
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
 		F1D2230C23026092009843B0 /* InstagramEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEmbedded.swift; sourceTree = "<group>"; };
+		F1D223202302796A009843B0 /* AccessGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessGroup.swift; sourceTree = "<group>"; };
 		F1EA3EED22FA6BC800322768 /* InAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+IsSuccessCode.swift"; sourceTree = "<group>"; };
 		F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
@@ -356,6 +359,7 @@
 		F12A0AB422DC30D100CC9031 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				F1D223202302796A009843B0 /* AccessGroup.swift */,
 				F125389D230001E100161DB1 /* ProductIDs.swift */,
 				F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */,
 			);
@@ -954,6 +958,7 @@
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
 				F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
 				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
+				F1D223212302796A009843B0 /* AccessGroup.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F1BA9E65230105B9007680DA /* EmailError.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
@@ -1020,6 +1025,7 @@
 				F1D22316230263E8009843B0 /* NetworkGateway.swift in Sources */,
 				F1D22317230265D3009843B0 /* Post.swift in Sources */,
 				F1D2231223026200009843B0 /* Sequence+MapKeyPath.swift in Sources */,
+				F1D223222302799C009843B0 /* AccessGroup.swift in Sources */,
 				F1D22310230261CF009843B0 /* MaxAccount.swift in Sources */,
 				F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */,
 				F1D2231823026646009843B0 /* AccountsAccessing.swift in Sources */,

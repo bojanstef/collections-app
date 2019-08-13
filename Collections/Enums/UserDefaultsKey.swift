@@ -12,7 +12,3 @@ enum UserDefaultsKey {
     static let accountEmail = "account_email"
     static let userID = "user_id"
 }
-
-enum UserDefaultSharedContainer {
-    static let `default` = "group.xyz.bojan.Collections"
-}

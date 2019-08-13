@@ -27,7 +27,7 @@ final class KeychainStorage {
     fileprivate let store: Keychain
 
     init(_ userID: String) {
-        self.store = Keychain(service: userID)
+        self.store = Keychain(service: userID, accessGroup: AccessGroup.default)
     }
 
     fileprivate func getInt(_ key: KeychainKey) throws -> Int? {

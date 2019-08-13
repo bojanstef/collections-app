@@ -95,17 +95,7 @@ fileprivate extension AccountsViewController {
             return
         }
 
-        guard accounts.count < presenter.accountsMax else {
-            showErrorAlert(AccountError.maximumReached)
-            return
-        }
-
         let account = Account(username: username)
-        guard !accounts.contains(account) else {
-            showErrorAlert(AccountError.duplicate(account.username))
-            return
-        }
-
         presenter.addAccount(account) { [weak self] result in
             switch result {
             case .success(let account):
@@ -117,16 +107,16 @@ fileprivate extension AccountsViewController {
             case .failure(let error):
                 log.error(error.localizedDescription)
                 DispatchQueue.main.async { [weak self] in
-                    self?.showErrorAlert(AccountError.unknown)
+                    self?.showErrorAlert(error)
                 }
             }
         }
     }
 
-    func showErrorAlert(_ error: AccountError) {
-        let title = "Whoops 😱"
+    func showErrorAlert(_ error: Error) {
+        let errorTitle = "Whoops 😱"
         let message = error.localizedDescription
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)

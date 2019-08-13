@@ -106,15 +106,10 @@ fileprivate extension SaveAccountViewController {
     }
 
     func showErrorAlert(_ error: Error) {
-        let message: String
-        if let urlError = error as? URLError, urlError.code == .badServerResponse {
-            message = "Cannot save private accounts"
-        } else {
-            message = "Maybe try again"
-        }
-
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Done", style: .default, handler: { [weak self] _ in
+        let errorTitle = "Whoops 😱"
+        let message = error.localizedDescription
+        let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Ok", style: .default, handler: { [weak self] _ in
             self?.dismissAlertExtension()
         })
 
