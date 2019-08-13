@@ -66,7 +66,7 @@ extension OnboardViewController: UIPageViewControllerDelegate {
 fileprivate extension OnboardViewController {
     func setupViewControllers() {
         let tutorialData: [(videoResource: String, descriptionText: String)] = [
-            (videoResource: "saveAccount", descriptionText: "Add accounts in your niche to get content from"),
+            (videoResource: "saveAccount", descriptionText: "Add inspirational accounts to pull content from"),
             (videoResource: "savePhoto", descriptionText: "Search for content based on the date it was posted. Find images to post without searching for hours")
         ]
 

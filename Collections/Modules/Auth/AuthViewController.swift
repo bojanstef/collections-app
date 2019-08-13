@@ -50,7 +50,7 @@ fileprivate extension AuthViewController {
 
     func showAlert(_ error: Error? = nil) {
         let title = error == nil ? "Success" : "Error"
-        let message = error == nil ? "To login open your email client on your iPhone" : error?.localizedDescription
+        let message = error == nil ? "Check your email to finish your sign in" : error?.localizedDescription
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         present(alert, animated: true)
