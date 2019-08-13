@@ -15,6 +15,8 @@ private enum Constants {
     static let extensionSeparator: Character = "."
 }
 
+let log = Logger()
+
 final class Logger {
     fileprivate let log: OSLog
 

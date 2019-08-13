@@ -10,10 +10,8 @@ import UIKit
 import MobileCoreServices
 import Firebase
 
-private let log = Logger(category: "Action Extension")
-
 final class SaveAccountViewController: UIViewController {
-    fileprivate let networkGateway: SaveAccountAccessing = NetworkGateway()
+    fileprivate lazy var networkGateway: SaveAccountAccessing = NetworkGateway()
 
     override func viewDidLoad() {
         super.viewDidLoad()

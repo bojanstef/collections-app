@@ -34,4 +34,21 @@ final class DeepLinkHandler {
     func isFirebaseSignInLink(_ emailLink: String) -> Bool {
         return Auth.auth().isSignIn(withEmailLink: emailLink)
     }
+
+    func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool {
+        guard let dynamicLinks = DynamicLinks.dynamicLinks() else { return false }
+
+        let linkHandled = dynamicLinks.handleUniversalLink(url) { dynanicLink, error in
+            guard error == nil else { completion(.failure(error!)); return }
+            guard let dynamicLinkURL = dynanicLink?.url else {
+                // TODO: - Add some custom error.
+                completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
+                return
+            }
+
+            completion(.success(dynamicLinkURL))
+        }
+
+        return linkHandled
+    }
 }

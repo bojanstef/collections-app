@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-let log = Logger()
-
 @UIApplicationMain
 final class AppDelegate: UIResponder {
     fileprivate lazy var appCoordinator = AppCoordinator(window: window!)
@@ -52,7 +50,7 @@ extension AppDelegate: UIApplicationDelegate {
         }
 
         log.debug("Incoming URL is \(incomingURL)")
-        let isFirebaseLinkHandled = networkGateway.handleFirebaseUniversalLink(incomingURL) { result in
+        let isFirebaseLinkHandled = deepLinkHandler.handleFirebaseUniversalLink(incomingURL) { result in
             switch result {
             case .success(let url):
                 self.handleDeepLink(url)

@@ -1,8 +1,8 @@
 //
 //  InstagramEmbedded.swift
-//  Save Account
+//  Collections
 //
-//  Created by Bojan Stefanovic on 2019-07-25.
+//  Created by Bojan Stefanovic on 2019-08-12.
 //  Copyright © 2019 Bojan Stefanovic. All rights reserved.
 //
 

@@ -41,7 +41,6 @@
 		F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4C22D7C21700F83D60 /* Coordinating.swift */; };
 		F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */; };
 		F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D5122D7C39D00F83D60 /* LaunchScreen.storyboard */; };
-		F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */; };
 		F151E84522EA87B600D16EF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */; };
 		F151E84822EACE9600D16EF7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F151E84722EACE9600D16EF7 /* StoreKit.framework */; };
 		F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84922EBDEE200D16EF7 /* SearchCoordinator.swift */; };
@@ -84,7 +83,6 @@
 		F1A28E7A22F7B460002808B6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A28E7922F7B460002808B6 /* NibLoadable.swift */; };
 		F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */; };
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
-		F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */; };
 		F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */; };
 		F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6123010387007680DA /* String+EmailValidation.swift */; };
 		F1BA9E65230105B9007680DA /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E64230105B9007680DA /* EmailError.swift */; };
@@ -118,6 +116,23 @@
 		F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A822D7C576005198B8 /* AuthWireframe.swift */; };
 		F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */; };
 		F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
+		F1D2230A23026011009843B0 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389922FFF02000161DB1 /* KeychainStorage.swift */; };
+		F1D2230B2302606C009843B0 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
+		F1D2230D23026092009843B0 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* InstagramEmbedded.swift */; };
+		F1D2230E23026092009843B0 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* InstagramEmbedded.swift */; };
+		F1D2230F230261CD009843B0 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496C9E22FF9D6900C43E9A /* Credit.swift */; };
+		F1D22310230261CF009843B0 /* MaxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389B22FFFEF600161DB1 /* MaxAccount.swift */; };
+		F1D22311230261E5009843B0 /* ProductIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389D230001E100161DB1 /* ProductIDs.swift */; };
+		F1D2231223026200009843B0 /* Sequence+MapKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */; };
+		F1D223142302621A009843B0 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
+		F1D22316230263E8009843B0 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
+		F1D22317230265D3009843B0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFD22DDA36100EBD322 /* Post.swift */; };
+		F1D2231823026646009843B0 /* AccountsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CE22E03664000A699C /* AccountsAccessing.swift */; };
+		F1D223192302664A009843B0 /* AuthAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352A422D7C576005198B8 /* AuthAccessing.swift */; };
+		F1D2231A23026652009843B0 /* OnboardAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185D90D22F508FF00A6B29E /* OnboardAccessing.swift */; };
+		F1D2231B23026658009843B0 /* PostDetailAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1EB0C22E6BE48002A717A /* PostDetailAccessing.swift */; };
+		F1D2231C2302665A009843B0 /* SearchAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF8D8322DD65EE004B76F4 /* SearchAccessing.swift */; };
+		F1D2231D2302665E009843B0 /* SettingsAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175708022F7DD6200B3C3DB /* SettingsAccessing.swift */; };
 		F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EED22FA6BC800322768 /* InAppStore.swift */; };
 		F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
 		F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */; };
@@ -205,7 +220,6 @@
 		F14F4D4C22D7C21700F83D60 /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		F14F4D4E22D7C26900F83D60 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		F14F4D5222D7C39D00F83D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEmbedded.swift; sourceTree = "<group>"; };
 		F151E84422EA87B600D16EF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F151E84622EA896E00D16EF7 /* Save Account.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Save Account.entitlements"; sourceTree = "<group>"; };
 		F151E84722EACE9600D16EF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -249,7 +263,6 @@
 		F1A28E7922F7B460002808B6 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveAccountViewController.storyboard; sourceTree = "<group>"; };
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
-		F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
 		F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = savePhoto.mp4; sourceTree = "<group>"; };
 		F1BA9E6123010387007680DA /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 		F1BA9E64230105B9007680DA /* EmailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailError.swift; sourceTree = "<group>"; };
@@ -277,6 +290,7 @@
 		F1C352A822D7C576005198B8 /* AuthWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWireframe.swift; sourceTree = "<group>"; };
 		F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+DependencyInjection.swift"; sourceTree = "<group>"; };
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
+		F1D2230C23026092009843B0 /* InstagramEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEmbedded.swift; sourceTree = "<group>"; };
 		F1EA3EED22FA6BC800322768 /* InAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+IsSuccessCode.swift"; sourceTree = "<group>"; };
 		F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
@@ -369,6 +383,7 @@
 				F10CE43822FFCE1300130871 /* Account.swift */,
 				F1496C9E22FF9D6900C43E9A /* Credit.swift */,
 				F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */,
+				F1D2230C23026092009843B0 /* InstagramEmbedded.swift */,
 				F125389B22FFFEF600161DB1 /* MaxAccount.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
@@ -598,8 +613,6 @@
 				F18FBA9922EA2D27001C0C42 /* Info.plist */,
 				F1AEF6EC22EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard */,
 				F1BA9E6823010EB4007680DA /* ExtensionError.swift */,
-				F151E84222EA821600D16EF7 /* InstagramEmbedded.swift */,
-				F1AEF6F922EA7B5800BBD6B4 /* NetworkGateway.swift */,
 				F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */,
 				F18FBA9422EA2D27001C0C42 /* SaveAccountViewController.swift */,
 				F18FBA9222EA2D27001C0C42 /* Media.xcassets */,
@@ -977,12 +990,14 @@
 				F1A28E7A22F7B460002808B6 /* NibLoadable.swift in Sources */,
 				F1C352AD22D7C576005198B8 /* AuthInteractor.swift in Sources */,
 				F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */,
+				F1D2230B2302606C009843B0 /* SaveAccountAccessing.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F125389E230001E100161DB1 /* ProductIDs.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
 				F10CE43422FFCDCE00130871 /* Collection+Modellable.swift in Sources */,
+				F1D2230D23026092009843B0 /* InstagramEmbedded.swift in Sources */,
 				F1BA9E6C2301295D007680DA /* AuthError.swift in Sources */,
 				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
@@ -1002,18 +1017,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D22316230263E8009843B0 /* NetworkGateway.swift in Sources */,
+				F1D22317230265D3009843B0 /* Post.swift in Sources */,
+				F1D2231223026200009843B0 /* Sequence+MapKeyPath.swift in Sources */,
+				F1D22310230261CF009843B0 /* MaxAccount.swift in Sources */,
 				F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */,
+				F1D2231823026646009843B0 /* AccountsAccessing.swift in Sources */,
+				F1D2230A23026011009843B0 /* KeychainStorage.swift in Sources */,
+				F1D2230F230261CD009843B0 /* Credit.swift in Sources */,
+				F1D2230E23026092009843B0 /* InstagramEmbedded.swift in Sources */,
+				F1D2231B23026658009843B0 /* PostDetailAccessing.swift in Sources */,
 				F1BA9E7323012C19007680DA /* AccountError.swift in Sources */,
+				F1D2231D2302665E009843B0 /* SettingsAccessing.swift in Sources */,
+				F1D2231A23026652009843B0 /* OnboardAccessing.swift in Sources */,
+				F1D2231C2302665A009843B0 /* SearchAccessing.swift in Sources */,
 				F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */,
+				F1D223142302621A009843B0 /* AppDelegateAccessing.swift in Sources */,
 				F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */,
-				F151E84322EA821600D16EF7 /* InstagramEmbedded.swift in Sources */,
 				F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */,
-				F1AEF6FA22EA7B5800BBD6B4 /* NetworkGateway.swift in Sources */,
 				F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */,
 				F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
+				F1D223192302664A009843B0 /* AuthAccessing.swift in Sources */,
 				F1BA9E6D230129A2007680DA /* AuthError.swift in Sources */,
 				F19EBA9222FFD4D000761DD2 /* Modellable.swift in Sources */,
 				F1BA9E70230129CD007680DA /* ReferenceError.swift in Sources */,
+				F1D22311230261E5009843B0 /* ProductIDs.swift in Sources */,
 				F10CE43522FFCDD700130871 /* Collection+Modellable.swift in Sources */,
 				F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */,
 				F19EBA9122FFD4BC00761DD2 /* Account.swift in Sources */,

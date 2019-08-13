@@ -10,5 +10,4 @@ import Foundation
 
 protocol AppDelegateAccessing {
     func signIn(withEmailSignupLink link: String, completion: @escaping ((Result<Bool, Error>) -> Void))
-    func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool
 }

@@ -9,8 +9,6 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-import FirebaseDynamicLinks
-import FirebaseFunctions
 
 final class NetworkGateway {
     fileprivate let fireDB: Firestore
@@ -26,7 +24,41 @@ final class NetworkGateway {
 
 extension NetworkGateway { // Common properties and methods
     var userID: String {
-        return Auth.auth().currentUser!.uid
+        if let currentUserId = Auth.auth().currentUser?.uid {
+            return currentUserId
+        } else if let sharedContainer = UserDefaults(suiteName: UserDefaultSharedContainer.default),
+            let containerUserId = sharedContainer.string(forKey: UserDefaultsKey.userID) {
+            return containerUserId
+        } else {
+            fatalError("No current user.")
+        }
+    }
+
+    func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
+        fireDB.collection("users").document(userID).collection("accounts").whereField("username", isEqualTo: account.username)
+            .getDocuments { [weak self] snapshots, error in
+                do {
+                    guard let this = self else { throw ReferenceError.type(self) }
+                    if let error = error { throw error }
+                    let accounts: [Account] = try snapshots!.documents.compactMap { snapshot -> Account in
+                        let json = snapshot.data()
+                        return try Account(json: json)
+                    }
+
+                    guard accounts.isEmpty else { throw AccountError.duplicate(accounts.first?.username) }
+                    this.fireDB.collection("users").document(this.userID).collection("accounts")
+                        .addDocument(data: account.json as! [String: Any]) { error in // swiftlint:disable:this force_cast
+                            if let error = error {
+                                result(.failure(error))
+                                return
+                            }
+
+                            result(.success(account))
+                    }
+                } catch {
+                    result(.failure(error))
+                }
+        }
     }
 }
 
@@ -42,23 +74,6 @@ extension NetworkGateway: AppDelegateAccessing {
             guard error == nil else { completion(.failure(error!)); return }
             completion(.success(true))
         }
-    }
-
-    func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool {
-        guard let dynamicLinks = DynamicLinks.dynamicLinks() else { return false }
-
-        let linkHandled = dynamicLinks.handleUniversalLink(url) { dynanicLink, error in
-            guard error == nil else { completion(.failure(error!)); return }
-            guard let dynamicLinkURL = dynanicLink?.url else {
-                // TODO: - Add some custom error.
-                completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
-                return
-            }
-
-            completion(.success(dynamicLinkURL))
-        }
-
-        return linkHandled
     }
 }
 
@@ -89,18 +104,6 @@ extension NetworkGateway: AccountsAccessing {
                     result(.failure(error))
                 }
         }
-    }
-
-    func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
-        fireDB.collection("users").document(userID).collection("accounts")
-            .addDocument(data: (account.json as? [String: Any])!) { error in
-                guard let error = error else {
-                    result(.success(account))
-                    return
-                }
-
-                result(.failure(error))
-            }
     }
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
@@ -209,6 +212,29 @@ extension NetworkGateway: SearchAccessing {
                     result(.failure(error))
                 }
         }
+    }
+}
+
+extension NetworkGateway: SaveAccountAccessing {
+    func getInstagramEmbedded(fromURL url: URL, result: @escaping ((Result<InstagramEmbedded, Error>) -> Void)) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            do {
+                if let error = error { throw error }
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.isSuccessCode else { throw URLError(.badServerResponse) }
+                guard let data = data else { throw NSError(domain: "No data", code: 0, userInfo: nil) }
+                let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
+                let instagramEmbedded = try InstagramEmbedded(json: json)
+                result(.success(instagramEmbedded))
+            } catch {
+                result(.failure(error))
+            }
+        }
+
+        task.resume()
     }
 }
 
