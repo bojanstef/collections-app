@@ -91,18 +91,18 @@ fileprivate extension AccountsViewController {
 
     func addAccount(username: String?) {
         guard let username = username?.lowercased() else {
-            log.error("Must supply a username") // TODO: - Show info here (UX).
+            showErrorAlert(AccountError.empty)
             return
         }
 
         guard accounts.count < presenter.accountsMax else {
-            log.error("Increase account max") // TODO: - Show info here (UX).
+            showErrorAlert(AccountError.maximumReached)
             return
         }
 
         let account = Account(username: username)
         guard !accounts.contains(account) else {
-            log.error("This username already exists") // TODO: - Show info here (UX).
+            showErrorAlert(AccountError.duplicate(account.username))
             return
         }
 
@@ -116,13 +116,25 @@ fileprivate extension AccountsViewController {
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
+                DispatchQueue.main.async { [weak self] in
+                    self?.showErrorAlert(AccountError.unknown)
+                }
             }
         }
     }
 
+    func showErrorAlert(_ error: AccountError) {
+        let title = "Whoops 😱"
+        let message = error.localizedDescription
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+
     func showScrapeResultAlert(error: Error? = nil) {
         DispatchQueue.main.async { [weak self] in
-            let title = error == nil ? "Success 🎉" : "Error 😱"
+            let title = error == nil ? "Success 🎉" : "Whoops 😱"
             let message = error?.localizedDescription ?? "Come back in 15 minutes or so to see the results."
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)

@@ -9,16 +9,25 @@
 import Foundation
 
 enum AccountError: LocalizedError {
+    case empty
+    case maximumReached
     case duplicate(String?)
+    case unknown
 
     var errorDescription: String? {
         switch self {
+        case .empty:
+            return "Account username is empty"
+        case .maximumReached:
+            return "Not enough accounts, you have to increase your limit"
         case .duplicate(let username):
             if let username = username {
                 return "Account @\(username) is already saved"
             } else {
                 return "This accounts is already saved"
             }
+        case .unknown:
+            return "Something happened, maybe try again?"
         }
     }
 }

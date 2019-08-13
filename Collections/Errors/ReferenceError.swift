@@ -13,7 +13,7 @@ enum ReferenceError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .type(let value): return "No reference to type \(value)"
+        case .type(let value): return "No reference to type \(value as Any)"
         }
     }
 }
