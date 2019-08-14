@@ -25,6 +25,7 @@ final class AccountsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsGlyph"), style: .plain, target: self, action: .openSettings)
         setupTableView()
+        presenter.giveNewUserFreeCredits()
     }
 
     override func viewWillAppear(_ animated: Bool) {

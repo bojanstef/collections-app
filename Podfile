@@ -12,7 +12,7 @@ def common_pods
   # Common Firebase Pods
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
-  pod 'Firebase/Auth'
+  pod 'Firebase/Auth' # Needed version 5.3 to fix `isNewUser` always returning false
   pod 'Firebase/Firestore'
 end
 
@@ -21,7 +21,7 @@ target 'Collections' do
   common_pods
 
   # Firebase Pods for Collections
-  pod 'Firebase/DynamicLinks', '~> 4.2'
+  pod 'Firebase/DynamicLinks', '~> 4.2' # Needed version 4.2 to fix 'not available' bug
   pod 'Firebase/Functions'
 end
 

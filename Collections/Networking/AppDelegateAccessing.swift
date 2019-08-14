@@ -9,5 +9,6 @@
 import Foundation
 
 protocol AppDelegateAccessing {
-    func signIn(withEmailSignupLink link: String, completion: @escaping ((Result<Bool, Error>) -> Void))
+    var userID: String { get }
+    func signIn(withEmailSignupLink link: String, result: @escaping ((Result<Void, Error>) -> Void))
 }

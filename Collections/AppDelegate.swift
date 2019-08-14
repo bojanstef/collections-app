@@ -11,10 +11,10 @@ import Firebase
 
 @UIApplicationMain
 final class AppDelegate: UIResponder {
+    fileprivate var authStateChangeHandler: AuthStateDidChangeListenerHandle?
     fileprivate lazy var appCoordinator = AppCoordinator(window: window!)
     fileprivate lazy var deepLinkHandler = DeepLinkHandler()
     fileprivate lazy var networkGateway: AppDelegateAccessing = NetworkGateway()
-    fileprivate var authStateChangeHandler: AuthStateDidChangeListenerHandle?
     lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
     deinit {
@@ -86,7 +86,7 @@ fileprivate extension AppDelegate {
 
     func handleAuthStateChange(auth: Auth, user: User?) {
         if let currentUser = auth.currentUser, let user = user, currentUser.uid == user.uid {
-            if let sharedContainer = UserDefaults(suiteName: AccessGroup    .default) {
+            if let sharedContainer = UserDefaults(suiteName: AccessGroup.default) {
                 sharedContainer.set(currentUser.uid, forKey: UserDefaultsKey.userID)
             }
 

@@ -13,5 +13,5 @@ protocol AccountsAccessing {
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func scrapeAccounts(updateCreditsBlock: @escaping (() throws -> Void), result: @escaping ((Result<Void, Error>) -> Void))
 }

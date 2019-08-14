@@ -12,13 +12,9 @@ import FirebaseFirestore
 
 final class NetworkGateway {
     fileprivate let fireDB: Firestore
-    fileprivate lazy var keychain: KeychainAccessing = KeychainStorage(userID)
 
     init() {
         fireDB = Firestore.firestore()
-        let settings = fireDB.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        fireDB.settings = settings
     }
 }
 
@@ -26,8 +22,7 @@ extension NetworkGateway { // Common properties and methods
     var userID: String {
         if let currentUserId = Auth.auth().currentUser?.uid {
             return currentUserId
-        } else if let sharedContainer = UserDefaults(suiteName: AccessGroup.default),
-            let containerUserId = sharedContainer.string(forKey: UserDefaultsKey.userID) {
+        } else if let containerUserId = UserDefaults(suiteName: AccessGroup.default)?.string(forKey: UserDefaultsKey.userID) {
             return containerUserId
         } else {
             fatalError("No current user.")
@@ -51,9 +46,10 @@ extension NetworkGateway { // Common properties and methods
                         return try Account(json: json)
                     }
 
-                    guard accounts.count < this.keychain.accountsMax else {
-                        throw AccountError.maximumReached
-                    }
+                    // TODO: Check account max in interactors.
+//                    guard accounts.count < this.keychain.accountsMax else {
+//                        throw AccountError.maximumReached
+//                    }
 
                     guard !accounts.contains(account) else {
                         throw AccountError.duplicate(accounts.first?.username)
@@ -76,16 +72,20 @@ extension NetworkGateway { // Common properties and methods
 }
 
 extension NetworkGateway: AppDelegateAccessing {
-    func signIn(withEmailSignupLink link: String, completion: @escaping ((Result<Bool, Error>) -> Void)) {
+    func signIn(withEmailSignupLink link: String, result: @escaping ((Result<Void, Error>) -> Void)) {
         guard let accountEmail = UserDefaults.standard.string(forKey: UserDefaultsKey.accountEmail) else {
             // TODO: - Add some custom error.
-            completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
+            result(.failure(NSError(domain: "", code: 0, userInfo: nil)))
             return
         }
 
-        Auth.auth().signIn(withEmail: accountEmail, link: link) { _, error in
-            guard error == nil else { completion(.failure(error!)); return }
-            completion(.success(true))
+        Auth.auth().signIn(withEmail: accountEmail, link: link) { authResult, error in
+            if let error = error {
+                result(.failure(error))
+                return
+            }
+
+            result(.success)
         }
     }
 }
@@ -137,7 +137,7 @@ extension NetworkGateway: AccountsAccessing {
             }
     }
 
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+    func scrapeAccounts(updateCreditsBlock: @escaping (() throws -> Void), result: @escaping ((Result<Void, Error>) -> Void)) {
         // TODO: - Refactor this so that the server gets the users list
         fireDB.collection("users").document(userID).collection("accounts")
             .getDocuments { [weak self] snapshot, error in
@@ -174,11 +174,7 @@ extension NetworkGateway: AccountsAccessing {
                     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameterDictionary)
 
-                    guard self.keychain.creditsCount > 0 else {
-                        throw NSError(domain: "No credits left", code: 0, userInfo: nil)
-                    }
-
-                    try self.keychain.updateCredits(self.keychain.creditsCount - 1)
+                    try updateCreditsBlock()
 
                     let task = URLSession.shared.dataTask(with: request) { _, response, error in
                         guard error == nil else { result(.failure(error!)); return }

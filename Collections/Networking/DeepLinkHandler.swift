@@ -11,12 +11,14 @@ import FirebaseAuth
 import FirebaseDynamicLinks
 
 final class DeepLinkHandler {
-    func isFirebaseDynamicLink(fromCustomSchemeURL url: URL) -> Bool {
-        guard let dynamicLinks = DynamicLinks.dynamicLinks() else {
-            log.debug("Dynamic links could not be instantiated")
-            return false
-        }
+    fileprivate let dynamicLinks: DynamicLinks
 
+    init() {
+        // Returns nil on iOS versions prior to 8 and we only support 12.0+
+        dynamicLinks = DynamicLinks.dynamicLinks()!
+    }
+
+    func isFirebaseDynamicLink(fromCustomSchemeURL url: URL) -> Bool {
         guard let dynamicLink = dynamicLinks.dynamicLink(fromCustomSchemeURL: url) else {
             log.debug("Dynamic link could not be instantiated from url: \(url)")
             return false
@@ -36,8 +38,6 @@ final class DeepLinkHandler {
     }
 
     func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool {
-        guard let dynamicLinks = DynamicLinks.dynamicLinks() else { return false }
-
         let linkHandled = dynamicLinks.handleUniversalLink(url) { dynanicLink, error in
             guard error == nil else { completion(.failure(error!)); return }
             guard let dynamicLinkURL = dynanicLink?.url else {

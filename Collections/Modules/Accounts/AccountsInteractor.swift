@@ -11,6 +11,7 @@ import Foundation
 protocol AccountsInteractable {
     var accountsMax: Int { get }
     var creditsCount: Int { get }
+    func giveNewUserFreeCredits()
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
@@ -36,6 +37,10 @@ extension AccountsInteractor: AccountsInteractable {
         return keychainStorage.creditsCount
     }
 
+    func giveNewUserFreeCredits() {
+        keychainStorage.giveNewUserFreeCredits()
+    }
+
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
         networkAccess.loadAccounts(result: result)
     }
@@ -49,6 +54,10 @@ extension AccountsInteractor: AccountsInteractable {
     }
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        networkAccess.scrapeAccounts(result: result)
+        networkAccess.scrapeAccounts(updateCreditsBlock: { [weak self] in
+            guard let this = self else { throw ReferenceError.type(self) }
+            guard this.keychainStorage.creditsCount > 0 else { throw CreditError.notEnough }
+            try this.keychainStorage.updateCredits(this.keychainStorage.creditsCount - 1)
+        }, result: result)
     }
 }

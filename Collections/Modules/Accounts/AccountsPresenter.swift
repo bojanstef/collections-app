@@ -11,6 +11,7 @@ import Foundation
 protocol AccountsPresentable {
     var accountsMax: Int { get }
     var creditsCount: Int { get }
+    func giveNewUserFreeCredits()
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
@@ -35,6 +36,10 @@ extension AccountsPresenter: AccountsPresentable {
 
     var creditsCount: Int {
         return interactor.creditsCount
+    }
+
+    func giveNewUserFreeCredits() {
+        interactor.giveNewUserFreeCredits()
     }
 
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {

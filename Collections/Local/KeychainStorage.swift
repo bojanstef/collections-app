@@ -15,6 +15,8 @@ enum KeychainKey: String {
 }
 
 protocol KeychainAccessing {
+    func giveNewUserFreeCredits()
+
     var creditsCount: Int { get }
     func save(_ credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func updateCredits(_ count: Int) throws
@@ -28,6 +30,19 @@ final class KeychainStorage {
 
     init(_ userID: String) {
         self.store = Keychain(service: userID, accessGroup: AccessGroup.default)
+    }
+
+    fileprivate var isNewUser: Bool {
+        get {
+            guard let isNewUserStr = store["isNewUser"], let isNewUserValue = Bool(isNewUserStr) else {
+                return true // isNewUser value doesn't exist, therefore isNewUser is true.
+            }
+
+            return isNewUserValue
+        }
+        set {
+            store["isNewUser"] = String(newValue)
+        }
     }
 
     fileprivate func getInt(_ key: KeychainKey) throws -> Int? {
@@ -44,6 +59,16 @@ final class KeychainStorage {
 }
 
 extension KeychainStorage: KeychainAccessing {
+    func giveNewUserFreeCredits() {
+        guard isNewUser else { return }
+        do {
+            try updateCredits(10)
+            isNewUser = false
+        } catch {
+            log.error(error.localizedDescription)
+        }
+    }
+
     var creditsCount: Int {
         do {
             let creditsCountValue = try getInt(.creditsCount)
