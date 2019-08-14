@@ -33,28 +33,15 @@ extension NetworkGateway { // Common properties and methods
         fireDB.collection("users").document(userID).collection("accounts")
             .getDocuments { [weak self] snapshot, error in
                 do {
-                    guard let this = self else {
-                        throw ReferenceError.type(self)
-                    }
-
-                    if let error = error {
-                        throw error
-                    }
+                    if let error = error { throw error }
+                    guard let this = self else { throw ReferenceError.type(self) }
 
                     let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
                         let json = snapshot.data()
                         return try Account(json: json)
                     }
 
-                    // TODO: Check account max in interactors.
-//                    guard accounts.count < this.keychain.accountsMax else {
-//                        throw AccountError.maximumReached
-//                    }
-
-                    guard !accounts.contains(account) else {
-                        throw AccountError.duplicate(accounts.first?.username)
-                    }
-
+                    guard !accounts.contains(account) else { throw AccountError.duplicate(accounts.first?.username) }
                     this.fireDB.collection("users").document(this.userID).collection("accounts")
                         .addDocument(data: account.json as! [String: Any]) { error in // swiftlint:disable:this force_cast
                             if let error = error {
@@ -124,7 +111,7 @@ extension NetworkGateway: AccountsAccessing {
             .getDocuments { snapshot, error in
                 guard error == nil else { result(.failure(error!)); return }
                 guard let doc = snapshot?.documents.first else {
-                    // TODO: - Add custom error OR create a better user management system.
+                    // TODO: - Add custom error
                     let error = NSError(domain: "No document with username \(account.username)", code: 0, userInfo: nil)
                     result(.failure(error))
                     return
@@ -137,36 +124,32 @@ extension NetworkGateway: AccountsAccessing {
             }
     }
 
-    func scrapeAccounts(updateCreditsBlock: @escaping (() throws -> Void), result: @escaping ((Result<Void, Error>) -> Void)) {
+    func scrapeAccounts(
+        updateCreditsBlock: @escaping (() throws -> Void),
+        validateAccountsBlock: @escaping ((Int) throws -> Void),
+        result: @escaping ((Result<Void, Error>) -> Void)) {
         // TODO: - Refactor this so that the server gets the users list
         fireDB.collection("users").document(userID).collection("accounts")
             .getDocuments { [weak self] snapshot, error in
-                guard let self = self else {
-                    let error = NSError(domain: "No reference to self", code: 0, userInfo: nil)
-                    result(.failure(error))
-                    return
-                }
-
-                guard error == nil else { result(.failure(error!)); return }
                 do {
+                    if let error = error { throw error }
+                    guard let this = self else { throw ReferenceError.type(self) }
+
                     let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
                         let json = snapshot.data()
                         return try Account(json: json)
                     }
+                    try validateAccountsBlock(accounts.count)
 
                     // TODO: - START_CLEANUP {
                     let urlString = "https://tiptoe-grids.firebaseapp.com/crawl"
                     //let urlString = "http://0.0.0.0:8080/crawl"
-                    guard let url = URL(string: urlString) else {
-                        // TODO: - Add custom error.
-                        result(.failure(NSError(domain: "URL could be initialized", code: 0, userInfo: nil)))
-                        return
-                    }
+                    guard let url = URL(string: urlString) else { throw URLError(.badURL) }
 
                     let accountUsernames = accounts.map { $0.username }
                     let parameterDictionary: [String: Any] = [
                         "accounts": accountUsernames,
-                        "user_id": self.userID
+                        "user_id": this.userID
                     ]
 
                     var request = URLRequest(url: url)
@@ -244,6 +227,23 @@ extension NetworkGateway: SaveAccountAccessing {
         }
 
         task.resume()
+    }
+
+    func getAccountsCount(result: @escaping ((Result<Int, Error>) -> Void)) {
+        fireDB.collection("users").document(userID).collection("accounts")
+            .getDocuments { snapshot, error in
+                do {
+                    if let error = error { throw error }
+                    let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
+                        let json = snapshot.data()
+                        return try Account(json: json)
+                    }
+
+                    result(.success(accounts.count))
+                } catch {
+                    result(.failure(error))
+                }
+        }
     }
 }
 

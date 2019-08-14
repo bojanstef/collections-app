@@ -54,10 +54,14 @@ extension AccountsInteractor: AccountsInteractable {
     }
 
     func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        networkAccess.scrapeAccounts(updateCreditsBlock: { [weak self] in
-            guard let this = self else { throw ReferenceError.type(self) }
-            guard this.keychainStorage.creditsCount > 0 else { throw CreditError.notEnough }
-            try this.keychainStorage.updateCredits(this.keychainStorage.creditsCount - 1)
+        networkAccess.scrapeAccounts(
+            updateCreditsBlock: { [weak self] in
+                guard let this = self else { throw ReferenceError.type(self) }
+                guard this.keychainStorage.creditsCount > 0 else { throw CreditError.notEnough }
+                try this.keychainStorage.updateCredits(this.keychainStorage.creditsCount - 1)
+            }, validateAccountsBlock: { [weak self] accountsCount in
+                guard let this = self else { throw ReferenceError.type(self) }
+                guard accountsCount <= this.keychainStorage.accountsMax else { throw AccountError.maximumReached }
         }, result: result)
     }
 }

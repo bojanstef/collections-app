@@ -18,7 +18,6 @@ final class SaveAccountViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .dismiss)
         FirebaseApp.configure()
 
-        // TODO: - Check account max is not full.
         loadAndSaveInstagramAccountName { [weak self] result in
             DispatchQueue.main.async { [weak self] in
                 switch result {
@@ -38,18 +37,6 @@ fileprivate extension SaveAccountViewController {
         // This template doesn't do anything, so we just echo the passed in items.
         let returningItems = extensionContext?.inputItems
         extensionContext?.completeRequest(returningItems: returningItems)
-    }
-
-    func saveAccount(instagramEmbedded: InstagramEmbedded, result: @escaping ((Result<Account, Error>) -> Void)) {
-        let account = Account(username: instagramEmbedded.authorName)
-        networkGateway.addAccount(account) { addAccountResult in
-            switch addAccountResult {
-            case .success(let accountSaved):
-                result(.success(accountSaved))
-            case .failure(let error):
-                result(.failure(error))
-            }
-        }
     }
 
     func loadAndSaveInstagramAccountName(result: @escaping ((Result<Account, Error>) -> Void)) {
@@ -88,7 +75,36 @@ fileprivate extension SaveAccountViewController {
         networkGateway.getInstagramEmbedded(fromURL: url) { [weak self] embedResult in
             switch embedResult {
             case .success(let instagramEmbedded):
-                self?.saveAccount(instagramEmbedded: instagramEmbedded, result: result)
+                self?.checkToSaveAccount(instagramEmbedded: instagramEmbedded, result: result)
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
+
+    func checkToSaveAccount(instagramEmbedded: InstagramEmbedded, result: @escaping ((Result<Account, Error>) -> Void)) {
+        networkGateway.getAccountsCount { [weak self] getResult in
+            switch getResult {
+            case .success(let accountsCount):
+                do {
+                    guard let this = self else { throw ReferenceError.type(self) }
+                    guard accountsCount <= KeychainStorage(this.networkGateway.userID).accountsMax else { throw AccountError.maximumReached }
+                    let account = Account(username: instagramEmbedded.authorName)
+                    this.saveAccount(account, result: result)
+                } catch {
+                    result(.failure(error))
+                }
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
+
+    func saveAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void)) {
+        networkGateway.addAccount(account) { addResult in
+            switch addResult {
+            case .success(let accountSaved):
+                result(.success(accountSaved))
             case .failure(let error):
                 result(.failure(error))
             }

@@ -39,14 +39,13 @@ final class DeepLinkHandler {
 
     func handleFirebaseUniversalLink(_ url: URL, completion: @escaping ((Result<URL, Error>) -> Void)) -> Bool {
         let linkHandled = dynamicLinks.handleUniversalLink(url) { dynanicLink, error in
-            guard error == nil else { completion(.failure(error!)); return }
-            guard let dynamicLinkURL = dynanicLink?.url else {
-                // TODO: - Add some custom error.
-                completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
-                return
+            do {
+                if let error = error { throw error }
+                guard let dynamicLinkURL = dynanicLink?.url else { throw URLError(.badURL) }
+                completion(.success(dynamicLinkURL))
+            } catch {
+                completion(.failure(error))
             }
-
-            completion(.success(dynamicLinkURL))
         }
 
         return linkHandled

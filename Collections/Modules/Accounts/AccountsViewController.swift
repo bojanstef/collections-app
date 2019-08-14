@@ -96,6 +96,11 @@ fileprivate extension AccountsViewController {
             return
         }
 
+        guard accounts.count < presenter.accountsMax else {
+            showErrorAlert(AccountError.maximumReached)
+            return
+        }
+
         let account = Account(username: username)
         presenter.addAccount(account) { [weak self] result in
             switch result {
