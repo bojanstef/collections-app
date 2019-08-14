@@ -88,7 +88,7 @@ fileprivate extension SaveAccountViewController {
             case .success(let accountsCount):
                 do {
                     guard let this = self else { throw ReferenceError.type(self) }
-                    guard accountsCount <= KeychainStorage(this.networkGateway.userID).accountsMax else { throw AccountError.maximumReached }
+                    guard accountsCount < KeychainStorage(this.networkGateway.userID).accountsMax else { throw AccountError.maximumReached }
                     let account = Account(username: instagramEmbedded.authorName)
                     this.saveAccount(account, result: result)
                 } catch {
