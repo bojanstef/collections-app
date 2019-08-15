@@ -24,7 +24,7 @@ final class SaveAccountViewController: UIViewController {
                 case .success(let savedAccount):
                     self?.showSuccessAlert(savedAccount)
                 case .failure(let error):
-                    self?.showErrorAlert(error)
+                    self?.showDismissErrorAlert(error)
                 }
             }
         }
@@ -121,7 +121,7 @@ fileprivate extension SaveAccountViewController {
         present(alert, animated: true)
     }
 
-    func showErrorAlert(_ error: Error) {
+    func showDismissErrorAlert(_ error: Error) {
         let errorTitle = "Whoops 😱"
         let message = error.localizedDescription
         let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .alert)

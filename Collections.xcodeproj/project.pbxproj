@@ -79,6 +79,10 @@
 		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
 		F19EBA9122FFD4BC00761DD2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43822FFCE1300130871 /* Account.swift */; };
 		F19EBA9222FFD4D000761DD2 /* Modellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE43622FFCDEB00130871 /* Modellable.swift */; };
+		F1A24B9223050F8B0004D4FB /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A24B9123050F8B0004D4FB /* ErrorAlertController.swift */; };
+		F1A24B94230513060004D4FB /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */; };
+		F1A24B952305148E0004D4FB /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A24B9123050F8B0004D4FB /* ErrorAlertController.swift */; };
+		F1A24B96230514D30004D4FB /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */; };
 		F1A28E7422F7ABFE002808B6 /* saveAccount.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */; };
 		F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */; };
 		F1A28E7822F7B109002808B6 /* EmptyPostsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */; };
@@ -261,6 +265,8 @@
 		F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationController.swift; sourceTree = "<group>"; };
 		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
 		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
+		F1A24B9123050F8B0004D4FB /* ErrorAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
+		F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		F1A28E7322F7ABF7002808B6 /* saveAccount.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = saveAccount.mp4; sourceTree = "<group>"; };
 		F1A28E7522F7B0FA002808B6 /* EmptyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPostsView.swift; sourceTree = "<group>"; };
 		F1A28E7722F7B109002808B6 /* EmptyPostsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPostsView.xib; sourceTree = "<group>"; };
@@ -559,6 +565,7 @@
 		F175707722F7DC2E00B3C3DB /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1A24B9123050F8B0004D4FB /* ErrorAlertController.swift */,
 				F13CB56F22EFD818006621C8 /* MainTabBarController.swift */,
 				F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */,
 			);
@@ -672,11 +679,12 @@
 				F163823022F5000E006363E8 /* Result+SuccessVoid.swift */,
 				F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */,
 				F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */,
+				F1BA9E6123010387007680DA /* String+EmailValidation.swift */,
 				F1311D7B2300ADC80052F9E3 /* UICollectionView+DequeueReusableNib.swift */,
 				F175708A22F7FAF000B3C3DB /* UIColor+Theme.swift */,
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
-				F1BA9E6123010387007680DA /* String+EmailValidation.swift */,
+				F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -991,6 +999,7 @@
 				F10CE43722FFCDEB00130871 /* Modellable.swift in Sources */,
 				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
 				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
+				F1A24B9223050F8B0004D4FB /* ErrorAlertController.swift in Sources */,
 				F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */,
 				F1457EF822DDA31800EBD322 /* PostsCell.swift in Sources */,
 				F1BA9E7223012BC6007680DA /* AccountError.swift in Sources */,
@@ -1017,6 +1026,7 @@
 				F13CB57022EFD818006621C8 /* MainTabBarController.swift in Sources */,
 				F1C352A922D7C576005198B8 /* AuthPresenter.swift in Sources */,
 				F1EA3EF622FD2BD200322768 /* Sequence+MapKeyPath.swift in Sources */,
+				F1A24B94230513060004D4FB /* UIViewController+ErrorAlert.swift in Sources */,
 				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
 				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,
 			);
@@ -1031,6 +1041,7 @@
 				F1D2231223026200009843B0 /* Sequence+MapKeyPath.swift in Sources */,
 				F1D223222302799C009843B0 /* AccessGroup.swift in Sources */,
 				F1D22310230261CF009843B0 /* MaxAccount.swift in Sources */,
+				F1A24B952305148E0004D4FB /* ErrorAlertController.swift in Sources */,
 				F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */,
 				F1D2231823026646009843B0 /* AccountsAccessing.swift in Sources */,
 				F1D2230A23026011009843B0 /* KeychainStorage.swift in Sources */,
@@ -1044,6 +1055,7 @@
 				F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */,
 				F1D223142302621A009843B0 /* AppDelegateAccessing.swift in Sources */,
 				F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */,
+				F1A24B96230514D30004D4FB /* UIViewController+ErrorAlert.swift in Sources */,
 				F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */,
 				F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */,
 				F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */,

@@ -86,6 +86,7 @@ fileprivate extension AccountsViewController {
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
+                self?.showErrorAlert(AccountError.maximumReached)
             }
         }
     }
@@ -111,34 +112,25 @@ fileprivate extension AccountsViewController {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
-                log.error(error.localizedDescription)
-                DispatchQueue.main.async { [weak self] in
-                    self?.showErrorAlert(error)
-                }
+                self?.showErrorAlert(error)
             }
         }
     }
 
-    func showErrorAlert(_ error: Error) {
-        let errorTitle = "Whoops 😱"
-        let message = error.localizedDescription
-        let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-
     func showScrapeResultAlert(error: Error? = nil) {
-        DispatchQueue.main.async { [weak self] in
-            let title = error == nil ? "Success 🎉" : "Whoops 😱"
-            let message = error?.localizedDescription ?? "Come back in 15 minutes or so to see the results."
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(okAction)
-            self?.present(alert, animated: true) { [weak self] in
-                guard let self = self else { return }
-                guard error == nil else { return }
-                self.headerView.setCreditsCount(self.presenter.creditsCount)
+        if let error = error {
+            showErrorAlert(error)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                let title = "Success 🎉"
+                let message = "Come back in 15 minutes or so to see the results."
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(okAction)
+                self?.present(alert, animated: true) { [weak self] in
+                    guard let self = self else { return }
+                    self.headerView.setCreditsCount(self.presenter.creditsCount)
+                }
             }
         }
     }

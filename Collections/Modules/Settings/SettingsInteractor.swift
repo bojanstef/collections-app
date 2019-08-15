@@ -12,6 +12,7 @@ protocol SettingsInteractable {
     func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(credits: Credit, result: @escaping ((Result<Void, Error>) -> Void))
     func purchase(maxAccounts: MaxAccount, result: @escaping ((Result<Void, Error>) -> Void))
+    func restoreSubscription(_ result: @escaping ((Result<Void, Error>) -> Void))
     func signOut() throws
 }
 
@@ -52,6 +53,10 @@ extension SettingsInteractor: SettingsInteractable {
                 result(.failure(error))
             }
         }
+    }
+
+    func restoreSubscription(_ result: @escaping ((Result<Void, Error>) -> Void)) {
+        inAppStore.restoreSubscription(result)
     }
 
     func signOut() throws {

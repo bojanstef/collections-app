@@ -82,11 +82,17 @@ fileprivate extension PostDetailViewController {
     }
 
     @objc func imageSaved(_ image: UIImage, with error: Error?, contextInfo: UnsafeRawPointer) {
-        let message = error?.localizedDescription ?? "Image Saved"
-        let title = error != nil ? "Whoops" : "Done"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(.init(title: "Ok", style: .default))
-        present(alert, animated: true)
+        if let error = error {
+            showErrorAlert(error)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                let message = "Image Saved"
+                let title = "Done"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alert.addAction(.init(title: "Ok", style: .default))
+                self?.present(alert, animated: true)
+            }
+        }
     }
 }
 

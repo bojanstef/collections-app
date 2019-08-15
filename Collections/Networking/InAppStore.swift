@@ -12,12 +12,14 @@ import Foundation
 protocol InAppStoreAccessing {
     func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
     func purchase(product: SKProduct, result: @escaping ((Result<Void, Error>) -> Void))
+    func restoreSubscription(_ result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class InAppStore: NSObject {
     fileprivate var productRequest: SKProductsRequest?
     fileprivate var productsResult: ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void)!
     fileprivate var purchaseResult: ((Result<Void, Error>) -> Void)!
+    fileprivate var restoreResult: ((Result<Void, Error>) -> Void)!
 
     override init() {
         super.init()
@@ -34,17 +36,31 @@ extension InAppStore: InAppStoreAccessing {
     }
 
     func purchase(product: SKProduct, result: @escaping ((Result<Void, Error>) -> Void)) {
-        purchaseResult = result
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.default().add(payment)
+        do {
+            guard SKPaymentQueue.canMakePayments() else { throw SKError(.paymentNotAllowed) }
+            purchaseResult = result
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+        } catch {
+            result(.failure(error))
+        }
+    }
+
+    func restoreSubscription(_ result: @escaping ((Result<Void, Error>) -> Void)) {
+        do {
+            guard SKPaymentQueue.canMakePayments() else { throw SKError(.paymentNotAllowed) }
+            restoreResult = result
+            SKPaymentQueue.default().restoreCompletedTransactions()
+        } catch {
+            result(.failure(error))
+        }
     }
 }
 
 extension InAppStore: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         guard !response.products.isEmpty else {
-            // TODO: - Custom error
-            productsResult(.failure(NSError(domain: "No products", code: 0, userInfo: nil)))
+            productsResult(.failure(SKError(.storeProductNotAvailable)))
             return
         }
 
@@ -81,6 +97,14 @@ extension InAppStore: SKPaymentTransactionObserver {
             }
         }
     }
+
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        restoreResult(.success)
+    }
+
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        restoreResult(.failure(error))
+    }
 }
 
 fileprivate extension InAppStore {
@@ -91,15 +115,14 @@ fileprivate extension InAppStore {
     }
 
     func restore(_ transaction: SKPaymentTransaction) {
-        guard let productIdentifier = transaction.original?.payment.productIdentifier else {
-            // TODO: - Custom error
-            purchaseResult(.failure(NSError(domain: "No product to restore", code: 0, userInfo: nil)))
-            return
+        do {
+            guard let productIdentifier = transaction.original?.payment.productIdentifier else { throw SKError(.storeProductNotAvailable) }
+            log.debug(productIdentifier)
+            restoreResult(.success)
+            SKPaymentQueue.default().finishTransaction(transaction)
+        } catch {
+            restoreResult(.failure(error))
         }
-
-        log.debug(productIdentifier)
-        purchaseResult(.success)
-        SKPaymentQueue.default().finishTransaction(transaction)
     }
 
     func fail(_ transaction: SKPaymentTransaction) {

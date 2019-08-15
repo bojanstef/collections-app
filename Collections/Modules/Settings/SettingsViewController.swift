@@ -24,6 +24,7 @@ final class SettingsViewController: UIViewController {
         activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
         view.addSubview(activityIndicator)
         setup(creditsCollectionView, maxAccountsCollectionView, cell: ProductCard.self, fetchOnce: fetchProducts)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Restore", style: .plain, target: self, action: .restoreSubscription)
     }
 
     override func viewDidLayoutSubviews() {
@@ -49,7 +50,8 @@ extension SettingsViewController: UICollectionViewDelegate {
                     case .success:
                         log.info("Purchased \(creditsBundle)!")
                     case .failure(let error):
-                        log.error(error.localizedDescription)
+                        let errorAlert = ErrorAlertFactory.getAlert(error)
+                        self?.present(errorAlert, animated: true)
                     }
             })
         case maxAccountsCollectionView:
@@ -64,7 +66,8 @@ extension SettingsViewController: UICollectionViewDelegate {
                     case .success:
                         log.info("Purchased \(maxAccountsBundle)!")
                     case .failure(let error):
-                        log.error(error.localizedDescription)
+                        let errorAlert = ErrorAlertFactory.getAlert(error)
+                        self?.present(errorAlert, animated: true)
                     }
             })
         default:
@@ -147,8 +150,26 @@ fileprivate extension SettingsViewController {
                     self?.maxAccountsCollectionView.reloadData()
                 }
             case .failure(let error):
-                log.error(error.localizedDescription)
+                self?.showErrorAlert(error)
             }
         }
     }
+
+    @objc func restoreSubscription() {
+        activityIndicator.startAnimating()
+
+        presenter.restoreSubscription { [weak self] result in
+            self?.activityIndicator.stopAnimating()
+            switch result {
+            case .success:
+                log.info("Success")
+            case .failure(let error):
+                self?.showErrorAlert(error)
+            }
+        }
+    }
+}
+
+fileprivate extension Selector {
+    static let restoreSubscription = #selector(SettingsViewController.restoreSubscription)
 }

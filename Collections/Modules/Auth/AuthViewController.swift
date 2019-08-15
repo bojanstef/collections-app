@@ -49,10 +49,16 @@ fileprivate extension AuthViewController {
     }
 
     func showAlert(_ error: Error? = nil) {
-        let title = error == nil ? "Success" : "Error"
-        let message = error == nil ? "Check your email to finish your sign in" : error?.localizedDescription
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        present(alert, animated: true)
+        if let error = error {
+            showErrorAlert(error)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                let title = "Success"
+                let message = "Check your email to finish your sign in"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self?.present(alert, animated: true)
+            }
+        }
     }
 }
