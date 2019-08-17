@@ -1,19 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rGP-rf-snr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZbA-gd-9G1">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Onboard View Controller-->
-        <scene sceneID="VgS-Ve-vy2">
+        <scene sceneID="Uac-wJ-6aO">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="rGP-rf-snr" customClass="OnboardViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iCs-sv-Q01" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ZbA-gd-9G1" customClass="OnboardViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bjI-wm-TAK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWD-2f-xLI">
+                                <rect key="frame" x="318" y="733" width="64" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="3GH-xX-VRR"/>
+                                    <constraint firstAttribute="height" constant="44" id="7R5-Mn-hb7"/>
+                                </constraints>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="navigateToAuth" destination="ZbA-gd-9G1" eventType="touchUpInside" id="bDY-Wl-2EV"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8f0-IN-66n">
+                                <rect key="frame" x="0.0" y="44" width="414" height="689"/>
+                                <connections>
+                                    <segue destination="SOq-LC-kkg" kind="embed" identifier="pageControllerChildSegue" id="V8M-K0-2Dn"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Y0H-ep-3n3">
+                                <rect key="frame" x="187.5" y="825" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEM-fT-I6y" customClass="ActionButton" customModule="Collections" customModuleProvider="target">
+                                <rect key="frame" x="32" y="781" width="350" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1nX-Uc-JCd"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="navigateToAuth" destination="ZbA-gd-9G1" eventType="touchUpInside" id="L68-g6-Lfe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y0H-ep-3n3" firstAttribute="bottom" secondItem="D6g-Oo-p9Q" secondAttribute="bottom" id="7QU-q6-5d2"/>
+                            <constraint firstItem="8f0-IN-66n" firstAttribute="top" secondItem="D6g-Oo-p9Q" secondAttribute="top" id="BRL-nq-kWt"/>
+                            <constraint firstItem="tWD-2f-xLI" firstAttribute="top" secondItem="8f0-IN-66n" secondAttribute="bottom" id="Bjf-QZ-Y03"/>
+                            <constraint firstItem="Y0H-ep-3n3" firstAttribute="centerX" secondItem="D6g-Oo-p9Q" secondAttribute="centerX" id="La4-Ce-Gn2"/>
+                            <constraint firstItem="D6g-Oo-p9Q" firstAttribute="trailing" secondItem="gEM-fT-I6y" secondAttribute="trailing" constant="32" id="Od5-a3-f3m"/>
+                            <constraint firstItem="D6g-Oo-p9Q" firstAttribute="trailing" secondItem="tWD-2f-xLI" secondAttribute="trailing" constant="32" id="QIU-8B-JRh"/>
+                            <constraint firstItem="Y0H-ep-3n3" firstAttribute="top" secondItem="gEM-fT-I6y" secondAttribute="bottom" id="SsB-Wo-R63"/>
+                            <constraint firstItem="8f0-IN-66n" firstAttribute="leading" secondItem="D6g-Oo-p9Q" secondAttribute="leading" id="dlg-ht-iWi"/>
+                            <constraint firstItem="8f0-IN-66n" firstAttribute="trailing" secondItem="D6g-Oo-p9Q" secondAttribute="trailing" id="hBL-JN-qJN"/>
+                            <constraint firstItem="gEM-fT-I6y" firstAttribute="leading" secondItem="D6g-Oo-p9Q" secondAttribute="leading" constant="32" id="myE-jS-QvV"/>
+                            <constraint firstItem="gEM-fT-I6y" firstAttribute="top" secondItem="tWD-2f-xLI" secondAttribute="bottom" constant="4" id="uIo-bN-SBb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D6g-Oo-p9Q"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="gEM-fT-I6y" id="qMR-LR-LBa"/>
+                        <outlet property="pageContainer" destination="8f0-IN-66n" id="5c0-tH-PFU"/>
+                        <outlet property="pageControl" destination="Y0H-ep-3n3" id="bcV-ld-wTr"/>
+                        <outlet property="skipButton" destination="tWD-2f-xLI" id="HUL-bd-9Sz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ucq-ZT-Ocv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="80"/>
+            <point key="canvasLocation" x="-172.46376811594203" y="93.75"/>
+        </scene>
+        <!--Onboard Page View Controller-->
+        <scene sceneID="wxI-F1-8WT">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="SOq-LC-kkg" customClass="OnboardPageViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27h-Yj-eRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="24"/>
         </scene>
     </scenes>
 </document>

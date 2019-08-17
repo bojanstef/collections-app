@@ -74,6 +74,7 @@
 		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
+		F199563523078C12008DFEBC /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563423078C11008DFEBC /* OnboardPageViewController.swift */; };
 		F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */; };
 		F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693922F001A70051319A /* AccountsHeaderView.swift */; };
 		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
@@ -262,6 +263,7 @@
 		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
 		F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		F199563423078C11008DFEBC /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationController.swift; sourceTree = "<group>"; };
 		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
 		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 			children = (
 				F185D90D22F508FF00A6B29E /* OnboardAccessing.swift */,
 				F185D90C22F508FF00A6B29E /* OnboardInteractor.swift */,
+				F199563423078C11008DFEBC /* OnboardPageViewController.swift */,
 				F185D90922F508FF00A6B29E /* OnboardPresenter.swift */,
 				F185D91922F522EB00A6B29E /* OnboardTutorialViewController.storyboard */,
 				F185D91722F522D100A6B29E /* OnboardTutorialViewController.swift */,
@@ -1022,6 +1025,7 @@
 				F1BA9E6C2301295D007680DA /* AuthError.swift in Sources */,
 				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
+				F199563523078C12008DFEBC /* OnboardPageViewController.swift in Sources */,
 				F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */,
 				F1FAD9D522E03664000A699C /* AccountsWireframe.swift in Sources */,
 				F1BF8D8822DD65EE004B76F4 /* SearchPresenter.swift in Sources */,
