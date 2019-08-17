@@ -58,7 +58,7 @@ fileprivate extension OnboardViewController {
     func setupPageControl() {
         pageControl.currentPageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.5)
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.25)
-        pageControl.currentPage = 1
+        pageControl.currentPage = 0
     }
 
     func setupNextButton() {
