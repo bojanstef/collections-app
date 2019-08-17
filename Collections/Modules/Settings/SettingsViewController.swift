@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
@@ -116,6 +117,20 @@ fileprivate extension SettingsViewController {
         }))
 
         present(alert, animated: true)
+    }
+
+    @IBAction func termsPressed(_ sender: Any) {
+        showBrowser(atLink: "https://www.websitepolicies.com/policies/view/5766dP6f")
+    }
+
+    @IBAction func privacyPressed(_ sender: Any) {
+        showBrowser(atLink: "https://www.websitepolicies.com/policies/view/KpS1rFwU")
+    }
+
+    func showBrowser(atLink urlString: String) {
+        let url = URL(string: urlString)!
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true)
     }
 
     func runSignOut() {
