@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum AccessGroup {
-    static let `default` = "group.xyz.bojan.Collections"
+enum AccessGroup: String {
+    case `default` = "group.xyz.bojan.Collections"
 }

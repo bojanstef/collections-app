@@ -10,4 +10,5 @@ import Foundation
 
 protocol AuthAccessing {
     func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void))
 }

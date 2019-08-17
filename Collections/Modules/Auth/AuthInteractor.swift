@@ -10,6 +10,7 @@ import Foundation
 
 protocol AuthInteractable {
     func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void))
 }
 
 final class AuthInteractor {
@@ -23,5 +24,9 @@ final class AuthInteractor {
 extension AuthInteractor: AuthInteractable {
     func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void)) {
         networkAccess.signIn(withEmail: email, completion: completion)
+    }
+
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void)) {
+        networkAccess.createUser(withEmail: email, password: password, completion: completion)
     }
 }

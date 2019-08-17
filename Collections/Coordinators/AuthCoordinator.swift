@@ -37,4 +37,11 @@ extension AuthCoordinator: OnboardModuleDelegate {
     }
 }
 
-extension AuthCoordinator: AuthModuleDelegate {}
+extension AuthCoordinator: AuthModuleDelegate {
+    func navigateToLogin() {
+        let viewController = LoginWireframe(moduleDelegate: self).viewController
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AuthCoordinator: LoginModuleDelegate {}

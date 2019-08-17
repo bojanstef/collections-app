@@ -29,7 +29,7 @@ final class KeychainStorage {
     fileprivate let store: Keychain
 
     init(_ userID: String) {
-        self.store = Keychain(service: userID, accessGroup: AccessGroup.default)
+        self.store = Keychain(service: userID, accessGroup: AccessGroup.default.rawValue)
     }
 
     fileprivate var isNewUser: Bool {

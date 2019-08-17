@@ -11,7 +11,7 @@ import UIKit
 final class SettingsViewController: UIViewController {
     @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var maxAccountsCollectionView: UICollectionView!
-    @IBOutlet fileprivate weak var toolbar: UIToolbar!
+    @IBOutlet fileprivate weak var toolbar: Toolbar!
     fileprivate var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     fileprivate var credits = [Credit]()
     fileprivate var maxAccounts = [MaxAccount]()
@@ -20,7 +20,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Settings"
-        toolbar.tintColor = .lightGray
         activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
         view.addSubview(activityIndicator)
         setup(creditsCollectionView, maxAccountsCollectionView, cell: ProductCard.self, fetchOnce: fetchProducts)

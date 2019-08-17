@@ -9,7 +9,9 @@
 import Foundation
 
 protocol AuthPresentable {
+    func navigateToLogin()
     func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void))
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void))
 }
 
 final class AuthPresenter {
@@ -23,7 +25,15 @@ final class AuthPresenter {
 }
 
 extension AuthPresenter: AuthPresentable {
+    func navigateToLogin() {
+        moduleDelegate?.navigateToLogin()
+    }
+
     func signIn(withEmail email: String, completion: @escaping ((Error?) -> Void)) {
         interactor.signIn(withEmail: email, completion: completion)
+    }
+
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void)) {
+        interactor.createUser(withEmail: email, password: password, completion: completion)
     }
 }

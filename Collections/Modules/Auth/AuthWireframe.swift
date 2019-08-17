@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol AuthModuleDelegate: AnyObject {}
+protocol AuthModuleDelegate: AnyObject {
+    func navigateToLogin()
+}
 
 final class AuthWireframe {
     fileprivate weak var moduleDelegate: AuthModuleDelegate?

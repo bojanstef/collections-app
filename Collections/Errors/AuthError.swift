@@ -10,10 +10,14 @@ import Foundation
 
 enum AuthError: LocalizedError {
     case noUser
+    case invalidEmail
+    case emptyPassword
 
     var errorDescription: String? {
         switch self {
         case .noUser: return "You are not signed in"
+        case .invalidEmail: return "This is not a valid email"
+        case .emptyPassword: return "Your password must be more than 8 letters"
         }
     }
 }

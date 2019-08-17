@@ -22,7 +22,7 @@ extension NetworkGateway { // Common properties and methods
     var userID: String {
         if let currentUserId = Auth.auth().currentUser?.uid {
             return currentUserId
-        } else if let containerUserId = UserDefaults(suiteName: AccessGroup.default)?.string(forKey: UserDefaultsKey.userID) {
+        } else if let containerUserId = UserDefaults.accessGroup.string(forKey: UserDefaultsKey.userID) {
             return containerUserId
         } else {
             fatalError("No current user.")
@@ -60,7 +60,7 @@ extension NetworkGateway { // Common properties and methods
 
 extension NetworkGateway: AppDelegateAccessing {
     func signIn(withEmailSignupLink link: String, result: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let accountEmail = UserDefaults.standard.string(forKey: UserDefaultsKey.accountEmail) else {
+        guard let accountEmail = UserDefaults.accessGroup.string(forKey: UserDefaultsKey.accountEmail) else {
             // TODO: - Add some custom error.
             result(.failure(NSError(domain: "", code: 0, userInfo: nil)))
             return
@@ -86,6 +86,20 @@ extension NetworkGateway: AuthAccessing {
         actionCodeSettings.setIOSBundleID(bundleId)
         actionCodeSettings.setAndroidPackageName(bundleId, installIfNotAvailable: false, minimumVersion: "12")
         Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings, completion: completion)
+    }
+
+    func createUser(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void)) {
+        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+            completion(error)
+        }
+    }
+}
+
+extension NetworkGateway: LoginAccessing {
+    func signIn(withEmail email: String, password: String, completion: @escaping ((Error?) -> Void)) {
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+            completion(error)
+        }
     }
 }
 

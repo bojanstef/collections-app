@@ -75,6 +75,16 @@
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
 		F199563523078C12008DFEBC /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563423078C11008DFEBC /* OnboardPageViewController.swift */; };
+		F19956372307A34F008DFEBC /* UserDefaults+AccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956362307A34F008DFEBC /* UserDefaults+AccessGroup.swift */; };
+		F19956382307A576008DFEBC /* UserDefaults+AccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956362307A34F008DFEBC /* UserDefaults+AccessGroup.swift */; };
+		F199563B2307AF63008DFEBC /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563A2307AF63008DFEBC /* Toolbar.swift */; };
+		F19956432307B407008DFEBC /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563D2307B407008DFEBC /* LoginPresenter.swift */; };
+		F19956442307B407008DFEBC /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F199563E2307B407008DFEBC /* LoginViewController.storyboard */; };
+		F19956452307B407008DFEBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563F2307B407008DFEBC /* LoginViewController.swift */; };
+		F19956462307B407008DFEBC /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956402307B407008DFEBC /* LoginInteractor.swift */; };
+		F19956472307B407008DFEBC /* LoginAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956412307B407008DFEBC /* LoginAccessing.swift */; };
+		F19956482307B407008DFEBC /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956422307B407008DFEBC /* LoginWireframe.swift */; };
+		F19956492307B4E9008DFEBC /* LoginAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19956412307B407008DFEBC /* LoginAccessing.swift */; };
 		F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */; };
 		F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C693922F001A70051319A /* AccountsHeaderView.swift */; };
 		F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19C693B22F001B60051319A /* AccountsHeaderView.xib */; };
@@ -92,7 +102,6 @@
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */; };
 		F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6123010387007680DA /* String+EmailValidation.swift */; };
-		F1BA9E65230105B9007680DA /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E64230105B9007680DA /* EmailError.swift */; };
 		F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
 		F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
 		F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6823010EB4007680DA /* ExtensionError.swift */; };
@@ -264,6 +273,14 @@
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
 		F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		F199563423078C11008DFEBC /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
+		F19956362307A34F008DFEBC /* UserDefaults+AccessGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AccessGroup.swift"; sourceTree = "<group>"; };
+		F199563A2307AF63008DFEBC /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		F199563D2307B407008DFEBC /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		F199563E2307B407008DFEBC /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		F199563F2307B407008DFEBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F19956402307B407008DFEBC /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		F19956412307B407008DFEBC /* LoginAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccessing.swift; sourceTree = "<group>"; };
+		F19956422307B407008DFEBC /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
 		F19C693722EFDA8F0051319A /* TabBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationController.swift; sourceTree = "<group>"; };
 		F19C693922F001A70051319A /* AccountsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsHeaderView.swift; sourceTree = "<group>"; };
 		F19C693B22F001B60051319A /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
@@ -277,7 +294,6 @@
 		F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountAccessing.swift; sourceTree = "<group>"; };
 		F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = savePhoto.mp4; sourceTree = "<group>"; };
 		F1BA9E6123010387007680DA /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
-		F1BA9E64230105B9007680DA /* EmailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailError.swift; sourceTree = "<group>"; };
 		F1BA9E6823010EB4007680DA /* ExtensionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionError.swift; sourceTree = "<group>"; };
 		F1BA9E6B2301295D007680DA /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		F1BA9E6E230129C7007680DA /* ReferenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceError.swift; sourceTree = "<group>"; };
@@ -385,6 +401,7 @@
 				F175707A22F7DC6200B3C3DB /* UICollectionViewFlowLayouts */,
 				F175707322F7DBA800B3C3DB /* UITableViewCells */,
 				F175707922F7DC5200B3C3DB /* UITextFields */,
+				F19956392307AF55008DFEBC /* UIToolbar */,
 				F175707722F7DC2E00B3C3DB /* UIViewControllers */,
 				F175707422F7DBC600B3C3DB /* UIViews */,
 			);
@@ -487,6 +504,7 @@
 			children = (
 				F1FAD9C922E03656000A699C /* Accounts */,
 				F14F4D5522D7C49A00F83D60 /* Auth */,
+				F199563C2307B2D7008DFEBC /* Login */,
 				F163823222F50856006363E8 /* Onboard */,
 				F1C1EB0722E6BE33002A717A /* PostDetail */,
 				F1BF8D8122DD65DE004B76F4 /* Search */,
@@ -636,13 +654,33 @@
 			path = "Save Account";
 			sourceTree = "<group>";
 		};
+		F19956392307AF55008DFEBC /* UIToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				F199563A2307AF63008DFEBC /* Toolbar.swift */,
+			);
+			path = UIToolbar;
+			sourceTree = "<group>";
+		};
+		F199563C2307B2D7008DFEBC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F19956412307B407008DFEBC /* LoginAccessing.swift */,
+				F19956402307B407008DFEBC /* LoginInteractor.swift */,
+				F199563D2307B407008DFEBC /* LoginPresenter.swift */,
+				F199563E2307B407008DFEBC /* LoginViewController.storyboard */,
+				F199563F2307B407008DFEBC /* LoginViewController.swift */,
+				F19956422307B407008DFEBC /* LoginWireframe.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		F1BA9E6323010597007680DA /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 				F1BA9E7123012BC6007680DA /* AccountError.swift */,
 				F1BA9E6B2301295D007680DA /* AuthError.swift */,
 				F10808D02303975D00147085 /* CreditError.swift */,
-				F1BA9E64230105B9007680DA /* EmailError.swift */,
 				F1BA9E6E230129C7007680DA /* ReferenceError.swift */,
 			);
 			path = Errors;
@@ -688,6 +726,7 @@
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
 				F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */,
+				F19956362307A34F008DFEBC /* UserDefaults+AccessGroup.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -836,6 +875,7 @@
 				F1C352AB22D7C576005198B8 /* AuthViewController.storyboard in Resources */,
 				F175708322F7DD6200B3C3DB /* SettingsViewController.storyboard in Resources */,
 				F129D22D22F9277E00470FAF /* ProductCard.xib in Resources */,
+				F19956442307B407008DFEBC /* LoginViewController.storyboard in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
@@ -960,12 +1000,14 @@
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
 				F185D91822F522D100A6B29E /* OnboardTutorialViewController.swift in Sources */,
 				F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */,
+				F199563B2307AF63008DFEBC /* Toolbar.swift in Sources */,
 				F129D22C22F9277E00470FAF /* ProductCard.swift in Sources */,
 				F19C693822EFDA8F0051319A /* TabBarNavigationController.swift in Sources */,
 				F14F4D4A22D7C14100F83D60 /* AppCoordinator.swift in Sources */,
 				F1496CA122FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift in Sources */,
 				F175708522F7DD6200B3C3DB /* SettingsInteractor.swift in Sources */,
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
+				F19956372307A34F008DFEBC /* UserDefaults+AccessGroup.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
 				F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */,
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
@@ -974,11 +1016,11 @@
 				F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */,
 				F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */,
 				F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
+				F19956462307B407008DFEBC /* LoginInteractor.swift in Sources */,
 				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
 				F1D223212302796A009843B0 /* AccessGroup.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F10808D12303975D00147085 /* CreditError.swift in Sources */,
-				F1BA9E65230105B9007680DA /* EmailError.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
@@ -993,6 +1035,7 @@
 				F1457EF522DDA2C200EBD322 /* GridLayout.swift in Sources */,
 				F1311D7C2300ADC80052F9E3 /* UICollectionView+DequeueReusableNib.swift in Sources */,
 				F1BF8D8922DD65EE004B76F4 /* SearchAccessing.swift in Sources */,
+				F19956432307B407008DFEBC /* LoginPresenter.swift in Sources */,
 				F125389C22FFFEF600161DB1 /* MaxAccount.swift in Sources */,
 				F1A28E7622F7B0FA002808B6 /* EmptyPostsView.swift in Sources */,
 				F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */,
@@ -1017,8 +1060,10 @@
 				F1D2230B2302606C009843B0 /* SaveAccountAccessing.swift in Sources */,
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F125389E230001E100161DB1 /* ProductIDs.swift in Sources */,
+				F19956482307B407008DFEBC /* LoginWireframe.swift in Sources */,
 				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
 				F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */,
+				F19956452307B407008DFEBC /* LoginViewController.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
 				F10CE43422FFCDCE00130871 /* Collection+Modellable.swift in Sources */,
 				F1D2230D23026092009843B0 /* InstagramEmbedded.swift in Sources */,
@@ -1036,6 +1081,7 @@
 				F1A24B94230513060004D4FB /* UIViewController+ErrorAlert.swift in Sources */,
 				F1C1EB0E22E6BE48002A717A /* PostDetailPresenter.swift in Sources */,
 				F1C1EB1322E6BE48002A717A /* PostDetailWireframe.swift in Sources */,
+				F19956472307B407008DFEBC /* LoginAccessing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,11 +1110,13 @@
 				F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */,
 				F1A24B96230514D30004D4FB /* UIViewController+ErrorAlert.swift in Sources */,
 				F10CE43C22FFCE7F00130871 /* Logger.swift in Sources */,
+				F19956492307B4E9008DFEBC /* LoginAccessing.swift in Sources */,
 				F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */,
 				F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */,
 				F1D223192302664A009843B0 /* AuthAccessing.swift in Sources */,
 				F1BA9E6D230129A2007680DA /* AuthError.swift in Sources */,
 				F19EBA9222FFD4D000761DD2 /* Modellable.swift in Sources */,
+				F19956382307A576008DFEBC /* UserDefaults+AccessGroup.swift in Sources */,
 				F1BA9E70230129CD007680DA /* ReferenceError.swift in Sources */,
 				F1D22311230261E5009843B0 /* ProductIDs.swift in Sources */,
 				F10CE43522FFCDD700130871 /* Collection+Modellable.swift in Sources */,
