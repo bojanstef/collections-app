@@ -16,7 +16,7 @@ enum ProductIDs {
         case ninetyTwo =    "xyz.bojan.Collections.92credits"
         case fourtyFive =   "xyz.bojan.Collections.credits.45"
         case twentyTwo =    "xyz.bojan.Collections.22credits"
-        case ten =          "xyz.bojan.Collections.10credits"
+        case ten =          "xyz.bojan.Collections.10.credits"
 
         var intValue: Int {
             switch self {
