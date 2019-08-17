@@ -14,8 +14,9 @@ protocol AccountsHeaderViewDelegate: AnyObject {
 
 final class AccountsHeaderView: UIView, NibLoadable {
     @IBOutlet fileprivate weak var creditsCountButton: UIButton!
-    @IBOutlet fileprivate weak var getButton: ActionButton!
     @IBOutlet fileprivate weak var followingButton: UIButton!
+    @IBOutlet fileprivate weak var maxButton: UIButton!
+    @IBOutlet fileprivate weak var getButton: ActionButton!
     fileprivate let activityView = UIActivityIndicatorView(style: .whiteLarge)
     weak var delegate: AccountsHeaderViewDelegate?
 
@@ -36,6 +37,10 @@ final class AccountsHeaderView: UIView, NibLoadable {
 
     func setFollowingCount(_ newValue: Int) {
         followingButton.setTitle(String(newValue), for: .normal)
+    }
+
+    func setMaxCount(_ newValue: Int) {
+        maxButton.setTitle(String(newValue), for: .normal)
     }
 }
 

@@ -62,6 +62,7 @@ fileprivate extension AccountsViewController {
     @objc func appDidBecomeActive() {
         loadAccounts()
         headerView.setCreditsCount(presenter.creditsCount)
+        headerView.setMaxCount(presenter.accountsMax)
     }
 
     func setupTableView() {
