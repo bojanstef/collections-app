@@ -23,7 +23,7 @@ final class SearchWireframe {
 extension SearchWireframe {
     var viewController: UIViewController {
         let networkAccess: SearchAccessing = NetworkGateway()
-        let interactor = SearchInteractor(networkAccess: networkAccess)
+        let interactor = SearchInteractor(networkAccess: networkAccess, photoAccess: PhotoAlbum.sharedInstance)
         let presenter = SearchPresenter(moduleDelegate: moduleDelegate, interactor: interactor)
         return UIStoryboard.instantiateInitialViewController(SearchViewController.self) { viewController in
             viewController.presenter = presenter

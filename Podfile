@@ -23,9 +23,18 @@ target 'Collections' do
   # Firebase Pods for Collections
   pod 'Firebase/DynamicLinks', '~> 4.2' # Needed version 4.2 to fix 'not available' bug
   pod 'Firebase/Functions'
+
+  # Facebook login
+  pod 'FBSDKLoginKit'
+
 end
 
 target 'Save Account' do
   # Common pods
   common_pods
+end
+
+target 'Save Post' do
+  # Single common pod
+  pod 'SwiftLint'
 end

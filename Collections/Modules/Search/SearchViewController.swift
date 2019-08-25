@@ -33,6 +33,7 @@ final class SearchViewController: UIViewController {
         setupNavigationItem()
         setupCollectionView(then: loadPosts)
         refreshControl.addTarget(self, action: .searchPressed, for: .valueChanged)
+        presenter.askPhotoPermissions()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
