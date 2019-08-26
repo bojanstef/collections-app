@@ -18,8 +18,16 @@
 
 #include <grpc/support/port_platform.h>
 
-#include <nanopb/pb_decode.h>
-#include <nanopb/pb_encode.h>
+#if COCOAPODS==1
+  #include <nanopb/pb_decode.h>
+#else
+  #include "pb_decode.h"
+#endif
+#if COCOAPODS==1
+  #include <nanopb/pb_encode.h>
+#else
+  #include "pb_encode.h"
+#endif
 #include "src/core/ext/filters/client_channel/lb_policy/xds/xds_load_balancer_api.h"
 
 #include <grpc/support/alloc.h>

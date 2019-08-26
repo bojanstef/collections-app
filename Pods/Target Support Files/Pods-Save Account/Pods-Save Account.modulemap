@@ -1,6 +1,0 @@
-framework module Pods_Save_Account {
-  umbrella header "Pods-Save Account-umbrella.h"
-
-  export *
-  module * { export * }
-}

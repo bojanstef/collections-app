@@ -23,8 +23,16 @@
 
 #include "src/core/ext/filters/client_channel/health/health_check_client.h"
 
-#include <nanopb/pb_decode.h>
-#include <nanopb/pb_encode.h>
+#if COCOAPODS==1
+  #include <nanopb/pb_decode.h>
+#else
+  #include "pb_decode.h"
+#endif
+#if COCOAPODS==1
+  #include <nanopb/pb_encode.h>
+#else
+  #include "pb_encode.h"
+#endif
 #include "src/core/ext/filters/client_channel/health/health.pb.h"
 #include "src/core/lib/debug/trace.h"
 #include "src/core/lib/gprpp/sync.h"
@@ -310,7 +318,8 @@ void HealthCheckClient::CallState::Orphan() {
 }
 
 void HealthCheckClient::CallState::StartCall() {
-  ConnectedSubchannel::CallArgs args = {
+  SubchannelCall::Args args = {
+      health_check_client_->connected_subchannel_,
       &pollent_,
       GRPC_MDSTR_SLASH_GRPC_DOT_HEALTH_DOT_V1_DOT_HEALTH_SLASH_WATCH,
       gpr_now(GPR_CLOCK_MONOTONIC),  // start_time
@@ -321,8 +330,7 @@ void HealthCheckClient::CallState::StartCall() {
       0,  // parent_data_size
   };
   grpc_error* error = GRPC_ERROR_NONE;
-  call_ = health_check_client_->connected_subchannel_->CreateCall(args, &error)
-              .release();
+  call_ = SubchannelCall::Create(std::move(args), &error).release();
   // Register after-destruction callback.
   GRPC_CLOSURE_INIT(&after_call_stack_destruction_, AfterCallStackDestruction,
                     this, grpc_schedule_on_exec_ctx);

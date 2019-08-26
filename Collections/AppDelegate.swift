@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder {
@@ -25,6 +26,10 @@ final class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+
+//        [[FBSDKApplicationDelegate sharedInstance] application:application
+//            didFinishLaunchingWithOptions:launchOptions];
+
         authStateChangeHandler = Auth.auth().addStateDidChangeListener { auth, user in
             self.handleAuthStateChange(auth: auth, user: user)
         }
