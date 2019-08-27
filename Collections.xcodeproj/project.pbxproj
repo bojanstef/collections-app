@@ -71,6 +71,8 @@
 		F151E84E22EBE72700D16EF7 /* UITabBarController+LoadControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */; };
 		F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1578E7122E2EFFC0023C704 /* AccountsCell.swift */; };
 		F1578E7422E2EFFC0023C704 /* AccountsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1578E7222E2EFFC0023C704 /* AccountsCell.xib */; };
+		F15B6C542314D596009A8A7A /* IGAccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15B6C532314D596009A8A7A /* IGAccountMetadata.swift */; };
+		F15B6C562314DACC009A8A7A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15B6C552314DACC009A8A7A /* UserDefaultsKey.swift */; };
 		F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
 		F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707122F7DB5600B3C3DB /* SortedSet.swift */; };
 		F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */; };
@@ -92,7 +94,7 @@
 		F18FBA9322EA2D27001C0C42 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18FBA9222EA2D27001C0C42 /* Media.xcassets */; };
 		F18FBA9522EA2D27001C0C42 /* SaveAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18FBA9422EA2D27001C0C42 /* SaveAccountViewController.swift */; };
 		F18FBA9C22EA2D27001C0C42 /* Save Account.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F18FBA9022EA2D27001C0C42 /* Save Account.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
+		F19581F622DC3151005C0DD1 /* AccessGroupKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* AccessGroupKey.swift */; };
 		F19581F822DC3393005C0DD1 /* AppDelegateAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */; };
 		F19581FA22DC36BA005C0DD1 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */; };
 		F199563523078C12008DFEBC /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199563423078C11008DFEBC /* OnboardPageViewController.swift */; };
@@ -123,7 +125,7 @@
 		F1AEF6F522EA7A8A00BBD6B4 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
 		F1BA9E602300F4F0007680DA /* savePhoto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */; };
 		F1BA9E6223010387007680DA /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6123010387007680DA /* String+EmailValidation.swift */; };
-		F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */; };
+		F1BA9E6623010C12007680DA /* AccessGroupKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19581F522DC3151005C0DD1 /* AccessGroupKey.swift */; };
 		F1BA9E6723010D1F007680DA /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
 		F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9E6823010EB4007680DA /* ExtensionError.swift */; };
 		F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
@@ -287,6 +289,8 @@
 		F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+LoadControllers.swift"; sourceTree = "<group>"; };
 		F1578E7122E2EFFC0023C704 /* AccountsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCell.swift; sourceTree = "<group>"; };
 		F1578E7222E2EFFC0023C704 /* AccountsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsCell.xib; sourceTree = "<group>"; };
+		F15B6C532314D596009A8A7A /* IGAccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGAccountMetadata.swift; sourceTree = "<group>"; };
+		F15B6C552314DACC009A8A7A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F163823022F5000E006363E8 /* Result+SuccessVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+SuccessVoid.swift"; sourceTree = "<group>"; };
 		F175707122F7DB5600B3C3DB /* SortedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSet.swift; sourceTree = "<group>"; };
 		F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -310,7 +314,7 @@
 		F18FBA9422EA2D27001C0C42 /* SaveAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountViewController.swift; sourceTree = "<group>"; };
 		F18FBA9922EA2D27001C0C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1944A7422DA939300C54C03 /* Collections.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collections.entitlements; sourceTree = "<group>"; };
-		F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		F19581F522DC3151005C0DD1 /* AccessGroupKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessGroupKey.swift; sourceTree = "<group>"; };
 		F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAccessing.swift; sourceTree = "<group>"; };
 		F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		F199563423078C11008DFEBC /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
@@ -451,8 +455,9 @@
 			isa = PBXGroup;
 			children = (
 				F1D223202302796A009843B0 /* AccessGroup.swift */,
+				F19581F522DC3151005C0DD1 /* AccessGroupKey.swift */,
 				F125389D230001E100161DB1 /* ProductIDs.swift */,
-				F19581F522DC3151005C0DD1 /* UserDefaultsKey.swift */,
+				F15B6C552314DACC009A8A7A /* UserDefaultsKey.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				F10CE43822FFCE1300130871 /* Account.swift */,
 				F147A0A02313930F00D83A5E /* DataContainer.swift */,
 				F147A09E2313919700D83A5E /* IGAccount.swift */,
+				F15B6C532314D596009A8A7A /* IGAccountMetadata.swift */,
 				F147A0A223139F2500D83A5E /* IGBusinessAccount.swift */,
 				F1D2230C23026092009843B0 /* IGEmbedded.swift */,
 				F125389B22FFFEF600161DB1 /* MaxAccount.swift */,
@@ -1143,6 +1149,7 @@
 				F10CE43922FFCE1300130871 /* Account.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
+				F15B6C542314D596009A8A7A /* IGAccountMetadata.swift in Sources */,
 				F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */,
 				F102B38523110F9A0003A9B5 /* PhotoError.swift in Sources */,
 				F1BF8D8B22DD65EE004B76F4 /* SearchViewController.swift in Sources */,
@@ -1158,6 +1165,7 @@
 				F1C1EB1222E6BE48002A717A /* PostDetailAccessing.swift in Sources */,
 				F19956372307A34F008DFEBC /* UserDefaults+AccessGroup.swift in Sources */,
 				F1C352B122D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift in Sources */,
+				F15B6C562314DACC009A8A7A /* UserDefaultsKey.swift in Sources */,
 				F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */,
 				F185D91322F508FF00A6B29E /* OnboardAccessing.swift in Sources */,
 				F12538A42300A89E00161DB1 /* ShadowCardCell.swift in Sources */,
@@ -1216,7 +1224,7 @@
 				F1BF8D8C22DD65EE004B76F4 /* SearchInteractor.swift in Sources */,
 				F125389E230001E100161DB1 /* ProductIDs.swift in Sources */,
 				F19956482307B407008DFEBC /* LoginWireframe.swift in Sources */,
-				F19581F622DC3151005C0DD1 /* UserDefaultsKey.swift in Sources */,
+				F19581F622DC3151005C0DD1 /* AccessGroupKey.swift in Sources */,
 				F185D90F22F508FF00A6B29E /* OnboardPresenter.swift in Sources */,
 				F19956452307B407008DFEBC /* LoginViewController.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
@@ -1260,7 +1268,7 @@
 				F1D2231D2302665E009843B0 /* SettingsAccessing.swift in Sources */,
 				F1D2231A23026652009843B0 /* OnboardAccessing.swift in Sources */,
 				F1D2231C2302665A009843B0 /* SearchAccessing.swift in Sources */,
-				F1BA9E6623010C12007680DA /* UserDefaultsKey.swift in Sources */,
+				F1BA9E6623010C12007680DA /* AccessGroupKey.swift in Sources */,
 				F1D223142302621A009843B0 /* AppDelegateAccessing.swift in Sources */,
 				F1BA9E6923010EB4007680DA /* ExtensionError.swift in Sources */,
 				F1A24B96230514D30004D4FB /* UIViewController+ErrorAlert.swift in Sources */,

@@ -10,8 +10,9 @@ import Foundation
 
 protocol AccountsPresentable {
     var accountsMax: Int { get }
-    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void))
-    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    var igAccountMetadata: IGAccountMetadata? { get }
+    func connectToInstagram(result: @escaping ((Result<IGAccountMetadata, Error>) -> Void))
+    func instagramLogout(completion: @escaping (() -> Void))
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
@@ -33,12 +34,22 @@ extension AccountsPresenter: AccountsPresentable {
         return interactor.accountsMax
     }
 
-    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void)) {
+    var igAccountMetadata: IGAccountMetadata? {
+        do {
+            guard let json = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.igAccountMetadataJSON) else { throw NSError(domain: "No JSON") }
+            return try IGAccountMetadata(json: json)
+        } catch {
+            log.error(error.localizedDescription)
+            return nil
+        }
+    }
+
+    func connectToInstagram(result: @escaping ((Result<IGAccountMetadata, Error>) -> Void)) {
         interactor.connectToInstagram(result: result)
     }
 
-    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        interactor.getBusinessAccounts(result: result)
+    func instagramLogout(completion: @escaping (() -> Void)) {
+        interactor.instagramLogout(completion: completion)
     }
 
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {

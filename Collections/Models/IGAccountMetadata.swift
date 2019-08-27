@@ -1,5 +1,5 @@
 //
-//  UserDefaultsKey.swift
+//  IGAccountMetadata.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-08-26.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-enum UserDefaultsKey {
-    static let igAccountMetadataJSON = "ig_account_metadata_json"
+struct IGAccountMetadata: Modellable {
+    let id: String
+    let profilePictureUrl: URL
+    let username: String
 }

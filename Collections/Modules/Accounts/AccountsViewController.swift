@@ -62,6 +62,9 @@ fileprivate extension AccountsViewController {
     @objc func appDidBecomeActive() {
         loadAccounts()
         headerView.setMaxCount(presenter.accountsMax)
+        if let igAccountMetadata = presenter.igAccountMetadata {
+            headerView.setup(with: igAccountMetadata)
+        }
     }
 
     func setupTableView() {
@@ -116,12 +119,6 @@ fileprivate extension AccountsViewController {
             }
         }
     }
-
-    func callGetBusinessAccounts() {
-        presenter.getBusinessAccounts { result in
-            log.info(result)
-        }
-    }
 }
 
 extension AccountsViewController: UITableViewDelegate {
@@ -171,14 +168,17 @@ extension AccountsViewController: UITableViewDataSource {
 }
 
 extension AccountsViewController: AccountsHeaderViewDelegate {
-    func instagramLogin(completion: @escaping (() -> Void)) {
-        presenter.connectToInstagram { [weak self] result in
-            completion()
+    func instagramLogout(completion: @escaping (() -> Void)) {
+        presenter.instagramLogout(completion: completion)
+    }
 
+    func instagramLogin(completion: @escaping ((IGAccountMetadata?) -> Void)) {
+        presenter.connectToInstagram { result in
             switch result {
-            case .success:
-                self?.callGetBusinessAccounts()
+            case .success(let igAccountMetadata):
+                completion(igAccountMetadata)
             case .failure(let error):
+                completion(nil)
                 log.error(error)
             }
         }

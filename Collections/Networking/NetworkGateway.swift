@@ -22,7 +22,7 @@ extension NetworkGateway { // Common properties and methods
     var userID: String {
         if let currentUserId = Auth.auth().currentUser?.uid {
             return currentUserId
-        } else if let containerUserId = UserDefaults.accessGroup.string(forKey: UserDefaultsKey.userID) {
+        } else if let containerUserId = UserDefaults.accessGroup.string(forKey: AccessGroupKey.userID) {
             return containerUserId
         } else {
             fatalError("No current user.")
@@ -60,7 +60,7 @@ extension NetworkGateway { // Common properties and methods
 
 extension NetworkGateway: AppDelegateAccessing {
     func signIn(withEmailSignupLink link: String, result: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let accountEmail = UserDefaults.accessGroup.string(forKey: UserDefaultsKey.accountEmail) else {
+        guard let accountEmail = UserDefaults.accessGroup.string(forKey: AccessGroupKey.accountEmail) else {
             // TODO: - Add some custom error.
             result(.failure(NSError(domain: "", code: 0, userInfo: nil)))
             return

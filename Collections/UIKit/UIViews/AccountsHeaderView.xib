@@ -91,6 +91,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="accountProfileImageView" destination="xpU-hy-iun" id="Cy9-Gg-VJz"/>
                 <outlet property="connectInstagramButton" destination="Hc5-Ua-smc" id="8hG-fW-y3W"/>
                 <outlet property="followingButton" destination="E55-gp-U4v" id="UTb-wd-Jgl"/>
                 <outlet property="maxButton" destination="Th3-fB-cKW" id="ncJ-Rw-qSl"/>

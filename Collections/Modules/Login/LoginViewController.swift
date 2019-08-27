@@ -75,6 +75,6 @@ fileprivate extension LoginViewController {
             return
         }
 
-        UserDefaults.accessGroup.set(email, forKey: UserDefaultsKey.accountEmail)
+        UserDefaults.accessGroup.set(email, forKey: AccessGroupKey.accountEmail)
     }
 }

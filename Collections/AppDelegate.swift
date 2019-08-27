@@ -37,7 +37,6 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         log.debug("I have received a URL through a custom scheme \(url.absoluteString)")
 
-
         if deepLinkHandler.isFirebaseDynamicLink(fromCustomSchemeURL: url) {
             handleDeepLink(url)
             return true
@@ -93,7 +92,7 @@ fileprivate extension AppDelegate {
 
     func handleAuthStateChange(auth: Auth, user: User?) {
         if let currentUser = auth.currentUser, let user = user, currentUser.uid == user.uid {
-            UserDefaults.accessGroup.set(currentUser.uid, forKey: UserDefaultsKey.userID)
+            UserDefaults.accessGroup.set(currentUser.uid, forKey: AccessGroupKey.userID)
             appCoordinator.didAuthenticate()
         } else {
             appCoordinator.start()

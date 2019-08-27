@@ -10,8 +10,8 @@ import Foundation
 
 protocol AccountsInteractable {
     var accountsMax: Int { get }
-    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void))
-    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void))
+    func connectToInstagram(result: @escaping ((Result<IGAccountMetadata, Error>) -> Void))
+    func instagramLogout(completion: @escaping (() -> Void))
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
@@ -34,12 +34,12 @@ extension AccountsInteractor: AccountsInteractable {
         return keychainStorage.accountsMax
     }
 
-    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void)) {
+    func connectToInstagram(result: @escaping ((Result<IGAccountMetadata, Error>) -> Void)) {
         facebookAccess.connectToInstagram(result: result)
     }
 
-    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        facebookAccess.getBusinessAccounts(result: result)
+    func instagramLogout(completion: @escaping (() -> Void)) {
+        facebookAccess.instagramLogout(completion: completion)
     }
 
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
