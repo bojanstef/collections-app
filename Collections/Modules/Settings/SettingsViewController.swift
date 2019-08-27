@@ -10,11 +10,9 @@ import UIKit
 import SafariServices
 
 final class SettingsViewController: UIViewController {
-    @IBOutlet fileprivate weak var creditsCollectionView: UICollectionView!
-    @IBOutlet fileprivate weak var maxAccountsCollectionView: UICollectionView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
     @IBOutlet fileprivate weak var toolbar: Toolbar!
     fileprivate var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    fileprivate var credits = [Credit]()
     fileprivate var maxAccounts = [MaxAccount]()
     var presenter: SettingsPresentable!
 
@@ -23,7 +21,7 @@ final class SettingsViewController: UIViewController {
         navigationItem.title = "Settings"
         activityIndicator.backgroundColor = .init(white: 0.5, alpha: 0.5)
         view.addSubview(activityIndicator)
-        setup(creditsCollectionView, maxAccountsCollectionView, cell: ProductCard.self, fetchOnce: fetchProducts)
+        setupCollectionView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Restore", style: .plain, target: self, action: .restoreSubscription)
     }
 
@@ -35,44 +33,21 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let start: (() -> Void) = { [weak self] in self?.activityIndicator.startAnimating() }
+        let maxAccountsBundle = maxAccounts[indexPath.row]
+        presenter.purchase(
+            maxAccounts: maxAccountsBundle,
+            start: { [weak self] in self?.activityIndicator.startAnimating() },
+            result: { [weak self] result in
+                self?.activityIndicator.stopAnimating()
 
-        switch collectionView {
-        case creditsCollectionView:
-            let creditsBundle = credits[indexPath.row]
-            presenter.purchase(
-                credits: creditsBundle,
-                start: start,
-                result: { [weak self] result in
-                    self?.activityIndicator.stopAnimating()
-
-                    switch result {
-                    case .success:
-                        log.info("Purchased \(creditsBundle)!")
-                    case .failure(let error):
-                        let errorAlert = ErrorAlertFactory.getAlert(error)
-                        self?.present(errorAlert, animated: true)
-                    }
-            })
-        case maxAccountsCollectionView:
-            let maxAccountsBundle = maxAccounts[indexPath.row]
-            presenter.purchase(
-                maxAccounts: maxAccountsBundle,
-                start: start,
-                result: { [weak self] result in
-                    self?.activityIndicator.stopAnimating()
-
-                    switch result {
-                    case .success:
-                        log.info("Purchased \(maxAccountsBundle)!")
-                    case .failure(let error):
-                        let errorAlert = ErrorAlertFactory.getAlert(error)
-                        self?.present(errorAlert, animated: true)
-                    }
-            })
-        default:
-            fatalError("CollectionView: \(collectionView) does not exist.")
-        }
+                switch result {
+                case .success:
+                    log.info("Purchased \(maxAccountsBundle)!")
+                case .failure(let error):
+                    let errorAlert = ErrorAlertFactory.getAlert(error)
+                    self?.present(errorAlert, animated: true)
+                }
+        })
     }
 }
 
@@ -82,28 +57,12 @@ extension SettingsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView {
-        case creditsCollectionView:
-            return credits.count
-        case maxAccountsCollectionView:
-            return maxAccounts.count
-        default:
-            fatalError("CollectionView: \(collectionView) does not exist.")
-        }
+        return maxAccounts.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ProductCard = collectionView.dequeueReusableCell(for: indexPath)
-
-        switch collectionView {
-        case creditsCollectionView:
-            cell.setup(with: credits[indexPath.row])
-        case maxAccountsCollectionView:
-            cell.setup(with: maxAccounts[indexPath.row])
-        default:
-            fatalError("CollectionView: \(collectionView) does not exist.")
-        }
-
+        cell.setup(with: maxAccounts[indexPath.row])
         return cell
     }
 }
@@ -141,27 +100,18 @@ fileprivate extension SettingsViewController {
         }
     }
 
-    func setup<T: NibReusable>(_ collectionViews: UICollectionView..., cell: T.Type, fetchOnce: (() -> Void)?) {
-        collectionViews.forEach {
-            $0.dataSource = self
-            $0.delegate = self
-            $0.collectionViewLayout = CardLayout()
-            $0.alwaysBounceHorizontal = true
-            $0.register(cell.nib, forCellWithReuseIdentifier: cell.reuseId)
-        }
-
-        fetchOnce?()
-    }
-
-    func fetchProducts() {
+    func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = CardLayout()
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.register(ProductCard.nib, forCellWithReuseIdentifier: ProductCard.reuseId)
         presenter.fetchProducts { [weak self] result in
             switch result {
-            case .success(let products):
+            case .success(let maxAccounts):
                 DispatchQueue.main.async {
-                    self?.credits = products.credits.sorted(by: >)
-                    self?.creditsCollectionView.reloadData()
-                    self?.maxAccounts = products.maxAccounts.sorted(by: >)
-                    self?.maxAccountsCollectionView.reloadData()
+                    self?.maxAccounts = maxAccounts.sorted(by: >)
+                    self?.collectionView.reloadData()
                 }
             case .failure(let error):
                 self?.showErrorAlert(error)

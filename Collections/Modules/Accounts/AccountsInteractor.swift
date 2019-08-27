@@ -10,21 +10,22 @@ import Foundation
 
 protocol AccountsInteractable {
     var accountsMax: Int { get }
-    var creditsCount: Int { get }
-    func giveNewUserFreeCredits()
+    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void))
+    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void))
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class AccountsInteractor {
     fileprivate let networkAccess: AccountsAccessing
     fileprivate let keychainStorage: KeychainAccessing
+    fileprivate let facebookAccess: FacebookAccessing
 
-    init(networkAccess: AccountsAccessing, keychainStorage: KeychainAccessing) {
+    init(networkAccess: AccountsAccessing, keychainStorage: KeychainAccessing, facebookAccess: FacebookAccessing) {
         self.networkAccess = networkAccess
         self.keychainStorage = keychainStorage
+        self.facebookAccess = facebookAccess
     }
 }
 
@@ -33,12 +34,12 @@ extension AccountsInteractor: AccountsInteractable {
         return keychainStorage.accountsMax
     }
 
-    var creditsCount: Int {
-        return keychainStorage.creditsCount
+    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void)) {
+        facebookAccess.connectToInstagram(result: result)
     }
 
-    func giveNewUserFreeCredits() {
-        keychainStorage.giveNewUserFreeCredits()
+    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        facebookAccess.getBusinessAccounts(result: result)
     }
 
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
@@ -51,17 +52,5 @@ extension AccountsInteractor: AccountsInteractable {
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
         networkAccess.deleteAccount(account, result: result)
-    }
-
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        networkAccess.scrapeAccounts(
-            updateCreditsBlock: { [weak self] in
-                guard let this = self else { throw ReferenceError.type(self) }
-                guard this.keychainStorage.creditsCount > 0 else { throw CreditError.notEnough }
-                try this.keychainStorage.updateCredits(this.keychainStorage.creditsCount - 1)
-            }, validateAccountsBlock: { [weak self] accountsCount in
-                guard let this = self else { throw ReferenceError.type(self) }
-                guard accountsCount <= this.keychainStorage.accountsMax else { throw AccountError.maximumReached }
-        }, result: result)
     }
 }

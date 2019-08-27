@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import FBSDKLoginKit
 
 private enum Constants {
     static let headerViewMinHeight: CGFloat = 188
@@ -25,7 +26,6 @@ final class AccountsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .addAccount)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsGlyph"), style: .plain, target: self, action: .openSettings)
         setupTableView()
-        presenter.giveNewUserFreeCredits()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +61,6 @@ fileprivate extension AccountsViewController {
 
     @objc func appDidBecomeActive() {
         loadAccounts()
-        headerView.setCreditsCount(presenter.creditsCount)
         headerView.setMaxCount(presenter.accountsMax)
     }
 
@@ -118,21 +117,9 @@ fileprivate extension AccountsViewController {
         }
     }
 
-    func showScrapeResultAlert(error: Error? = nil) {
-        if let error = error {
-            showErrorAlert(error)
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                let title = "Success 🎉"
-                let message = "Come back in 15 minutes or so to see the results."
-                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default)
-                alert.addAction(okAction)
-                self?.present(alert, animated: true) { [weak self] in
-                    guard let self = self else { return }
-                    self.headerView.setCreditsCount(self.presenter.creditsCount)
-                }
-            }
+    func callGetBusinessAccounts() {
+        presenter.getBusinessAccounts { result in
+            log.info(result)
         }
     }
 }
@@ -184,15 +171,15 @@ extension AccountsViewController: UITableViewDataSource {
 }
 
 extension AccountsViewController: AccountsHeaderViewDelegate {
-    func getPhotos(completion: @escaping (() -> Void)) {
-        presenter.scrapeAccounts { [weak self] result in
+    func instagramLogin(completion: @escaping (() -> Void)) {
+        presenter.connectToInstagram { [weak self] result in
             completion()
 
             switch result {
             case .success:
-                self?.showScrapeResultAlert()
+                self?.callGetBusinessAccounts()
             case .failure(let error):
-                self?.showScrapeResultAlert(error: error)
+                log.error(error)
             }
         }
     }

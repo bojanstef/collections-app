@@ -20,9 +20,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="gmZ-Sf-eBz"/>
                     </constraints>
-                    <state key="normal" title="Get images from accounts"/>
+                    <state key="normal" title="Connect your Instagram"/>
                     <connections>
-                        <action selector="getButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jl1-2E-wzY"/>
+                        <action selector="connectButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="VtC-CB-Hri"/>
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountProfileClear" translatesAutoresizingMaskIntoConstraints="NO" id="xpU-hy-iun">
@@ -33,38 +33,20 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Zd3-m4-oqm">
-                    <rect key="frame" x="144" y="32" width="232" height="48"/>
+                    <rect key="frame" x="144" y="32" width="160" height="48"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zIV-td-wqe">
-                            <rect key="frame" x="0.0" y="0.0" width="66.5" height="48"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9n-1z-i2p">
-                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="33"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                    <state key="normal">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9x-18-2bH">
-                                    <rect key="frame" x="0.0" y="33" width="66.5" height="15"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EnV-i5-jkF">
-                            <rect key="frame" x="82.5" y="0.0" width="67" height="48"/>
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="48"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E55-gp-U4v">
-                                    <rect key="frame" x="0.0" y="0.0" width="67" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-qE-4Q6">
-                                    <rect key="frame" x="0.0" y="33" width="67" height="15"/>
+                                    <rect key="frame" x="0.0" y="33" width="72" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -72,17 +54,17 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Mxq-iu-BK1">
-                            <rect key="frame" x="165.5" y="0.0" width="66.5" height="48"/>
+                            <rect key="frame" x="88" y="0.0" width="72" height="48"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-fB-cKW">
-                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcz-eb-rHz">
-                                    <rect key="frame" x="0.0" y="33" width="66.5" height="15"/>
+                                    <rect key="frame" x="0.0" y="33" width="72" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -91,7 +73,7 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" constant="232" id="efh-xd-ANP"/>
+                        <constraint firstAttribute="width" constant="160" id="efh-xd-ANP"/>
                         <constraint firstAttribute="height" constant="48" id="lAZ-dH-6Td"/>
                     </constraints>
                 </stackView>
@@ -109,9 +91,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="creditsCountButton" destination="b9n-1z-i2p" id="spV-0R-RX8"/>
+                <outlet property="connectInstagramButton" destination="Hc5-Ua-smc" id="8hG-fW-y3W"/>
                 <outlet property="followingButton" destination="E55-gp-U4v" id="UTb-wd-Jgl"/>
-                <outlet property="getButton" destination="Hc5-Ua-smc" id="LGD-Bd-w0d"/>
                 <outlet property="maxButton" destination="Th3-fB-cKW" id="ncJ-Rw-qSl"/>
             </connections>
             <point key="canvasLocation" x="-528.98550724637687" y="83.035714285714278"/>

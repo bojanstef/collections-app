@@ -9,26 +9,26 @@
 import UIKit
 
 protocol AccountsHeaderViewDelegate: AnyObject {
-    func getPhotos(completion: @escaping (() -> Void))
+    func instagramLogin(completion: @escaping (() -> Void))
 }
 
 final class AccountsHeaderView: UIView, NibLoadable {
     @IBOutlet fileprivate weak var creditsCountButton: UIButton!
     @IBOutlet fileprivate weak var followingButton: UIButton!
     @IBOutlet fileprivate weak var maxButton: UIButton!
-    @IBOutlet fileprivate weak var getButton: ActionButton!
+    @IBOutlet fileprivate weak var connectInstagramButton: ActionButton!
     fileprivate let activityView = UIActivityIndicatorView(style: .whiteLarge)
     weak var delegate: AccountsHeaderViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         activityView.hidesWhenStopped = true
-        getButton.addSubview(activityView)
+        connectInstagramButton.addSubview(activityView)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        activityView.frame = getButton.bounds
+        activityView.frame = connectInstagramButton.bounds
     }
 
     func setCreditsCount(_ newValue: Int) {
@@ -45,14 +45,14 @@ final class AccountsHeaderView: UIView, NibLoadable {
 }
 
 fileprivate extension AccountsHeaderView {
-    @IBAction func getButtonPressed(_ sender: Any) {
+    @IBAction func connectButtonPressed(_ sender: Any) {
         activityView.startAnimating()
-        getButton.isUserInteractionEnabled = false
+        connectInstagramButton.isUserInteractionEnabled = false
 
-        delegate?.getPhotos { [weak self] in
+        delegate?.instagramLogin { [weak self] in
             DispatchQueue.main.async {
                 self?.activityView.stopAnimating()
-                self?.getButton.isUserInteractionEnabled = true
+                self?.connectInstagramButton.isUserInteractionEnabled = true
             }
         }
     }

@@ -10,14 +10,14 @@ import StoreKit
 import Foundation
 
 protocol InAppStoreAccessing {
-    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void))
+    func fetchProducts(result: @escaping ((Result<[MaxAccount], Error>) -> Void))
     func purchase(product: SKProduct, result: @escaping ((Result<Void, Error>) -> Void))
     func restoreSubscription(_ result: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class InAppStore: NSObject {
     fileprivate var productRequest: SKProductsRequest?
-    fileprivate var productsResult: ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void)!
+    fileprivate var productsResult: ((Result<[MaxAccount], Error>) -> Void)!
     fileprivate var purchaseResult: ((Result<Void, Error>) -> Void)!
     fileprivate var restoreResult: ((Result<Void, Error>) -> Void)!
 
@@ -28,9 +28,9 @@ final class InAppStore: NSObject {
 }
 
 extension InAppStore: InAppStoreAccessing {
-    func fetchProducts(result: @escaping ((Result<(credits: [Credit], maxAccounts: [MaxAccount]), Error>) -> Void)) {
+    func fetchProducts(result: @escaping ((Result<[MaxAccount], Error>) -> Void)) {
         productsResult = result
-        productRequest = SKProductsRequest(productIdentifiers: ProductIDs.allRawValues)
+        productRequest = SKProductsRequest(productIdentifiers: ProductIDs.AccountMax.rawValues)
         productRequest?.delegate = self
         productRequest?.start()
     }
@@ -66,9 +66,8 @@ extension InAppStore: SKProductsRequestDelegate {
 
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            let credits = response.products.compactMap { Credit(product: $0) }
             let maxAccounts = response.products.compactMap { MaxAccount(product: $0) }
-            self.productsResult(.success((credits: credits, maxAccounts: maxAccounts)))
+            self.productsResult(.success(maxAccounts))
         }
     }
 }

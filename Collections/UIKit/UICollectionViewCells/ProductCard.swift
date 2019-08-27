@@ -15,19 +15,11 @@ final class ProductCard: ShadowCardCell, NibReusable {
     @IBOutlet fileprivate weak var topDescriptionLabel: UILabel!
     @IBOutlet fileprivate weak var bottomDescriptionLabel: UILabel!
 
-    func setup(with credit: Credit) {
-        productCountLabel.text = "\(credit.creditType.intValue)"
-        productDescriptionLabel.text = "Credits"
-        priceLabel.text = credit.product.localizedPrice
-        topDescriptionLabel.text = "You save \(credit.creditType.percentSavings)%"
-        bottomDescriptionLabel.text = "and get \(credit.creditType.extraCredits) extra credits"
-    }
-
     func setup(with maxAccount: MaxAccount) {
         productCountLabel.text = "\(maxAccount.maxAccountType.intValue)"
         productDescriptionLabel.text = "Accounts"
         priceLabel.text = maxAccount.product.localizedPrice
         topDescriptionLabel.text = "Monthly"
-        bottomDescriptionLabel.text = "~\(maxAccount.maxAccountType.imagesEstimate) images per search"
+        bottomDescriptionLabel.text = "I should update this."
     }
 }

@@ -45,7 +45,11 @@
 		F1457EF922DDA31800EBD322 /* PostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1457EF722DDA31800EBD322 /* PostsCell.xib */; };
 		F1457EFB22DDA34500EBD322 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFA22DDA34500EBD322 /* Reusable.swift */; };
 		F1457EFE22DDA36100EBD322 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1457EFD22DDA36100EBD322 /* Post.swift */; };
-		F1496C9F22FF9D6900C43E9A /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496C9E22FF9D6900C43E9A /* Credit.swift */; };
+		F147A09B23136D7300D83A5E /* FacebookAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147A09A23136D7300D83A5E /* FacebookAccess.swift */; };
+		F147A09D2313796300D83A5E /* URL+StringThrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147A09C2313796300D83A5E /* URL+StringThrow.swift */; };
+		F147A09F2313919700D83A5E /* IGAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147A09E2313919700D83A5E /* IGAccount.swift */; };
+		F147A0A12313930F00D83A5E /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147A0A02313930F00D83A5E /* DataContainer.swift */; };
+		F147A0A323139F2500D83A5E /* IGBusinessAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147A0A223139F2500D83A5E /* IGBusinessAccount.swift */; };
 		F1496CA122FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */; };
 		F14F4D3522D7B4AF00F83D60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */; };
 		F14F4D3C22D7B4B100F83D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */; };
@@ -151,9 +155,8 @@
 		F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C352B322D7C627005198B8 /* NetworkGateway.swift */; };
 		F1D2230A23026011009843B0 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389922FFF02000161DB1 /* KeychainStorage.swift */; };
 		F1D2230B2302606C009843B0 /* SaveAccountAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF6EF22EA7A8A00BBD6B4 /* SaveAccountAccessing.swift */; };
-		F1D2230D23026092009843B0 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* InstagramEmbedded.swift */; };
-		F1D2230E23026092009843B0 /* InstagramEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* InstagramEmbedded.swift */; };
-		F1D2230F230261CD009843B0 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1496C9E22FF9D6900C43E9A /* Credit.swift */; };
+		F1D2230D23026092009843B0 /* IGEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* IGEmbedded.swift */; };
+		F1D2230E23026092009843B0 /* IGEmbedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2230C23026092009843B0 /* IGEmbedded.swift */; };
 		F1D22310230261CF009843B0 /* MaxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389B22FFFEF600161DB1 /* MaxAccount.swift */; };
 		F1D22311230261E5009843B0 /* ProductIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125389D230001E100161DB1 /* ProductIDs.swift */; };
 		F1D2231223026200009843B0 /* Sequence+MapKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */; };
@@ -170,7 +173,6 @@
 		F1D223222302799C009843B0 /* AccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D223202302796A009843B0 /* AccessGroup.swift */; };
 		F1EA3EEE22FA6BC800322768 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EED22FA6BC800322768 /* InAppStore.swift */; };
 		F1EA3EF022FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */; };
-		F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */; };
 		F1EA3EF622FD2BD200322768 /* Sequence+MapKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */; };
 		F1FAD9D022E03664000A699C /* AccountsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */; };
 		F1FAD9D122E03664000A699C /* AccountsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */; };
@@ -262,7 +264,11 @@
 		F1457EF722DDA31800EBD322 /* PostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsCell.xib; sourceTree = "<group>"; };
 		F1457EFA22DDA34500EBD322 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F1457EFD22DDA36100EBD322 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		F1496C9E22FF9D6900C43E9A /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
+		F147A09A23136D7300D83A5E /* FacebookAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAccess.swift; sourceTree = "<group>"; };
+		F147A09C2313796300D83A5E /* URL+StringThrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+StringThrow.swift"; sourceTree = "<group>"; };
+		F147A09E2313919700D83A5E /* IGAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGAccount.swift; sourceTree = "<group>"; };
+		F147A0A02313930F00D83A5E /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		F147A0A223139F2500D83A5E /* IGBusinessAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBusinessAccount.swift; sourceTree = "<group>"; };
 		F1496CA022FFAD7F00C43E9A /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
 		F14F4D3122D7B4AF00F83D60 /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -353,11 +359,10 @@
 		F1C352A822D7C576005198B8 /* AuthWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWireframe.swift; sourceTree = "<group>"; };
 		F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+DependencyInjection.swift"; sourceTree = "<group>"; };
 		F1C352B322D7C627005198B8 /* NetworkGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGateway.swift; sourceTree = "<group>"; };
-		F1D2230C23026092009843B0 /* InstagramEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEmbedded.swift; sourceTree = "<group>"; };
+		F1D2230C23026092009843B0 /* IGEmbedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGEmbedded.swift; sourceTree = "<group>"; };
 		F1D223202302796A009843B0 /* AccessGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessGroup.swift; sourceTree = "<group>"; };
 		F1EA3EED22FA6BC800322768 /* InAppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		F1EA3EEF22FCD91C00322768 /* HTTPURLResponse+IsSuccessCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+IsSuccessCode.swift"; sourceTree = "<group>"; };
-		F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
 		F1EA3EF522FD2BD200322768 /* Sequence+MapKeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+MapKeyPath.swift"; sourceTree = "<group>"; };
 		F1FAD9CA22E03664000A699C /* AccountsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPresenter.swift; sourceTree = "<group>"; };
 		F1FAD9CB22E03664000A699C /* AccountsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountsViewController.storyboard; sourceTree = "<group>"; };
@@ -425,8 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				F102B3762310F69A0003A9B5 /* Info.plist */,
-				F102B3812311008D0003A9B5 /* AssetError.swift */,
 				F102B3712310F69A0003A9B5 /* ActionViewController.swift */,
+				F102B3812311008D0003A9B5 /* AssetError.swift */,
 				F102B38423110F9A0003A9B5 /* PhotoError.swift */,
 				F102B36F2310F69A0003A9B5 /* Media.xcassets */,
 				F102B3732310F69A0003A9B5 /* MainInterface.storyboard */,
@@ -472,9 +477,10 @@
 			isa = PBXGroup;
 			children = (
 				F10CE43822FFCE1300130871 /* Account.swift */,
-				F1496C9E22FF9D6900C43E9A /* Credit.swift */,
-				F1EA3EF322FD2BA300322768 /* InAppPurchase.swift */,
-				F1D2230C23026092009843B0 /* InstagramEmbedded.swift */,
+				F147A0A02313930F00D83A5E /* DataContainer.swift */,
+				F147A09E2313919700D83A5E /* IGAccount.swift */,
+				F147A0A223139F2500D83A5E /* IGBusinessAccount.swift */,
+				F1D2230C23026092009843B0 /* IGEmbedded.swift */,
 				F125389B22FFFEF600161DB1 /* MaxAccount.swift */,
 				F1457EFD22DDA36100EBD322 /* Post.swift */,
 			);
@@ -797,6 +803,7 @@
 				F1C352B022D7C5BF005198B8 /* UIStoryboard+DependencyInjection.swift */,
 				F151E84D22EBE72600D16EF7 /* UITabBarController+LoadControllers.swift */,
 				F1A24B93230513060004D4FB /* UIViewController+ErrorAlert.swift */,
+				F147A09C2313796300D83A5E /* URL+StringThrow.swift */,
 				F19956362307A34F008DFEBC /* UserDefaults+AccessGroup.swift */,
 			);
 			path = Extensions;
@@ -807,6 +814,7 @@
 			children = (
 				F19581F722DC3393005C0DD1 /* AppDelegateAccessing.swift */,
 				F19581F922DC36BA005C0DD1 /* DeepLinkHandler.swift */,
+				F147A09A23136D7300D83A5E /* FacebookAccess.swift */,
 				F1EA3EED22FA6BC800322768 /* InAppStore.swift */,
 				F1C352B322D7C627005198B8 /* NetworkGateway.swift */,
 			);
@@ -1129,13 +1137,11 @@
 			files = (
 				F1C352AE22D7C576005198B8 /* AuthWireframe.swift in Sources */,
 				F175708B22F7FAF000B3C3DB /* UIColor+Theme.swift in Sources */,
-				F1496C9F22FF9D6900C43E9A /* Credit.swift in Sources */,
 				F13CB56A22EEC76F006621C8 /* NavigationTitleButton.swift in Sources */,
 				F1BA9E6F230129C7007680DA /* ReferenceError.swift in Sources */,
 				F1C352AA22D7C576005198B8 /* AuthAccessing.swift in Sources */,
 				F10CE43922FFCE1300130871 /* Account.swift in Sources */,
 				F14F4D4F22D7C26900F83D60 /* AuthCoordinator.swift in Sources */,
-				F1EA3EF422FD2BA300322768 /* InAppPurchase.swift in Sources */,
 				F1C352B422D7C627005198B8 /* NetworkGateway.swift in Sources */,
 				F175708422F7DD6200B3C3DB /* SettingsViewController.swift in Sources */,
 				F102B38523110F9A0003A9B5 /* PhotoError.swift in Sources */,
@@ -1162,8 +1168,10 @@
 				F19956462307B407008DFEBC /* LoginInteractor.swift in Sources */,
 				F175708722F7DD6200B3C3DB /* SettingsWireframe.swift in Sources */,
 				F1D223212302796A009843B0 /* AccessGroup.swift in Sources */,
+				F147A09B23136D7300D83A5E /* FacebookAccess.swift in Sources */,
 				F1BF8D8D22DD65EE004B76F4 /* SearchWireframe.swift in Sources */,
 				F10808D12303975D00147085 /* CreditError.swift in Sources */,
+				F147A09F2313919700D83A5E /* IGAccount.swift in Sources */,
 				F1457EFE22DDA36100EBD322 /* Post.swift in Sources */,
 				F1C352AC22D7C576005198B8 /* AuthViewController.swift in Sources */,
 				F1369F8A22D815E6000EB574 /* HomeCoordinator.swift in Sources */,
@@ -1186,11 +1194,13 @@
 				F185D91422F508FF00A6B29E /* OnboardWireframe.swift in Sources */,
 				F129D22922F924F500470FAF /* CardLayout.swift in Sources */,
 				F1FAD9D222E03664000A699C /* AccountsViewController.swift in Sources */,
+				F147A0A12313930F00D83A5E /* DataContainer.swift in Sources */,
 				F13CB56E22EECF79006621C8 /* BarButtonItem.swift in Sources */,
 				F185D91122F508FF00A6B29E /* OnboardViewController.swift in Sources */,
 				F10CE43722FFCDEB00130871 /* Modellable.swift in Sources */,
 				F1FAD9D422E03664000A699C /* AccountsAccessing.swift in Sources */,
 				F102B37D2310FB570003A9B5 /* ActionViewController.swift in Sources */,
+				F147A0A323139F2500D83A5E /* IGBusinessAccount.swift in Sources */,
 				F1C1EB1022E6BE48002A717A /* PostDetailViewController.swift in Sources */,
 				F1A24B9223050F8B0004D4FB /* ErrorAlertController.swift in Sources */,
 				F19C693A22F001A70051319A /* AccountsHeaderView.swift in Sources */,
@@ -1211,8 +1221,9 @@
 				F19956452307B407008DFEBC /* LoginViewController.swift in Sources */,
 				F151E84A22EBDEE200D16EF7 /* SearchCoordinator.swift in Sources */,
 				F10CE43422FFCDCE00130871 /* Collection+Modellable.swift in Sources */,
-				F1D2230D23026092009843B0 /* InstagramEmbedded.swift in Sources */,
+				F1D2230D23026092009843B0 /* IGEmbedded.swift in Sources */,
 				F1BA9E6C2301295D007680DA /* AuthError.swift in Sources */,
+				F147A09D2313796300D83A5E /* URL+StringThrow.swift in Sources */,
 				F1578E7322E2EFFC0023C704 /* AccountsCell.swift in Sources */,
 				F14F4D4D22D7C21700F83D60 /* Coordinating.swift in Sources */,
 				F199563523078C12008DFEBC /* OnboardPageViewController.swift in Sources */,
@@ -1243,8 +1254,7 @@
 				F1BA9E6A23011140007680DA /* Result+SuccessVoid.swift in Sources */,
 				F1D2231823026646009843B0 /* AccountsAccessing.swift in Sources */,
 				F1D2230A23026011009843B0 /* KeychainStorage.swift in Sources */,
-				F1D2230F230261CD009843B0 /* Credit.swift in Sources */,
-				F1D2230E23026092009843B0 /* InstagramEmbedded.swift in Sources */,
+				F1D2230E23026092009843B0 /* IGEmbedded.swift in Sources */,
 				F1D2231B23026658009843B0 /* PostDetailAccessing.swift in Sources */,
 				F1BA9E7323012C19007680DA /* AccountError.swift in Sources */,
 				F1D2231D2302665E009843B0 /* SettingsAccessing.swift in Sources */,
@@ -1309,6 +1319,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8612EB469299CB6A61C57CB /* Pods-Save Post.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = ExtensionIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8JFVKN675;
 				INFOPLIST_FILE = "Save Post/Info.plist";
@@ -1330,6 +1341,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1804DBFF07E421A68B70DC8E /* Pods-Save Post.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = ExtensionIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8JFVKN675;
 				INFOPLIST_FILE = "Save Post/Info.plist";

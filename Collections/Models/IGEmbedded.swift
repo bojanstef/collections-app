@@ -1,5 +1,5 @@
 //
-//  InstagramEmbedded.swift
+//  IGEmbedded.swift
 //  Collections
 //
 //  Created by Bojan Stefanovic on 2019-08-12.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InstagramEmbedded: Modellable {
+struct IGEmbedded: Modellable {
     let authorName: String
 }
 

@@ -82,7 +82,7 @@ fileprivate extension SaveAccountViewController {
         }
     }
 
-    func checkToSaveAccount(instagramEmbedded: InstagramEmbedded, result: @escaping ((Result<Account, Error>) -> Void)) {
+    func checkToSaveAccount(instagramEmbedded: IGEmbedded, result: @escaping ((Result<Account, Error>) -> Void)) {
         networkGateway.getAccountsCount { [weak self] getResult in
             switch getResult {
             case .success(let accountsCount):

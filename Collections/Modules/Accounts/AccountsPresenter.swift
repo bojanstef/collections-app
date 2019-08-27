@@ -10,12 +10,11 @@ import Foundation
 
 protocol AccountsPresentable {
     var accountsMax: Int { get }
-    var creditsCount: Int { get }
-    func giveNewUserFreeCredits()
+    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void))
+    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void))
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void))
     func addAccount(_ account: Account, result: @escaping ((Result<Account, Error>) -> Void))
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void))
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void))
     func navigateToSettings()
 }
 
@@ -34,12 +33,12 @@ extension AccountsPresenter: AccountsPresentable {
         return interactor.accountsMax
     }
 
-    var creditsCount: Int {
-        return interactor.creditsCount
+    func connectToInstagram(result: @escaping ((Result<Void, Error>) -> Void)) {
+        interactor.connectToInstagram(result: result)
     }
 
-    func giveNewUserFreeCredits() {
-        interactor.giveNewUserFreeCredits()
+    func getBusinessAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
+        interactor.getBusinessAccounts(result: result)
     }
 
     func loadAccounts(result: @escaping ((Result<[Account], Error>) -> Void)) {
@@ -52,10 +51,6 @@ extension AccountsPresenter: AccountsPresentable {
 
     func deleteAccount(_ account: Account, result: @escaping ((Result<Void, Error>) -> Void)) {
         interactor.deleteAccount(account, result: result)
-    }
-
-    func scrapeAccounts(result: @escaping ((Result<Void, Error>) -> Void)) {
-        interactor.scrapeAccounts(result: result)
     }
 
     func navigateToSettings() {

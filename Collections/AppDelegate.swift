@@ -25,10 +25,8 @@ final class AppDelegate: UIResponder {
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         FirebaseApp.configure()
-
-//        [[FBSDKApplicationDelegate sharedInstance] application:application
-//            didFinishLaunchingWithOptions:launchOptions];
 
         authStateChangeHandler = Auth.auth().addStateDidChangeListener { auth, user in
             self.handleAuthStateChange(auth: auth, user: user)
@@ -39,9 +37,13 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         log.debug("I have received a URL through a custom scheme \(url.absoluteString)")
 
+
         if deepLinkHandler.isFirebaseDynamicLink(fromCustomSchemeURL: url) {
             handleDeepLink(url)
             return true
+        } else if let sourceApp = options[.sourceApplication] as? String,
+            ApplicationDelegate.shared.application(app, open: url, sourceApplication: sourceApp, annotation: options[.annotation]) {
+            return false
         } else {
             // Maybe handle Google or Facebook sign-in here
             return false

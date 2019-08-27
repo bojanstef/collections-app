@@ -137,67 +137,6 @@ extension NetworkGateway: AccountsAccessing {
                 }
             }
     }
-
-    func scrapeAccounts(
-        updateCreditsBlock: @escaping (() throws -> Void),
-        validateAccountsBlock: @escaping ((Int) throws -> Void),
-        result: @escaping ((Result<Void, Error>) -> Void)) {
-        // TODO: - Refactor this so that the server gets the users list
-        fireDB.collection("users").document(userID).collection("accounts")
-            .getDocuments { [weak self] snapshot, error in
-                do {
-                    if let error = error { throw error }
-                    guard let this = self else { throw ReferenceError.type(self) }
-
-                    let accounts: [Account] = try snapshot!.documents.compactMap { snapshot -> Account in
-                        let json = snapshot.data()
-                        return try Account(json: json)
-                    }
-                    try validateAccountsBlock(accounts.count)
-
-                    // TODO: - START_CLEANUP {
-                    let urlString = "https://tiptoe-grids.firebaseapp.com/crawl"
-                    //let urlString = "http://0.0.0.0:8080/crawl"
-                    guard let url = URL(string: urlString) else { throw URLError(.badURL) }
-
-                    let accountUsernames = accounts.map { $0.username }
-                    let parameterDictionary: [String: Any] = [
-                        "accounts": accountUsernames,
-                        "user_id": this.userID
-                    ]
-
-                    var request = URLRequest(url: url)
-                    request.httpMethod = "POST"
-                    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-                    request.httpBody = try JSONSerialization.data(withJSONObject: parameterDictionary)
-
-                    try updateCreditsBlock()
-
-                    let task = URLSession.shared.dataTask(with: request) { _, response, error in
-                        guard error == nil else { result(.failure(error!)); return }
-                        guard let httpResponse = response as? HTTPURLResponse else {
-                            // TODO: - Add custom error.
-                            result(.failure(NSError(domain: "Response is not a HTTPURLResponse", code: 0, userInfo: nil)))
-                            return
-                        }
-
-                        guard httpResponse.isSuccessCode else {
-                            // TODO: - Add custom error.
-                            result(.failure(NSError(domain: "Error status code \(httpResponse.statusCode)", code: 0, userInfo: nil)))
-                            return
-                        }
-
-                        result(.success)
-                    }
-
-                    task.resume()
-                    // } - END_CLEANUP
-
-                } catch {
-                    result(.failure(error))
-                }
-        }
-    }
 }
 
 extension NetworkGateway: SearchAccessing {
@@ -222,7 +161,7 @@ extension NetworkGateway: SearchAccessing {
 }
 
 extension NetworkGateway: SaveAccountAccessing {
-    func getInstagramEmbedded(fromURL url: URL, result: @escaping ((Result<InstagramEmbedded, Error>) -> Void)) {
+    func getInstagramEmbedded(fromURL url: URL, result: @escaping ((Result<IGEmbedded, Error>) -> Void)) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -233,7 +172,7 @@ extension NetworkGateway: SaveAccountAccessing {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.isSuccessCode else { throw URLError(.badServerResponse) }
                 guard let data = data else { throw NSError(domain: "No data", code: 0, userInfo: nil) }
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
-                let instagramEmbedded = try InstagramEmbedded(json: json)
+                let instagramEmbedded = try IGEmbedded(json: json)
                 result(.success(instagramEmbedded))
             } catch {
                 result(.failure(error))
