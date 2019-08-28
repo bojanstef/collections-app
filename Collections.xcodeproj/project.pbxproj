@@ -72,8 +72,8 @@
 		F15B6C542314D596009A8A7A /* IGAccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15B6C532314D596009A8A7A /* IGAccountMetadata.swift */; };
 		F15B6C562314DACC009A8A7A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15B6C552314DACC009A8A7A /* UserDefaultsKey.swift */; };
 		F15B6C592314E55C009A8A7A /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15B6C582314E55C009A8A7A /* IGPost.swift */; };
-		F15B6C5B231607FA009A8A7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15B6C5A231607FA009A8A7A /* GoogleService-Info.plist */; };
-		F15B6C5E2316088A009A8A7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15B6C5A231607FA009A8A7A /* GoogleService-Info.plist */; };
+		F15B6C6123160FBE009A8A7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15B6C6023160FBE009A8A7A /* GoogleService-Info.plist */; };
+		F15B6C6223160FBE009A8A7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15B6C6023160FBE009A8A7A /* GoogleService-Info.plist */; };
 		F163823122F5000E006363E8 /* Result+SuccessVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163823022F5000E006363E8 /* Result+SuccessVoid.swift */; };
 		F175707222F7DB5600B3C3DB /* SortedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707122F7DB5600B3C3DB /* SortedSet.swift */; };
 		F175708222F7DD6200B3C3DB /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */; };
@@ -291,7 +291,7 @@
 		F15B6C532314D596009A8A7A /* IGAccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGAccountMetadata.swift; sourceTree = "<group>"; };
 		F15B6C552314DACC009A8A7A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		F15B6C582314E55C009A8A7A /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
-		F15B6C5A231607FA009A8A7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F15B6C6023160FBE009A8A7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F163823022F5000E006363E8 /* Result+SuccessVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+SuccessVoid.swift"; sourceTree = "<group>"; };
 		F175707122F7DB5600B3C3DB /* SortedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSet.swift; sourceTree = "<group>"; };
 		F175707C22F7DD6200B3C3DB /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -524,7 +524,7 @@
 				F1BA9E5F2300F4EF007680DA /* savePhoto.mp4 */,
 				F1944A7422DA939300C54C03 /* Collections.entitlements */,
 				F14F4D4022D7B4B100F83D60 /* Info.plist */,
-				F15B6C5A231607FA009A8A7A /* GoogleService-Info.plist */,
+				F15B6C6023160FBE009A8A7A /* GoogleService-Info.plist */,
 				F14F4D3422D7B4AF00F83D60 /* AppDelegate.swift */,
 				F10CE43A22FFCE3F00130871 /* Logger.swift */,
 				F14F4D3B22D7B4B100F83D60 /* Assets.xcassets */,
@@ -995,7 +995,7 @@
 				F19956442307B407008DFEBC /* LoginViewController.storyboard in Resources */,
 				F185D91622F50B4700A6B29E /* OnboardViewController.storyboard in Resources */,
 				F1C1EB0F22E6BE48002A717A /* PostDetailViewController.storyboard in Resources */,
-				F15B6C5B231607FA009A8A7A /* GoogleService-Info.plist in Resources */,
+				F15B6C6123160FBE009A8A7A /* GoogleService-Info.plist in Resources */,
 				F1BF8D8A22DD65EE004B76F4 /* SearchViewController.storyboard in Resources */,
 				F14F4D5322D7C39D00F83D60 /* LaunchScreen.storyboard in Resources */,
 				F19C693C22F001B60051319A /* AccountsHeaderView.xib in Resources */,
@@ -1011,7 +1011,7 @@
 			files = (
 				F18FBA9322EA2D27001C0C42 /* Media.xcassets in Resources */,
 				F1AEF6F222EA7A8A00BBD6B4 /* SaveAccountViewController.storyboard in Resources */,
-				F15B6C5E2316088A009A8A7A /* GoogleService-Info.plist in Resources */,
+				F15B6C6223160FBE009A8A7A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
