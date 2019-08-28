@@ -26,7 +26,7 @@ final class PhotoAlbum {
         return collection.firstObject
     }
 
-    static let sharedInstance = PhotoAlbum()
+    static let shared = PhotoAlbum()
     private init() {}
 }
 

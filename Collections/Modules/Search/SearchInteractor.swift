@@ -14,12 +14,12 @@ protocol SearchInteractable {
 }
 
 final class SearchInteractor {
-    fileprivate let networkAccess: SearchAccessing
+    fileprivate let facebookAccess: FacebookAccessing
     fileprivate let photoAccess: PhotoAccessing
 
-    init(networkAccess: SearchAccessing, photoAccess: PhotoAccessing) {
-        self.networkAccess = networkAccess
+    init(facebookAccess: FacebookAccessing, photoAccess: PhotoAccessing) {
         self.photoAccess = photoAccess
+        self.facebookAccess = facebookAccess
     }
 }
 
@@ -29,6 +29,14 @@ extension SearchInteractor: SearchInteractable {
     }
 
     func loadPosts(after date: Date, result: @escaping ((Result<[Post], Error>) -> Void)) {
-        networkAccess.loadPosts(after: date, result: result)
+        let accounts = [Account(username: "bluebottle")]
+        facebookAccess.loadPosts(for: accounts, after: date) { result in
+            switch result {
+            case .success(let posts):
+                log.info(posts)
+            case .failure(let error):
+                log.error(error.localizedDescription)
+            }
+        }
     }
 }

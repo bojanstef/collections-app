@@ -78,7 +78,7 @@ fileprivate extension ActionViewController {
                 guard let urlResponse = response as? HTTPURLResponse, urlResponse.isSuccessCode else { throw URLError(.badServerResponse) }
                 guard let data = data else { throw NSError(domain: "no data") }
                 guard let image = UIImage(data: data) else { throw NSError(domain: "couldn't create image from data") }
-                PhotoAlbum.sharedInstance.saveImage(image, result: result)
+                PhotoAlbum.shared.saveImage(image, result: result)
             } catch {
                 result(.failure(error))
             }

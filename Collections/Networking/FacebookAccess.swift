@@ -16,6 +16,7 @@ private enum Constants {
 protocol FacebookAccessing {
     func connectToInstagram(result: @escaping ((Result<IGAccountMetadata, Error>) -> Void))
     func instagramLogout(completion: @escaping (() -> Void))
+    func loadPosts(for accounts: [Account], after date: Date, result: @escaping ((Result<[IGPost], Error>) -> Void))
 }
 
 final class FacebookAccess {
@@ -41,6 +42,24 @@ extension FacebookAccess: FacebookAccessing {
         LoginManager().logOut()
         UserDefaults.standard.set(nil, forKey: UserDefaultsKey.igAccountMetadataJSON)
         completion()
+    }
+
+    func loadPosts(for accounts: [Account], after date: Date, result: @escaping ((Result<[IGPost], Error>) -> Void)) {
+        do {
+            guard let singleAccount = accounts.first else { throw NSError(domain: "No accounts") }
+            guard let json = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.igAccountMetadataJSON) else { throw NSError(domain: "No JSON") }
+            let igAccountMetadata = try IGAccountMetadata(json: json)
+            getMedia(from: singleAccount.username, requesterId: igAccountMetadata.id) { mediaResult in
+                switch mediaResult {
+                case .success:
+                    break
+                case .failure(let error):
+                    result(.failure(error))
+                }
+            }
+        } catch {
+            result(.failure(error))
+        }
     }
 }
 
@@ -107,19 +126,20 @@ fileprivate extension FacebookAccess {
         }
     }
 
-    //self?.getMedia(from: "bluebottle", requesterId: requesterId, result: result)
-    func getMedia(from businessAccount: String, requesterId: String, result: @escaping ((Result<Void, Error>) -> Void)) {
-        //17841405309211844?fields={followers_count,media_count}&access_token={access-token}"
+    func getMedia(from businessAccount: String, requesterId: String, result: @escaping ((Result<IGMedia, Error>) -> Void)) {
         do {
             guard let tokenString = AccessToken.current?.tokenString else { throw NSError(domain: "No access token") }
-            let mediaQuery = "media{comments_count,like_count,timestamp}"
+            //let mediaQuery = "media{caption,children,id,ig_id,like_count,media_type,media_url,owner,permalink,shortcode,thumbnail_url,timestamp,username}"
+            let mediaQuery = "media{caption,children,id,like_count,media_type,media_url,permalink,timestamp,username}"
             let params: [String: Any] = ["fields": "business_discovery.username(\(businessAccount)){followers_count,media_count,\(mediaQuery)}"]
             let request = GraphRequest(graphPath: requesterId, parameters: params, tokenString: tokenString, version: nil, httpMethod: .get)
             request.start { _, json, error in
                 do {
                     if let error = error { throw error }
-                    guard let json = json else { throw NSError(domain: "No JSON response") }
-                    result(.success)
+                    guard let json = json as? [String: Any] else { throw NSError(domain: "No JSON response") }
+                    let business = json["business_discovery"] as? [String: Any]
+                    let post = try IGMedia(json: json)
+                    result(.success(post))
                 } catch {
                     result(.failure(error))
                 }

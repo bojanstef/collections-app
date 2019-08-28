@@ -10,6 +10,9 @@
 .runtimeconfig.json
 .firebase/
 
+# Ignore GoogleService-Info.plist since it contains API key
+**/GoogleService-Info.plist
+
 ### Git ###
 # Created by git for backups. To disable backups in Git:
 # $ git config --global mergetool.keepBackup false
@@ -58,7 +61,7 @@ Temporary Items
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Build generated
+# Build generated
 build/
 DerivedData/
 
